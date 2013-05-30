@@ -27,23 +27,6 @@ map <C-K> :bprev<CR>
 map <C-L> :tabn<CR>
 map <C-H> :tabp<CR>
 
-
-"--- The following commands make the navigation keys work like standard editors
-imap <silent> <Down> <C-o>gj
-imap <silent> <Up> <C-o>gk
-nmap <silent> <Down> gj
-nmap <silent> <Up> gk
-"--- Ends navigation commands
-
-
-"--- The following adds a sweet menu, press F4 to use it.
-source $VIMRUNTIME/menu.vim
-set wildmenu
-set cpo-=<
-set wcm=<C-Z>
-map <F4> :emenu <C-Z>
-"--- End sweet menu
-
 " Give a shortcut key to NERD Tree
 map <F2> :NERDTreeToggle<CR>
 
