@@ -21,6 +21,7 @@ set smartcase "case-sensitive search if search contains capital
 set backupdir=~/.vim/.backup "use a custom directory for backup files
 set directory=~/.vim/.swap "use a custom directory for swap files
 set history=1000 "alot of history
+set ttimeoutlen=0 "shorten key-code timeout (using it to stop escape key delay)
 let g:DisableAutoPHPFolding = 1 "disable autofolding in PIV plugin
 let html_no_rendering = 1
 let mapleader = "," "remap leader
