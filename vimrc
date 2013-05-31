@@ -1,4 +1,7 @@
 set nocompatible "This fixes the problem where arrow keys do not function properly on some systems.
+
+"put any disabled plugins here (useful for debugging)
+let g:pathogen_disabled = []
 execute pathogen#infect()
 syntax on  "Enables syntax highlighting for programming languages
 filetype plugin indent on
