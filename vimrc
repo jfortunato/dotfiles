@@ -30,6 +30,12 @@ map <C-H> :tabp<CR>
 " Give a shortcut key to NERD Tree
 map <F2> :NERDTreeToggle<CR>
 
+"remap leader to switch windows instead of ctrl"
+map <leader>h <C-W>h
+map <leader>j <C-W>j
+map <leader>k <C-W>k
+map <leader>l <C-W>l
+
 " Use monokai colorscheme
 let g:molokai_original = 1
 colorscheme molokai
