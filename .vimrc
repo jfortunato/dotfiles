@@ -1,10 +1,12 @@
 set nocompatible "This fixes the problem where arrow keys do not function properly on some systems.
 
 "put any disabled plugins here (useful for debugging)
-let g:pathogen_disabled = []
+let g:pathogen_disabled = ["PIV"]
 execute pathogen#infect()
 syntax on  "Enables syntax highlighting for programming languages
 filetype plugin indent on
+
+
 set mouse=a  "Allows you to click around the text editor with your mouse to move the cursor
 set showmatch "Highlights matching brackets in programming languages
 set autoindent  "If you're indented, new lines will also be indented
@@ -22,6 +24,7 @@ set backupdir=~/.vim/.backup "use a custom directory for backup files
 set directory=~/.vim/.swap "use a custom directory for swap files
 set history=1000 "alot of history
 set ttimeoutlen=100 "shorten key-code timeout to stop escape delay
+set scrolloff=2 "keep at least 2 lines above/below the cursor
 let g:DisableAutoPHPFolding = 1 "disable autofolding in PIV plugin
 let php_html_in_strings = 1 "disable php syntax highlighting in strings
 let html_no_rendering = 1 "disable things like underlining links
