@@ -54,6 +54,7 @@ map <leader>l <C-W>l
 imap {{ {{<space><space>}}<esc>2hi
 
 "Setting filetypes
+nnoremap <leader>ft :set filetype<cr>
 nnoremap <leader>fh :set filetype=html<cr>
 nnoremap <leader>fp :set filetype=php<cr>
 
