@@ -57,6 +57,7 @@ imap {{ {{<space><space>}}<esc>2hi
 nnoremap <leader>ft :set filetype<cr>
 nnoremap <leader>fh :set filetype=html<cr>
 nnoremap <leader>fp :set filetype=php<cr>
+nnoremap <leader>fj :set filetype=javascript<cr>
 
 
 " Use monokai colorscheme
