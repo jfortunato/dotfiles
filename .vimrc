@@ -58,6 +58,7 @@ nnoremap <leader>ft :set filetype<cr>
 nnoremap <leader>fh :set filetype=html<cr>
 nnoremap <leader>fp :set filetype=php<cr>
 nnoremap <leader>fj :set filetype=javascript<cr>
+nnoremap <leader>fc :set filetype=css<cr>
 
 
 " Use monokai colorscheme
