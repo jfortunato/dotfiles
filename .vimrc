@@ -41,7 +41,7 @@ map <C-L> :tabn<CR>
 map <C-H> :tabp<CR>
 
 " Give a shortcut key to NERD Tree
-map <F2> :NERDTreeToggle<CR>
+nnoremap <F1> :NERDTreeToggle<CR>
 " Give a shortcut key to Tagbar
 nmap <F8> :TagbarToggle<CR>
 
