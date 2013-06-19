@@ -3,6 +3,7 @@ set nocompatible "This fixes the problem where arrow keys do not function proper
 "put any disabled plugins here (useful for debugging)
 let g:pathogen_disabled = ["PIV"]
 execute pathogen#infect()
+call pathogen#helptags()
 syntax on  "Enables syntax highlighting for programming languages
 filetype plugin indent on
 
