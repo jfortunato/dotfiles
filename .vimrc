@@ -41,9 +41,11 @@ map <C-L> :tabn<CR>
 map <C-H> :tabp<CR>
 
 " Give a shortcut key to NERD Tree
-nnoremap <F1> :NERDTreeToggle<CR>
+nnoremap <leader>n :NERDTreeToggle<CR>
 " Give a shortcut key to Tagbar
 nmap <F8> :TagbarToggle<CR>
+" Shortcut to jump to tags/functions
+nnoremap <C-I> :CtrlPBufTag<CR>
 
 "remap leader to switch windows instead of ctrl"
 map <leader>h <C-W>h
