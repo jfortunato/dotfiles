@@ -12,7 +12,7 @@ Bundle 'gmarik/vundle'
 " My Bundles
 Bundle 'kien/ctrlp.vim'
 Bundle 'Raimondi/delimitMate'
-"Bundle 'tsaleh/vim-matchit'
+Bundle 'tsaleh/vim-matchit'
 Bundle 'gregsexton/MatchTag'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
