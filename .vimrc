@@ -1,11 +1,32 @@
 set nocompatible "This fixes the problem where arrow keys do not function properly on some systems.
-
-"put any disabled plugins here (useful for debugging)
-let g:pathogen_disabled = ["PIV"]
-execute pathogen#infect()
-call pathogen#helptags()
+filetype off "required!
 syntax on  "Enables syntax highlighting for programming languages
-filetype plugin indent on
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+
+" let Vundle manage Vundle
+Bundle 'gmarik/vundle'
+
+" My Bundles
+Bundle 'kien/ctrlp.vim'
+Bundle 'Raimondi/delimitMate'
+Bundle 'tsaleh/vim-matchit'
+Bundle 'gregsexton/MatchTag'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/syntastic'
+Bundle 'ervandew/supertab'
+Bundle 'majutsushi/tagbar'
+Bundle 'joonty/vdebug'
+Bundle 'skammer/vim-css-color'
+Bundle 'tpope/vim-surround'
+Bundle 'sukima/xmledit'
+"Bundle 'spf13/PIV'
+
+filetype plugin indent on "required
+
 
 
 set mouse=a  "Allows you to click around the text editor with your mouse to move the cursor
