@@ -23,7 +23,7 @@ Bundle 'joonty/vdebug'
 Bundle 'skammer/vim-css-color'
 Bundle 'tpope/vim-surround'
 Bundle 'sukima/xmledit'
-"Bundle 'spf13/PIV'
+Bundle 'spf13/PIV'
 
 filetype plugin indent on "required
 
