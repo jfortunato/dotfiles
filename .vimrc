@@ -52,6 +52,7 @@ let php_html_in_strings = 1 "disable php syntax highlighting in strings
 let html_no_rendering = 1 "disable things like underlining links
 let mapleader = "," "remap leader
 let delimitMate_matchpairs = "(:),[:],{:}"
+"let g:netrw_liststyle = 3 "make netrw use tree file structure
 
 "disable automatically commenting new line after a comment
 autocmd FileType * setlocal comments-=:// comments+=f://
@@ -84,6 +85,8 @@ nnoremap <leader>fp :set filetype=php<cr>
 nnoremap <leader>fj :set filetype=javascript<cr>
 nnoremap <leader>fc :set filetype=css<cr>
 
+"vimdiff update
+nnoremap <leader>du :diffupdate<cr>
 
 " Use monokai colorscheme
 let g:molokai_original = 1
@@ -92,10 +95,18 @@ colorscheme molokai
 if has("gui_running")
 	"using gvim
 
+	"start fullscreen
+	function! MaximizeWindow()
+	  set lines=999
+	  set columns=999
+	endfunction
+	autocmd GUIEnter * :call MaximizeWindow()	
+
 	set guioptions= 	"remove all scrollbars and toolbars and stuff
 
 	"set line number bg to match the main color
 	hi LineNr guibg=#272822
+	
 else
 	"using terminal
 	set t_Co=256
