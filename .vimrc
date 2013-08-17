@@ -58,6 +58,8 @@ let delimitMate_matchpairs = "(:),[:],{:}"
 
 "disable automatically commenting new line after a comment
 autocmd FileType * setlocal comments-=:// comments+=f://
+"set less filetypes
+autocmd BufRead,BufNewFile *.less set filetype=less
 
 map <C-J> :bnext<CR>
 map <C-K> :bprev<CR>
