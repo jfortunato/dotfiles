@@ -24,6 +24,8 @@ Bundle 'skammer/vim-css-color'
 Bundle 'tpope/vim-surround'
 Bundle 'sukima/xmledit'
 Bundle 'spf13/PIV'
+Bundle 'othree/html5.vim'
+Bundle 'groenewege/vim-less'
 
 filetype plugin indent on "required
 
@@ -84,6 +86,7 @@ nnoremap <leader>fh :set filetype=html<cr>
 nnoremap <leader>fp :set filetype=php<cr>
 nnoremap <leader>fj :set filetype=javascript<cr>
 nnoremap <leader>fc :set filetype=css<cr>
+nnoremap <leader>fl :set filetype=less<cr>
 
 "vimdiff update
 nnoremap <leader>du :diffupdate<cr>
