@@ -48,6 +48,7 @@ set directory=~/.vim/.swap "use a custom directory for swap files
 set history=1000 "alot of history
 set ttimeoutlen=100 "shorten key-code timeout to stop escape delay
 set scrolloff=2 "keep at least 2 lines above/below the cursor
+set nofoldenable " disable code folding
 let g:DisableAutoPHPFolding = 1 "disable autofolding in PIV plugin
 let php_html_in_strings = 1 "disable php syntax highlighting in strings
 let html_no_rendering = 1 "disable things like underlining links
