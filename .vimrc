@@ -22,9 +22,10 @@ Bundle 'majutsushi/tagbar'
 Bundle 'joonty/vdebug'
 Bundle 'tpope/vim-surround'
 Bundle 'sukima/xmledit'
-Bundle 'spf13/PIV'
+"Bundle 'spf13/PIV'
 Bundle 'othree/html5.vim'
 Bundle 'groenewege/vim-less'
+Bundle 'sumpygump/php-documentor-vim'
 
 filetype plugin indent on "required
 
@@ -49,6 +50,7 @@ set history=1000 "alot of history
 set ttimeoutlen=100 "shorten key-code timeout to stop escape delay
 set scrolloff=2 "keep at least 2 lines above/below the cursor
 set nofoldenable " disable code folding
+set keywordprg=pman "use pman for php manual pages with shift-k
 let g:DisableAutoPHPFolding = 1 "disable autofolding in PIV plugin
 let php_html_in_strings = 1 "disable php syntax highlighting in strings
 let html_no_rendering = 1 "disable things like underlining links
@@ -61,6 +63,11 @@ autocmd FileType * setlocal comments-=:// comments+=f://
 "set less filetypes
 autocmd BufRead,BufNewFile *.less set filetype=less
 
+" php docblock
+au BufRead,BufNewFile *.php inoremap <buffer> <leader>d :call PhpDoc()<CR>
+au BufRead,BufNewFile *.php nnoremap <buffer> <leader>d :call PhpDoc()<CR>
+au BufRead,BufNewFile *.php vnoremap <buffer> <leader>d :call PhpDocRange()<CR>
+
 map <C-J> :bnext<CR>
 map <C-K> :bprev<CR>
 map <C-L> :tabn<CR>
@@ -72,6 +79,10 @@ nnoremap <leader>n :NERDTreeToggle<CR>
 nmap <F8> :TagbarToggle<CR>
 " Shortcut to jump to tags/functions
 nnoremap <C-I> :CtrlPBufTag<CR>
+
+" Put php docs in a new split window
+source $VIMRUNTIME/ftplugin/man.vim
+nnoremap K :Man --manpath=/usr/share/doc/php5-common/PEAR/pman/ <cword><cr>
 
 "remap leader to switch windows instead of ctrl"
 map <leader>h <C-W>h
