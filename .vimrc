@@ -26,6 +26,7 @@ Bundle 'sukima/xmledit'
 Bundle 'othree/html5.vim'
 Bundle 'groenewege/vim-less'
 Bundle 'sumpygump/php-documentor-vim'
+Bundle 'xsbeats/vim-blade'
 
 filetype plugin indent on "required
 
@@ -97,6 +98,7 @@ imap {{ {{<space><space>}}<esc>2hi
 nnoremap <leader>ft :set filetype<cr>
 nnoremap <leader>fh :set filetype=html<cr>
 nnoremap <leader>fp :set filetype=php<cr>
+nnoremap <leader>fb :set filetype=blade<cr>
 nnoremap <leader>fj :set filetype=javascript<cr>
 nnoremap <leader>fc :set filetype=css<cr>
 nnoremap <leader>fl :set filetype=less<cr>
@@ -122,6 +124,7 @@ if has("gui_running")
 
 	"set line number bg to match the main color
 	hi LineNr guibg=#272822
+	hi StorageClass gui=none
 	
 else
 	"using terminal
