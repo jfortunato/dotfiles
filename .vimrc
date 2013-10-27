@@ -27,6 +27,8 @@ Bundle 'othree/html5.vim'
 Bundle 'groenewege/vim-less'
 Bundle 'sumpygump/php-documentor-vim'
 Bundle 'xsbeats/vim-blade'
+Bundle 'arnaud-lb/vim-php-namespace'
+Bundle 'craigemery/vim-autotag'
 
 filetype plugin indent on "required
 
@@ -105,6 +107,19 @@ nnoremap <leader>fl :set filetype=less<cr>
 
 "vimdiff update
 nnoremap <leader>du :diffupdate<cr>
+
+"easier system clipboard copy/paste
+map <leader>p "+p
+map <leader>P "+P
+map <leader>y "+y
+map <leader>Y "+Y
+
+"auto insert php use statements (with php namespace plugin)
+inoremap <Leader>u <C-O>:call PhpInsertUse()<CR>
+noremap <Leader>u :call PhpInsertUse()<CR>
+"auto expand fully qualified class names
+inoremap <Leader>e <C-O>:call PhpExpandClass()<CR>
+noremap <Leader>e :call PhpExpandClass()<CR>
 
 " Use monokai colorscheme
 let g:molokai_original = 1
