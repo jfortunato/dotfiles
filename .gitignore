@@ -1,6 +1,4 @@
-.netrwhist
-.swap
-.backup
-
-bundle/vim-matchit
-bundle/xmledit
+.vim/.netrwhist
+.vim/.swap
+.vim/.backup
+.vim/bundle
