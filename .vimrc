@@ -72,15 +72,15 @@ au BufRead,BufNewFile *.php inoremap <buffer> <leader>d :call PhpDoc()<CR>
 au BufRead,BufNewFile *.php nnoremap <buffer> <leader>d :call PhpDoc()<CR>
 au BufRead,BufNewFile *.php vnoremap <buffer> <leader>d :call PhpDocRange()<CR>
 
-map <C-J> :bnext<CR>
-map <C-K> :bprev<CR>
-map <C-L> :tabn<CR>
-map <C-H> :tabp<CR>
+noremap <C-J> :bnext<CR>
+noremap <C-K> :bprev<CR>
+noremap <C-L> :tabn<CR>
+noremap <C-H> :tabp<CR>
 
 " Give a shortcut key to NERD Tree
 nnoremap <leader>n :NERDTreeToggle<CR>
 " Give a shortcut key to Tagbar
-nmap <F8> :TagbarToggle<CR>
+nnoremap <F8> :TagbarToggle<CR>
 " Shortcut to jump to tags/functions
 nnoremap <C-I> :CtrlPBufTag<CR>
 
@@ -89,13 +89,13 @@ source $VIMRUNTIME/ftplugin/man.vim
 nnoremap K :Man --manpath=/usr/share/doc/php5-common/PEAR/pman/ <cword><cr>
 
 "remap leader to switch windows instead of ctrl"
-map <leader>h <C-W>h
-map <leader>j <C-W>j
-map <leader>k <C-W>k
-map <leader>l <C-W>l
+noremap <leader>h <C-W>h
+noremap <leader>j <C-W>j
+noremap <leader>k <C-W>k
+noremap <leader>l <C-W>l
 
 "blade echoing
-imap {{ {{<space><space>}}<esc>2hi
+inoremap {{ {{<space><space>}}<esc>2hi
 
 "Setting filetypes
 nnoremap <leader>ft :set filetype<cr>
@@ -110,10 +110,15 @@ nnoremap <leader>fl :set filetype=less<cr>
 nnoremap <leader>du :diffupdate<cr>
 
 "easier system clipboard copy/paste
-map <leader>p "+p
-map <leader>P "+P
-map <leader>y "+y
-map <leader>Y "+Y
+noremap <leader>p "+p
+noremap <leader>P "+P
+noremap <leader>y "+y
+noremap <leader>Y "+Y
+
+"quickly open vimrc from any vim session
+nnoremap <leader>ev :tabnew $MYVIMRC<cr>
+"quickly resource vimrc
+nnoremap <leader>sv :source $MYVIMRC<cr>
 
 "auto insert php use statements (with php namespace plugin)
 inoremap <Leader>u <C-O>:call PhpInsertUse()<CR>
