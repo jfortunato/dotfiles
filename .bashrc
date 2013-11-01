@@ -134,5 +134,5 @@ function unmark {
 	rm -i $MARKPATH/$1 
 }
 function marks {
-	ls -l $MARKPATH | sed 's/  / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' && echo
+	ls -la $MARKPATH | sed 's/  / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' && echo
 }
