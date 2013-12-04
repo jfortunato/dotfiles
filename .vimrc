@@ -30,6 +30,7 @@ Bundle 'xsbeats/vim-blade'
 Bundle 'arnaud-lb/vim-php-namespace'
 Bundle 'craigemery/vim-autotag'
 Bundle 'tpope/vim-fugitive'
+Bundle 'mattn/emmet-vim'
 
 filetype plugin indent on "required
 
