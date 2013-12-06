@@ -74,6 +74,9 @@ au BufRead,BufNewFile *.php inoremap <buffer> <leader>d :call PhpDoc()<CR>
 au BufRead,BufNewFile *.php nnoremap <buffer> <leader>d :call PhpDoc()<CR>
 au BufRead,BufNewFile *.php vnoremap <buffer> <leader>d :call PhpDocRange()<CR>
 
+"syntax highlighting for twig files (.vim/after/syntax/htmljinja.vim)
+au BufRead,BufNewFile *.twig set filetype=htmljinja
+
 noremap <C-J> :bnext<CR>
 noremap <C-K> :bprev<CR>
 noremap <C-L> :tabn<CR>
