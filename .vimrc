@@ -63,6 +63,7 @@ let html_no_rendering = 1 "disable things like underlining links
 let mapleader = "," "remap leader
 let delimitMate_matchpairs = "(:),[:],{:}"
 "let g:netrw_liststyle = 3 "make netrw use tree file structure
+let g:EasyMotion_leader_key = '<space>' "use space for easymotion plugin
 
 "disable automatically commenting new line after a comment
 autocmd FileType * setlocal comments-=:// comments+=f://
@@ -101,6 +102,7 @@ noremap <leader>l <C-W>l
 
 "blade echoing
 inoremap {{ {{<space><space>}}<esc>2hi
+inoremap {% {%<space><space>%}<esc>2hi
 
 "Setting filetypes
 nnoremap <leader>ft :set filetype<cr>
