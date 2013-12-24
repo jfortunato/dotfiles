@@ -32,6 +32,8 @@ Bundle 'craigemery/vim-autotag'
 Bundle 'tpope/vim-fugitive'
 Bundle 'mattn/emmet-vim'
 Bundle 'Lokaltog/vim-easymotion'
+Bundle 'bling/vim-airline'
+Bundle 'edkolev/tmuxline.vim'
 
 filetype plugin indent on "required
 
@@ -57,6 +59,7 @@ set ttimeoutlen=100 "shorten key-code timeout to stop escape delay
 set scrolloff=2 "keep at least 2 lines above/below the cursor
 set nofoldenable " disable code folding
 set keywordprg=pman "use pman for php manual pages with shift-k
+set laststatus=2 "always show the status line
 let g:DisableAutoPHPFolding = 1 "disable autofolding in PIV plugin
 let php_html_in_strings = 1 "disable php syntax highlighting in strings
 let html_no_rendering = 1 "disable things like underlining links
@@ -64,6 +67,15 @@ let mapleader = "," "remap leader
 let delimitMate_matchpairs = "(:),[:],{:}"
 "let g:netrw_liststyle = 3 "make netrw use tree file structure
 let g:EasyMotion_leader_key = '<space>' "use space for easymotion plugin
+let g:airline#extensions#tabline#enabled = 1 "vimline display buffers
+let g:airline_theme='powerlineish' "airline colors
+let g:airline_powerline_fonts = 1 "enable patch fonts
+let g:airline#extensions#tabline#left_sep = '' "triangle buffers and tabs at top of vim
+let g:airline#extensions#tabline#left_alt_sep = ''
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\ua0"
 
 "disable automatically commenting new line after a comment
 autocmd FileType * setlocal comments-=:// comments+=f://
