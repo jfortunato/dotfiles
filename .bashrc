@@ -116,6 +116,9 @@ fi
 # default terminal to tmux and start in 256 color mode
 [[ -z "$TMUX" ]] && exec tmux -2
 
+# Ubuntu 13.10 is giving errors upon gvim start
+alias gvim="gvim 2>/dev/null"
+
 export MARKPATH=$HOME/.marks
 function jump { 
 	cd -P $MARKPATH/$1 2>/dev/null || echo "No such mark: $1"
