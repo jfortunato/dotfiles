@@ -85,11 +85,8 @@ set directory=~/.vim/.swap " use a custom directory for swap files
 
 " ================ Persistent Undo ==============================================
 " Keep undo history across sessions, by storing in file.
-if has('persistent_undo')
-  silent !mkdir ~/.vim/undo > /dev/null 2>&1
-  set undodir=~/.vim/undo
-  set undofile
-endif
+set undodir=~/.vim/.undo
+set undofile
 
 
 
