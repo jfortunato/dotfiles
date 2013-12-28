@@ -32,13 +32,19 @@ Bundle 'groenewege/vim-less'
 Bundle 'sumpygump/php-documentor-vim'
 Bundle 'xsbeats/vim-blade'
 Bundle 'arnaud-lb/vim-php-namespace'
-Bundle 'craigemery/vim-autotag'
 Bundle 'tpope/vim-fugitive'
 Bundle 'mattn/emmet-vim'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'bling/vim-airline'
 Bundle 'edkolev/tmuxline.vim'
 Bundle 'terryma/vim-multiple-cursors'
+Bundle 'godlygeek/tabular'
+" all for snipmate
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle "garbas/vim-snipmate"
+Bundle "honza/vim-snippets"
+""""""""""""""""""""
 
 filetype plugin indent on " required
 
@@ -72,11 +78,12 @@ set scrolloff=2 " keep at least 2 lines above/below the cursor
 set nofoldenable " disable code folding
 set keywordprg=pman " use pman for php manual pages with shift-k
 set laststatus=2 " always show the status line
+set hidden " allow modified buffers to be hidden
 let php_html_in_strings = 1 " disable php syntax highlighting in strings
 let html_no_rendering = 1 " disable things like underlining links
 let g:netrw_liststyle = 3 " make netrw use tree file structure
 let g:netrw_browse_split = 4 " act like 'P' (ie. open previous window)
-let g:netrw_altv = 1
+"let g:netrw_altv = 1
 
 
 " ================ Special Directories ==========================================
@@ -106,8 +113,8 @@ au BufRead,BufNewFile *.twig set filetype=htmljinja " syntax highlighting for tw
 " ================ Change Buffers/Tabs ==========================================
 noremap <C-J> :bnext<CR>
 noremap <C-K> :bprev<CR>
-noremap <C-L> :tabn<CR>
-noremap <C-H> :tabp<CR>
+noremap <C-L> :tabp<CR>
+noremap <C-H> :tabn<CR>
 
 
 " ================ Remap leader to switch windows instead of ctrl ===============
@@ -151,6 +158,9 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 " ================ Forgot Sudo ==================================================
 cmap w!! w !sudo tee > /dev/null %
 
+" ================ Generate CTags ===============================================
+nnoremap <leader>ct :! ctags -R .<cr>
+
 
 
 " PLUGIN SETTINGS & REMAPPINGS
@@ -166,6 +176,7 @@ nnoremap <F8> :TagbarToggle<CR>
 " ----------------- CtrlP --------------------------------------------------------
 " ================ Jump To Tags/Functions ========================================
 nnoremap <C-I> :CtrlPBufTag<CR>
+nnoremap <leader>b :CtrlPBuffer<cr>
 " --------------------------------------------------------------------------------
 
 
@@ -188,8 +199,8 @@ let g:EasyMotion_leader_key = '<space>' "use space for easymotion plugin
 
 
 " ----------------- Airline -------------------------------------------------
-let g:airline#extensions#tabline#enabled = 1 "vimline display buffers
-let g:airline_theme='laederon' "airline colors
+"let g:airline#extensions#tabline#enabled = 1 "vimline display buffers
+let g:airline_theme='powerlineish' "airline colors
 let g:airline_powerline_fonts = 1 "enable patch fonts
 let g:airline#extensions#tabline#left_sep = '' "triangle buffers and tabs at top of vim
 let g:airline#extensions#tabline#left_alt_sep = ''
@@ -205,7 +216,6 @@ au BufRead,BufNewFile *.php inoremap <buffer> <leader>d :call PhpDoc()<CR>
 au BufRead,BufNewFile *.php nnoremap <buffer> <leader>d :call PhpDoc()<CR>
 au BufRead,BufNewFile *.php vnoremap <buffer> <leader>d :call PhpDocRange()<CR>
 " --------------------------------------------------------------------------------
-
 
 
 
@@ -251,7 +261,7 @@ nnoremap K :Man --manpath=/usr/share/doc/php5-common/PEAR/pman/ <cword><cr>
 
 
 
-" Toggle Vexplore with Ctrl-E
+" Toggle Vexplore
 function! ToggleVExplorer()
   if exists("t:expl_buf_num")
       let expl_win_num = bufwinnr(t:expl_buf_num)
@@ -269,5 +279,41 @@ function! ToggleVExplorer()
       Vexplore
       let t:expl_buf_num = bufnr("%")
   endif
+  :vertical resize 30%
 endfunction
 map <silent> <leader>n :call ToggleVExplorer()<CR>
+
+
+function! Wipeout()
+  " list of *all* buffer numbers
+  let l:buffers = range(1, bufnr('$'))
+
+  " what tab page are we in?
+  let l:currentTab = tabpagenr()
+  try
+    " go through all tab pages
+    let l:tab = 0
+    while l:tab < tabpagenr('$')
+      let l:tab += 1
+
+      " go through all windows
+      let l:win = 0
+      while l:win < winnr('$')
+        let l:win += 1
+        " whatever buffer is in this window in this tab, remove it from
+        " l:buffers list
+        let l:thisbuf = winbufnr(l:win)
+        call remove(l:buffers, index(l:buffers, l:thisbuf))
+      endwhile
+    endwhile
+
+    " if there are any buffers left, delete them
+    if len(l:buffers)
+      execute 'bwipeout' join(l:buffers)
+    endif
+  finally
+    " go back to our original tab page
+    execute 'tabnext' l:currentTab
+  endtry
+endfunction
+map <silent> <leader>bw :call Wipeout()<cr>
