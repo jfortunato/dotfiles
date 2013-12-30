@@ -22,7 +22,6 @@ Bundle 'tsaleh/vim-matchit'
 Bundle 'gregsexton/MatchTag'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
-Bundle 'ervandew/supertab'
 Bundle 'majutsushi/tagbar'
 Bundle 'joonty/vdebug'
 Bundle 'tpope/vim-surround'
@@ -79,6 +78,7 @@ set nofoldenable " disable code folding
 set keywordprg=pman " use pman for php manual pages with shift-k
 set laststatus=2 " always show the status line
 set hidden " allow modified buffers to be hidden
+set incsearch " use incremental search
 let php_html_in_strings = 1 " disable php syntax highlighting in strings
 let html_no_rendering = 1 " disable things like underlining links
 let g:netrw_liststyle = 3 " make netrw use tree file structure
@@ -176,7 +176,7 @@ nnoremap <F8> :TagbarToggle<CR>
 " ----------------- CtrlP --------------------------------------------------------
 " ================ Jump To Tags/Functions ========================================
 nnoremap <C-I> :CtrlPBufTag<CR>
-nnoremap <leader>b :CtrlPBuffer<cr>
+nnoremap <leader>p :CtrlPBuffer<cr>
 " --------------------------------------------------------------------------------
 
 
@@ -211,19 +211,24 @@ let g:airline_symbols.space = "\ua0"
 " --------------------------------------------------------------------------------
 
 
-" ----------------- vim-php-docblock -------------------------------------------------
+" ----------------- vim-php-docblock --------------------------------------------
 au BufRead,BufNewFile *.php inoremap <buffer> <leader>d :call PhpDoc()<CR>
 au BufRead,BufNewFile *.php nnoremap <buffer> <leader>d :call PhpDoc()<CR>
 au BufRead,BufNewFile *.php vnoremap <buffer> <leader>d :call PhpDocRange()<CR>
 " --------------------------------------------------------------------------------
 
 
-
 " ----------------- Fugitive  ----------------------------------------------------
-nnoremap <leader>gs :Gstatus<cr>
-nnoremap <leader>gd :Gdiff<cr>
-nnoremap <leader>gb :Gblame<cr>
+cmap gs Gstatus
+cmap gd Gdiff
+cmap gb Gblame
 " --------------------------------------------------------------------------------
+
+
+" ----------------- Tabularize  -------------------------------------------------
+nnoremap <leader>t :Tabularize /
+vnoremap <leader>t :Tabularize /
+" -------------------------------------------------------------------------------
 
 
 
@@ -287,7 +292,6 @@ function! ToggleVExplorer()
       Vexplore
       let t:expl_buf_num = bufnr("%")
   endif
-  :vertical resize 30%
 endfunction
 map <silent> <leader>n :call ToggleVExplorer()<CR>
 
