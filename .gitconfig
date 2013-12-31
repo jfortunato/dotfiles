@@ -1,0 +1,16 @@
+[color]
+	ui = auto
+[user]
+	email = jfortunato25@gmail.com
+	name = Justin Fortunato
+[alias]
+	hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+	dt = difftool
+[push]
+	default = simple
+[core]
+	excludesfile = ~/.gitignore
+[diff]
+	tool = gvimdiff
+[difftool]
+	prompt = false
