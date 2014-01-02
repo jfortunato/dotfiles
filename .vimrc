@@ -79,6 +79,7 @@ set keywordprg=pman " use pman for php manual pages with shift-k
 set laststatus=2 " always show the status line
 set hidden " allow modified buffers to be hidden
 set incsearch " use incremental search
+set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 10
 let php_html_in_strings = 1 " disable php syntax highlighting in strings
 let html_no_rendering = 1 " disable things like underlining links
 let g:netrw_liststyle = 3 " make netrw use tree file structure
@@ -176,7 +177,7 @@ nnoremap <F8> :TagbarToggle<CR>
 " ----------------- CtrlP --------------------------------------------------------
 " ================ Jump To Tags/Functions ========================================
 nnoremap <C-I> :CtrlPBufTag<CR>
-nnoremap <leader>p :CtrlPBuffer<cr>
+nnoremap <leader><tab> :CtrlPBuffer<cr>
 " --------------------------------------------------------------------------------
 
 
@@ -208,6 +209,7 @@ if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
 let g:airline_symbols.space = "\ua0"
+let g:Powerline_symbols = "fancy"
 " --------------------------------------------------------------------------------
 
 
