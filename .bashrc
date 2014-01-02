@@ -114,10 +114,8 @@ if ! shopt -oq posix; then
 fi
 
 # default terminal to tmux and start in 256 color mode
-[[ -z "$TMUX" ]] && exec tmux -2
-
-# Ubuntu 13.10 is giving errors upon gvim start
-alias gvim="gvim 2>/dev/null"
+#[[ -z "$TMUX" ]] && exec tmux -2
+alias tmux="tmux -2"
 
 export MARKPATH=$HOME/.marks
 function jump { 
