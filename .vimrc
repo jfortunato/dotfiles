@@ -20,6 +20,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'Raimondi/delimitMate'
 Bundle 'tsaleh/vim-matchit'
 Bundle 'gregsexton/MatchTag'
+Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
 Bundle 'majutsushi/tagbar'
@@ -82,9 +83,8 @@ set incsearch " use incremental search
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 10
 let php_html_in_strings = 1 " disable php syntax highlighting in strings
 let html_no_rendering = 1 " disable things like underlining links
-let g:netrw_liststyle = 3 " make netrw use tree file structure
-let g:netrw_browse_split = 4 " act like 'P' (ie. open previous window)
-"let g:netrw_altv = 1
+"let g:netrw_liststyle = 3 " make netrw use tree file structure
+"let g:netrw_browse_split = 4 " act like 'P' (ie. open previous window)
 
 
 " ================ Special Directories ==========================================
@@ -233,6 +233,17 @@ vnoremap <leader>t :Tabularize /
 " -------------------------------------------------------------------------------
 
 
+" ----------------- NERDTree  -------------------------------------------------
+nnoremap <silent> <leader>n :call g:WorkaroundNERDTreeToggle()<cr>
+nnoremap <C-f> :NERDTreeFind<cr>
+
+" after deleting all buffers with wipeout function, :NERDTreeToggle bugs out
+" but the first call to :NERDTree fixes everything
+function! g:WorkaroundNERDTreeToggle()
+  try | :NERDTreeToggle | catch | :NERDTree | endtry
+endfunction
+" -------------------------------------------------------------------------------
+
 
 " GUI
 " =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -275,29 +286,6 @@ source $VIMRUNTIME/ftplugin/man.vim
 nnoremap K :Man --manpath=/usr/share/doc/php5-common/PEAR/pman/ <cword><cr>
 
 
-
-" Toggle Vexplore
-function! ToggleVExplorer()
-  if exists("t:expl_buf_num")
-      let expl_win_num = bufwinnr(t:expl_buf_num)
-      if expl_win_num != -1
-          let cur_win_nr = winnr()
-          exec expl_win_num . 'wincmd w'
-          close
-          exec cur_win_nr . 'wincmd w'
-          unlet t:expl_buf_num
-      else
-          unlet t:expl_buf_num
-      endif
-  else
-      exec '1wincmd w'
-      Vexplore
-      let t:expl_buf_num = bufnr("%")
-  endif
-endfunction
-map <silent> <leader>n :call ToggleVExplorer()<CR>
-
-
 function! Wipeout()
   " list of *all* buffer numbers
   let l:buffers = range(1, bufnr('$'))
@@ -305,29 +293,29 @@ function! Wipeout()
   " what tab page are we in?
   let l:currentTab = tabpagenr()
   try
-    " go through all tab pages
-    let l:tab = 0
-    while l:tab < tabpagenr('$')
-      let l:tab += 1
+	" go through all tab pages
+	let l:tab = 0
+	while l:tab < tabpagenr('$')
+	  let l:tab += 1
 
-      " go through all windows
-      let l:win = 0
-      while l:win < winnr('$')
-        let l:win += 1
-        " whatever buffer is in this window in this tab, remove it from
-        " l:buffers list
-        let l:thisbuf = winbufnr(l:win)
-        call remove(l:buffers, index(l:buffers, l:thisbuf))
-      endwhile
-    endwhile
+	  " go through all windows
+	  let l:win = 0
+	  while l:win < winnr('$')
+		let l:win += 1
+		" whatever buffer is in this window in this tab, remove it from
+		" l:buffers list
+		let l:thisbuf = winbufnr(l:win)
+		call remove(l:buffers, index(l:buffers, l:thisbuf))
+	  endwhile
+	endwhile
 
-    " if there are any buffers left, delete them
-    if len(l:buffers)
-      execute 'bwipeout' join(l:buffers)
-    endif
+	" if there are any buffers left, delete them
+	if len(l:buffers)
+	  execute 'bwipeout' join(l:buffers)
+	endif
   finally
-    " go back to our original tab page
-    execute 'tabnext' l:currentTab
+	" go back to our original tab page
+	execute 'tabnext' l:currentTab
   endtry
 endfunction
 map <silent> <leader>bw :call Wipeout()<cr>
