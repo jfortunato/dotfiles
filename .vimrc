@@ -45,6 +45,9 @@ Bundle "tomtom/tlib_vim"
 Bundle "garbas/vim-snipmate"
 Bundle "honza/vim-snippets"
 """"""""""""""""""""
+" for vim-easytags
+Bundle "xolox/vim-misc"
+Bundle "xolox/vim-easytags"
 
 filetype plugin indent on " required
 
@@ -244,6 +247,16 @@ function! g:WorkaroundNERDTreeToggle()
 endfunction
 " -------------------------------------------------------------------------------
 
+
+" ----------------- Vim-Easytags  -------------------------------------------------
+set tags=./tags:,tags;
+let g:easytags_dynamic_files = 1
+" -------------------------------------------------------------------------------
+
+
+" ----------------- Emmet  -------------------------------------------------
+let g:user_emmet_leader_key='<leader>'
+" -------------------------------------------------------------------------------
 
 " GUI
 " =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
