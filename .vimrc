@@ -30,7 +30,7 @@ Bundle 'othree/html5.vim'
 Bundle 'groenewege/vim-less'
 Bundle 'sumpygump/php-documentor-vim'
 Bundle 'xsbeats/vim-blade'
-Bundle 'arnaud-lb/vim-php-namespace'
+Bundle 'jfortunato/vim-php-namespace'
 Bundle 'tpope/vim-fugitive'
 Bundle 'mattn/emmet-vim'
 Bundle 'Lokaltog/vim-easymotion'
@@ -39,14 +39,15 @@ Bundle 'edkolev/tmuxline.vim'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'godlygeek/tabular'
 " all for snipmate
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle "garbas/vim-snipmate"
-Bundle "honza/vim-snippets"
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'tomtom/tlib_vim'
+Bundle 'garbas/vim-snipmate'
+Bundle 'honza/vim-snippets'
 """"""""""""""""""""
 " for vim-easytags
-Bundle "xolox/vim-misc"
-Bundle "xolox/vim-easytags"
+Bundle 'xolox/vim-misc'
+Bundle 'xolox/vim-easytags'
+"Bundle 'ervandew/supertab'
 
 filetype plugin indent on " required
 
@@ -67,6 +68,7 @@ set autoindent  " If you're indented, new lines will also be indented
 set smartindent  " Automatically indents lines after opening a bracket in programming languages
 set backspace=2  " This makes the backspace key function like it does in other programs.
 set tabstop=4  " How much space Vim gives to a tab
+set expandtab
 set number  " Enables line numbering
 set smarttab  " Improves tabbing
 set shiftwidth=4  " Assists code formatting
@@ -116,8 +118,8 @@ au BufRead,BufNewFile *.twig set filetype=htmljinja " syntax highlighting for tw
 " ================ Change Buffers/Tabs ==========================================
 noremap <C-J> :bnext<CR>
 noremap <C-K> :bprev<CR>
-noremap <C-L> :tabp<CR>
-noremap <C-H> :tabn<CR>
+noremap <C-L> :tabn<CR>
+noremap <C-H> :tabp<CR>
 
 
 " ================ Remap leader to switch windows instead of ctrl ===============
@@ -248,8 +250,9 @@ endfunction
 
 
 " ----------------- Vim-Easytags  -------------------------------------------------
-set tags=./tags:,tags;
+set tags=./tags;
 let g:easytags_dynamic_files = 1
+set regexpengine=0
 " -------------------------------------------------------------------------------
 
 
