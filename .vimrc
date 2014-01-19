@@ -68,10 +68,10 @@ set autoindent  " If you're indented, new lines will also be indented
 set smartindent  " Automatically indents lines after opening a bracket in programming languages
 set backspace=2  " This makes the backspace key function like it does in other programs.
 set tabstop=4  " How much space Vim gives to a tab
-set expandtab
+set expandtab " use space chars whenever tab is pressed
+set shiftwidth=4  " Assists code formatting
 set number  " Enables line numbering
 set smarttab  " Improves tabbing
-set shiftwidth=4  " Assists code formatting
 set foldmethod=manual  " Lets you hide sections of code
 set autoread " Automatically load a new file if changed (useful when changing git branches)
 set ignorecase " case-insensitive search
