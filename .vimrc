@@ -85,6 +85,7 @@ set laststatus=2 " always show the status line
 set hidden " allow modified buffers to be hidden
 set incsearch " use incremental search
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 10
+set tags=./tags,tags;
 let php_html_in_strings = 1 " disable php syntax highlighting in strings
 let html_no_rendering = 1 " disable things like underlining links
 "let g:netrw_liststyle = 3 " make netrw use tree file structure
@@ -250,7 +251,6 @@ endfunction
 
 
 " ----------------- Vim-Easytags  -------------------------------------------------
-set tags=./tags;
 let g:easytags_dynamic_files = 1
 set regexpengine=0
 " -------------------------------------------------------------------------------
