@@ -137,3 +137,7 @@ function unmark {
 function marks {
 	ls -la $MARKPATH | sed 's/  / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' && echo
 }
+
+# start typing a command and use up/down arrows to search through history
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
