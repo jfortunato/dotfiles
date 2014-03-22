@@ -48,6 +48,7 @@ Bundle 'honza/vim-snippets'
 Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-easytags'
 "Bundle 'ervandew/supertab'
+Bundle 'rodjek/vim-puppet'
 
 filetype plugin indent on " required
 
@@ -108,6 +109,7 @@ set undofile
 autocmd FileType * setlocal comments-=:// comments+=f:// " disable automatically commenting new line after a comment
 autocmd BufRead,BufNewFile *.less set filetype=less " set less filetypes
 au BufRead,BufNewFile *.twig set filetype=htmljinja " syntax highlighting for twig files (.vim/after/syntax/htmljinja.vim)
+au BufRead,BufNewFile *.pp  set filetype=puppet
 
 
 
@@ -137,7 +139,7 @@ inoremap {% {%<space><space>%}<esc>2hi
 
 " ================ Setting Filetypes ============================================
 nnoremap <leader>ft :set filetype<cr>
-nnoremap <leader>fh :set filetype=html<cr>
+nnoremap <leader>fh :set filetype=html syntax=php<cr>
 nnoremap <leader>fp :set filetype=php<cr>
 nnoremap <leader>fb :set filetype=blade<cr>
 nnoremap <leader>fj :set filetype=javascript<cr>
@@ -201,6 +203,7 @@ let delimitMate_matchpairs = "(:),[:],{:}"
 
 " ----------------- EasyMotion -------------------------------------------------
 let g:EasyMotion_leader_key = '<space>' "use space for easymotion plugin
+nmap s <Plug>(easymotion-s2)
 " --------------------------------------------------------------------------------
 
 
