@@ -72,6 +72,7 @@ set tabstop=4  " How much space Vim gives to a tab
 set expandtab " use space chars whenever tab is pressed
 set shiftwidth=4  " Assists code formatting
 set number  " Enables line numbering
+set relativenumber  " Enables relative line numbering
 set smarttab  " Improves tabbing
 set foldmethod=manual  " Lets you hide sections of code
 set autoread " Automatically load a new file if changed (useful when changing git branches)
@@ -87,7 +88,6 @@ set hidden " allow modified buffers to be hidden
 set incsearch " use incremental search
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 10
 set tags=./tags,tags;
-let php_html_in_strings = 1 " disable php syntax highlighting in strings
 let html_no_rendering = 1 " disable things like underlining links
 "let g:netrw_liststyle = 3 " make netrw use tree file structure
 "let g:netrw_browse_split = 4 " act like 'P' (ie. open previous window)
@@ -255,6 +255,7 @@ endfunction
 
 " ----------------- Vim-Easytags  -------------------------------------------------
 let g:easytags_dynamic_files = 1
+let g:easytags_auto_highlight = 0
 " -------------------------------------------------------------------------------
 
 
@@ -282,8 +283,8 @@ if has("gui_running")
 	set guioptions= 	" remove all scrollbars and toolbars and stuff
 
 	" set line number bg to match the main color
-	hi LineNr guibg=#272822
-	hi StorageClass gui=none
+    hi LineNr guibg=#272822
+    hi StorageClass gui=none
 	
 else
 	" using terminal

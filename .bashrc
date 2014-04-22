@@ -141,3 +141,5 @@ function marks {
 # start typing a command and use up/down arrows to search through history
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
+
+[[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
