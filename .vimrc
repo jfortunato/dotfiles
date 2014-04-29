@@ -49,6 +49,7 @@ Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-easytags'
 "Bundle 'ervandew/supertab'
 Bundle 'rodjek/vim-puppet'
+Bundle 'suan/vim-instant-markdown'
 
 filetype plugin indent on " required
 
