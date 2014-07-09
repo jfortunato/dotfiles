@@ -143,3 +143,5 @@ bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
 
 [[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
+
+set -o vi

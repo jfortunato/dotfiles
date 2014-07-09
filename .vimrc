@@ -45,8 +45,8 @@ Bundle 'garbas/vim-snipmate'
 Bundle 'honza/vim-snippets'
 """"""""""""""""""""
 " for vim-easytags
-Bundle 'xolox/vim-misc'
-Bundle 'xolox/vim-easytags'
+"Bundle 'xolox/vim-misc'
+"Bundle 'xolox/vim-easytags'
 "Bundle 'ervandew/supertab'
 Bundle 'rodjek/vim-puppet'
 Bundle 'suan/vim-instant-markdown'
@@ -110,9 +110,8 @@ set undofile
 autocmd FileType * setlocal comments-=:// comments+=f:// " disable automatically commenting new line after a comment
 autocmd BufRead,BufNewFile *.less set filetype=less " set less filetypes
 au BufRead,BufNewFile *.twig set filetype=htmljinja " syntax highlighting for twig files (.vim/after/syntax/htmljinja.vim)
-au BufRead,BufNewFile *.pp  set filetype=puppet
-
-
+au BufRead,BufNewFile *.pp set filetype=puppet
+au BufRead,BufNewFile *.md set filetype=markdown
 
 
 
@@ -168,7 +167,7 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 cmap w!! w !sudo tee > /dev/null %
 
 " ================ Generate CTags ===============================================
-nnoremap <leader>ct :! ctags -R .<cr>
+nnoremap <leader>ct :! ctags -R --languages=php --exclude=.git .<cr>
 
 
 
@@ -184,7 +183,7 @@ nnoremap <F8> :TagbarToggle<CR>
 
 " ----------------- CtrlP --------------------------------------------------------
 " ================ Jump To Tags/Functions ========================================
-nnoremap <C-I> :CtrlPBufTag<CR>
+nnoremap <C-T> :CtrlPBufTag<CR>
 nnoremap <leader><tab> :CtrlPBuffer<cr>
 " --------------------------------------------------------------------------------
 
