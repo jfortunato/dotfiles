@@ -45,11 +45,12 @@ Bundle 'garbas/vim-snipmate'
 Bundle 'honza/vim-snippets'
 """"""""""""""""""""
 " for vim-easytags
-"Bundle 'xolox/vim-misc'
-"Bundle 'xolox/vim-easytags'
+Bundle 'xolox/vim-misc'
+Bundle 'xolox/vim-easytags'
 "Bundle 'ervandew/supertab'
 Bundle 'rodjek/vim-puppet'
 Bundle 'suan/vim-instant-markdown'
+"Bundle 'joonty/vim-phpqa.git'
 
 filetype plugin indent on " required
 
@@ -88,7 +89,7 @@ set laststatus=2 " always show the status line
 set hidden " allow modified buffers to be hidden
 set incsearch " use incremental search
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 10
-set tags=./tags,tags;
+set tags=./tags;/
 let html_no_rendering = 1 " disable things like underlining links
 "let g:netrw_liststyle = 3 " make netrw use tree file structure
 "let g:netrw_browse_split = 4 " act like 'P' (ie. open previous window)
@@ -256,6 +257,7 @@ endfunction
 " ----------------- Vim-Easytags  -------------------------------------------------
 let g:easytags_dynamic_files = 1
 let g:easytags_auto_highlight = 0
+let g:easytags_async = 1
 " -------------------------------------------------------------------------------
 
 
