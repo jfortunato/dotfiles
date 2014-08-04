@@ -3,7 +3,8 @@
 --exclude=.git
 --exclude=*.min.js
 
---PHP-kinds=+cf-v
+--langmap=php:.php
+--PHP-kinds=+cif-v
 
 --langdef=js
 --langmap=js:.js
