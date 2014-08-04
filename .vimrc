@@ -339,3 +339,16 @@ function! Wipeout()
   endtry
 endfunction
 map <silent> <leader>bw :call Wipeout()<cr>
+
+
+function! AddPHPDependency()
+    let typehint = input('TypeHint: ')
+    " lowercase first letter
+    let dependency = tolower(strpart(typehint, 0, 1)) . strpart(typehint, 1)
+
+    :execute "normal! gg/construct\<cr>f)i, " . typehint . "\<esc>mta $" . dependency . "\<esc>/}\<cr>O$this->" . dependency . " = $" . dependency . ";\<esc>`tOprotected $" . dependency . ";\<esc>o\<esc>"
+
+    " Remove opening comma if only one dependency
+    :execute "normal! `t:s/(, /(/ge\<cr>`t"
+endfunction
+nmap ,2 :call AddPHPDependency()<cr>
