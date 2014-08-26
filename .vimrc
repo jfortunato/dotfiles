@@ -345,6 +345,7 @@ function! AddPHPDependency()
     let typehint = input('TypeHint: ')
     " lowercase first letter
     let dependency = tolower(strpart(typehint, 0, 1)) . strpart(typehint, 1)
+    " remove 'Interface' from ending if it exists
 
     :execute "normal! gg/construct\<cr>f)i, " . typehint . "\<esc>mta $" . dependency . "\<esc>/}\<cr>O$this->" . dependency . " = $" . dependency . ";\<esc>`tOprotected $" . dependency . ";\<esc>o\<esc>"
 
