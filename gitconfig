@@ -6,6 +6,7 @@
 [alias]
 	hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
 	dt = difftool
+    next = "!sh -c 'git log --reverse --pretty=%H master | awk \"/$(git rev-parse HEAD)/{getline;print}\" | xargs git checkout'"
 [core]
 	excludesfile = ~/.gitignore
 [diff]

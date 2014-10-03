@@ -50,7 +50,6 @@ Bundle 'xolox/vim-easytags'
 "Bundle 'ervandew/supertab'
 Bundle 'rodjek/vim-puppet'
 Bundle 'suan/vim-instant-markdown'
-"Bundle 'joonty/vim-phpqa.git'
 
 filetype plugin indent on " required
 
@@ -263,6 +262,12 @@ let g:easytags_async = 1
 
 " ----------------- Emmet  -------------------------------------------------
 let g:user_emmet_leader_key='<leader>'
+" -------------------------------------------------------------------------------
+
+" ----------------- Syntastic  -------------------------------------------------
+nnoremap <leader>st :SyntasticToggleMode<cr>
+let g:syntastic_php_phpcs_args="--report=csv --standard=PSR2"
+let g:syntastic_php_checkers = ['php', 'phpcs'] " not using phpmd right now because its too aggressive
 " -------------------------------------------------------------------------------
 
 " GUI
