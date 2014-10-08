@@ -18,7 +18,7 @@ Bundle 'gmarik/vundle'
 
 Bundle 'kien/ctrlp.vim'
 Bundle 'Raimondi/delimitMate'
-Bundle 'tsaleh/vim-matchit'
+Bundle 'vim-scripts/matchit.zip'
 Bundle 'gregsexton/MatchTag'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
@@ -88,6 +88,7 @@ set laststatus=2 " always show the status line
 set hidden " allow modified buffers to be hidden
 set incsearch " use incremental search
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 10
+set winaltkeys=no " dont allow alt to be captured by the GUI menu entries
 set tags=./tags;/
 let html_no_rendering = 1 " disable things like underlining links
 "let g:netrw_liststyle = 3 " make netrw use tree file structure
