@@ -145,3 +145,5 @@ bind '"\e[B": history-search-forward'
 [[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
 
 set -o vi
+
+export PATH=$PATH:~/.composer/vendor/bin:~/Android-Development/adt/sdk/platform-tools:~/Android-Development/adt/sdk/tools
