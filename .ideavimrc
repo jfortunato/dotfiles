@@ -1,0 +1,20 @@
+source ~/.vimrc
+
+nnoremap ,<tab> :action RecentFiles<CR>
+
+nnoremap <C-L> :action NextTab<CR>
+nnoremap <C-H> :action PreviousTab<CR>
+
+nnoremap ,h <C-W>h
+nnoremap ,j <C-W>j
+nnoremap ,k <C-W>k
+nnoremap ,l <C-W>l
+
+nnoremap g; :action JumpToLastChange<CR>
+
+nnoremap ]c :action NextDiff<CR>
+nnoremap [c :action PreviousDiff<CR>
+
+nnoremap <C-N> :action SelectNextOccurence<CR>
+
+nnoremap <C-f> :action SelectIn<CR>
