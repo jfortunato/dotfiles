@@ -147,3 +147,9 @@ bind '"\e[B": history-search-forward'
 set -o vi
 
 export PATH=$PATH:~/.composer/vendor/bin:~/Android-Development/adt/sdk/platform-tools:~/Android-Development/adt/sdk/tools
+
+alias drm-all="docker rm $(docker ps -a -q)"
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+alias spec="phpspec describe"
