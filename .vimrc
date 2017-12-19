@@ -34,7 +34,8 @@ Bundle 'arnaud-lb/vim-php-namespace'
 Bundle 'tpope/vim-fugitive'
 Bundle 'mattn/emmet-vim'
 Bundle 'Lokaltog/vim-easymotion'
-Bundle 'bling/vim-airline'
+Bundle 'vim-airline/vim-airline'
+Bundle 'vim-airline/vim-airline-themes'
 Bundle 'edkolev/tmuxline.vim'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'godlygeek/tabular'
@@ -222,6 +223,11 @@ let g:airline_symbols.space = "\ua0"
 let g:Powerline_symbols = "fancy"
 " --------------------------------------------------------------------------------
 
+" ----------------- Tmuxline -------------------------------------------------
+let g:airline#extensions#tmuxline#enabled = 1
+let airline#extensions#tmuxline#snapshot_file = "~/.tmux-status.conf"
+" --------------------------------------------------------------------------------
+
 
 " ----------------- vim-php-docblock --------------------------------------------
 au BufRead,BufNewFile *.php inoremap <buffer> <leader>d :call PhpDoc()<CR>
@@ -297,8 +303,6 @@ if has("gui_running")
 	" set line number bg to match the main color
     hi LineNr guibg=#272822
     hi StorageClass gui=none
-
-    colorscheme peacock
 else
 	" using terminal
 	set t_Co=256

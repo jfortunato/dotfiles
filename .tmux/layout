@@ -1,6 +1,10 @@
 selectp -t 0              # Select pane 0
-splitw -h -p 20           # Split pane 0 vertically by 20%
+splitw -c "#{pane_current_path}" -h -p 20           # Split pane 0 vertically by 20%
 selectp -t 0              # Select pane 1
-splitw -v -p 20           # Split pane 1 horizontally by 20%
+splitw -c "#{pane_current_path}" -v -p 17           # Split pane 1 horizontally by 17%
 selectp -t 1              # Select pane 0
-splitw -h -p 50           # Split pane 1 vertically by 50%
+splitw -c "#{pane_current_path}" -h -p 50           # Split pane 1 vertically by 50%
+
+send-keys -t 2 'htop' enter C-l                     # Start htop in bottom middle
+
+select-pane -t 0                                    # Default selected pane to the biggest one

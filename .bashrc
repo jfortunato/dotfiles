@@ -146,10 +146,19 @@ bind '"\e[B": history-search-forward'
 
 set -o vi
 
-export PATH=$PATH:~/.composer/vendor/bin:~/Android-Development/adt/sdk/platform-tools:~/Android-Development/adt/sdk/tools
+export PATH=$PATH:~/.composer/vendor/bin:~/Android-Development/adt/sdk/platform-tools:~/Android-Development/adt/sdk/tools:$HOME/.yarn/bin
 
 alias drm-all="docker rm $(docker ps -a -q)"
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 alias spec="phpspec describe"
+
+# start shell in tmux
+if command -v tmux>/dev/null; then
+    [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
+fi
+
+md5sumdir() {
+    find $1 -type f -exec md5sum {} \; | sort -k 2 | md5sum
+}
