@@ -2,58 +2,58 @@
 " BASIC INITIALIZATION
 " =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 set nocompatible " This fixes the problem where arrow keys do not function properly on some systems.
-filetype off " required!
-syntax on  " Enables syntax highlighting for programming languages
-
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set encoding=utf-8
 
 
 
 " PLUGINS
 " =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
-" let Vundle manage Vundle
-Bundle 'gmarik/vundle'
+" Automatically install vim-plug if it is not already installed
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-Bundle 'kien/ctrlp.vim'
-Bundle 'Raimondi/delimitMate'
-Bundle 'vim-scripts/matchit.zip'
-Bundle 'gregsexton/MatchTag'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/syntastic'
-Bundle 'majutsushi/tagbar'
-Bundle 'joonty/vdebug'
-Bundle 'tpope/vim-surround'
-Bundle 'othree/html5.vim'
-Bundle 'groenewege/vim-less'
-Bundle 'sumpygump/php-documentor-vim'
-Bundle 'xsbeats/vim-blade'
-Bundle 'arnaud-lb/vim-php-namespace'
-Bundle 'tpope/vim-fugitive'
-Bundle 'mattn/emmet-vim'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'vim-airline/vim-airline'
-Bundle 'vim-airline/vim-airline-themes'
-Bundle 'edkolev/tmuxline.vim'
-Bundle 'terryma/vim-multiple-cursors'
-Bundle 'godlygeek/tabular'
+call plug#begin('~/.vim/bundle')
+Plug 'kien/ctrlp.vim'
+Plug 'Raimondi/delimitMate'
+Plug 'vim-scripts/matchit.zip'
+Plug 'gregsexton/MatchTag'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/syntastic'
+Plug 'majutsushi/tagbar'
+Plug 'joonty/vdebug'
+Plug 'tpope/vim-surround'
+Plug 'othree/html5.vim'
+Plug 'groenewege/vim-less'
+Plug 'sumpygump/php-documentor-vim'
+Plug 'xsbeats/vim-blade'
+Plug 'arnaud-lb/vim-php-namespace'
+Plug 'tpope/vim-fugitive'
+Plug 'mattn/emmet-vim'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'edkolev/tmuxline.vim'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'godlygeek/tabular'
 " all for snipmate
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
-Bundle 'garbas/vim-snipmate'
-Bundle 'honza/vim-snippets'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
 """"""""""""""""""""
 " for vim-easytags
-Bundle 'xolox/vim-misc'
-Bundle 'xolox/vim-easytags'
-"Bundle 'ervandew/supertab'
-Bundle 'rodjek/vim-puppet'
-Bundle 'suan/vim-instant-markdown'
-Bundle "daylerees/colour-schemes", { "rtp": "vim/" }
-
-filetype plugin indent on " required
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-easytags'
+"Plug 'ervandew/supertab'
+Plug 'rodjek/vim-puppet'
+Plug 'suan/vim-instant-markdown'
+Plug 'daylerees/colour-schemes', { 'rtp': 'vim/' }
+call plug#end()
 
 
 

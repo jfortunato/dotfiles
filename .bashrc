@@ -148,7 +148,9 @@ set -o vi
 
 export PATH=$PATH:~/.composer/vendor/bin:~/Android-Development/adt/sdk/platform-tools:~/Android-Development/adt/sdk/tools:$HOME/.yarn/bin
 
-alias drm-all="docker rm $(docker ps -a -q)"
+if command -v docker>/dev/null; then
+    alias drm-all="docker rm $(docker ps -a -q)"
+fi
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
