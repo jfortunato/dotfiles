@@ -17,7 +17,6 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/bundle')
-Plug 'kien/ctrlp.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'vim-scripts/matchit.zip'
 Plug 'gregsexton/MatchTag'
@@ -53,6 +52,9 @@ Plug 'xolox/vim-easytags'
 Plug 'rodjek/vim-puppet'
 Plug 'suan/vim-instant-markdown'
 Plug 'daylerees/colour-schemes', { 'rtp': 'vim/' }
+" PlugInstall and PlugUpdate will clone fzf in ~/.fzf and run install script
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'pbogut/fzf-mru.vim'
 call plug#end()
 
 
@@ -184,10 +186,10 @@ nnoremap <F8> :TagbarToggle<CR>
 " --------------------------------------------------------------------------------
 
 
-" ----------------- CtrlP --------------------------------------------------------
-" ================ Jump To Tags/Functions ========================================
-nnoremap <C-T> :CtrlPBufTag<CR>
-nnoremap <leader><tab> :CtrlPBuffer<cr>
+" ----------------- FZF ----------------------------------------------------------
+" ================ Use CTRL+P for fuzzy finding ==================================
+nnoremap <C-P> :FZF<CR>
+nnoremap <leader><tab> :FZFMru<CR>
 " --------------------------------------------------------------------------------
 
 
