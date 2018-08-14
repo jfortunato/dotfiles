@@ -169,3 +169,7 @@ md5sumdir() {
 # use Ctrl-P instead of Ctrl-T for fuzzy file selection
 #bind '"\C-p": "\C-x\C-a$a \C-x\C-addi`__fzf_select__`\C-x\C-e\C-x\C-a0Px$a \C-x\C-r\C-x\C-axa "'
 bind '"\C-p": "\C-x\C-a$a \C-x\C-addi`__fzf_select_tmux__`\C-x\C-e\C-x\C-a0P$xa"'
+
+# tabtab source for electron-forge package
+# uninstall by removing these lines or running `tabtab uninstall electron-forge`
+[ -f /var/www/Personal/test/test/node_modules/tabtab/.completions/electron-forge.bash ] && . /var/www/Personal/test/test/node_modules/tabtab/.completions/electron-forge.bash

@@ -55,6 +55,10 @@ Plug 'daylerees/colour-schemes', { 'rtp': 'vim/' }
 " PlugInstall and PlugUpdate will clone fzf in ~/.fzf and run install script
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'pbogut/fzf-mru.vim'
+Plug 'roxma/LanguageServer-php-neovim', has('nvim') ? {} : { 'on': [], 'do': 'composer install && composer run-script parse-stubs' }
+Plug 'autozimu/LanguageClient-neovim', has('nvim') ? {} : { 'on': [], 'tag': 'binary-*-x86_64-unknown-linux-musl' }
+Plug 'roxma/nvim-completion-manager', has('nvim') ? {} : { 'on': [] }
+Plug 'leafgarland/typescript-vim'
 call plug#end()
 
 

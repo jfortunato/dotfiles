@@ -18,3 +18,7 @@ nnoremap [c :action PreviousDiff<CR>
 nnoremap <C-N> :action SelectNextOccurence<CR>
 
 nnoremap <C-f> :action SelectIn<CR>
+
+" reset templating echos so that phpstorm handles it
+inoremap {{ {{
+inoremap {% {%
