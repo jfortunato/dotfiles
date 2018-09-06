@@ -95,7 +95,7 @@ set keywordprg=pman " use pman for php manual pages with shift-k
 set laststatus=2 " always show the status line
 set hidden " allow modified buffers to be hidden
 set incsearch " use incremental search
-set guifont=Sauce\ Code\ Powerline\ Regular\ 10
+set guifont=Source\ Code\ Pro\ for\ Powerline\ 10
 set winaltkeys=no " dont allow alt to be captured by the GUI menu entries
 set tags=./tags;/
 let html_no_rendering = 1 " disable things like underlining links

@@ -4,9 +4,10 @@
 - tmux
 - vim
 - exuberant-ctags
+- fonts-powerline
 
 ```
-apt-get update && apt-get install git curl tmux vim exuberant-ctags
+apt-get update && apt-get install git curl tmux vim exuberant-ctags fonts-powerline
 ```
 
 #### Installation
