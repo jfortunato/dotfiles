@@ -155,6 +155,8 @@ fi
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 alias spec="phpspec describe"
+# usage `cat ugly.json | prettyjson`
+alias prettyjson='python -m json.tool'
 
 # start shell in tmux
 if command -v tmux>/dev/null; then
