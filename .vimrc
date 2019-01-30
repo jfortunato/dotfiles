@@ -59,6 +59,7 @@ Plug 'roxma/LanguageServer-php-neovim', has('nvim') ? {} : { 'on': [], 'do': 'co
 Plug 'autozimu/LanguageClient-neovim', has('nvim') ? {} : { 'on': [], 'tag': 'binary-*-x86_64-unknown-linux-musl' }
 Plug 'roxma/nvim-completion-manager', has('nvim') ? {} : { 'on': [] }
 Plug 'leafgarland/typescript-vim'
+Plug 'editorconfig/editorconfig-vim'
 call plug#end()
 
 
