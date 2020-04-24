@@ -146,7 +146,7 @@ bind '"\e[B": history-search-forward'
 
 set -o vi
 
-export PATH=$PATH:~/.composer/vendor/bin:~/Android-Development/adt/sdk/platform-tools:~/Android-Development/adt/sdk/tools:$HOME/.yarn/bin
+export PATH=$PATH:~/.config/composer/vendor/bin:~/Android-Development/adt/sdk/platform-tools:~/Android-Development/adt/sdk/tools:$HOME/.yarn/bin
 
 if command -v docker>/dev/null; then
     alias drm-all="docker rm $(docker ps -a -q)"
@@ -165,6 +165,33 @@ fi
 
 md5sumdir() {
     find $1 -type f -exec md5sum {} \; | sort -k 2 | md5sum
+}
+
+# This will check all links, including those referencing third party hosts, on a single webpage
+check-broken-links() {
+    wget --spider --recursive --no-directories --no-verbose --span-hosts --level 1 --wait 1 "$1"
+}
+
+# This will check all links from the starting webpage and recurse 10 levels deep. It will not check any
+# links referencing third party hosts.
+check-broken-links-deep() {
+    # remove the --span-hosts option so we don't crawl third party sites
+    wget --spider --recursive --no-directories --no-verbose --level 10 --wait 1 "$1"
+}
+
+mirror-website() {
+    wget --mirror --page-requisites --adjust-extension --span-hosts --convert-links --domains "$1" --no-parent "$1"
+
+    # Explained
+    #wget \
+        #--mirror \ # Download the whole site.
+        #--page-requisites \ # Get all assets/elements (CSS/JS/images).
+        #--adjust-extension \ # Save files with .html on the end.
+        #--span-hosts \ # Include necessary assets from offsite as well.
+        #--convert-links \ # Update links to still work in the static version.
+        #--domains "$1" \ # Do not follow links outside this domain.
+        #--no-parent \ # Don't follow links outside the directory you pass in.
+        #"$1" # The URL to download
 }
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
