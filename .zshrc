@@ -74,6 +74,7 @@ plugins=(
     docker-compose
     vi-mode
     tmux
+    zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -107,9 +108,12 @@ source $ZSH/oh-my-zsh.sh
 
 
 # automatically select first option on ambiguous options (more like bash)
-setopt menu_complete
+#setopt menu_complete
 # don't beep on ambiguous options
 setopt nolist_beep
+setopt bash_auto_list
+#setopt noauto_menu
+#setopt complete_in_word
 
 
 # start shell in tmux
@@ -120,6 +124,11 @@ fi
 # increase the history size so we can remember commands that haven't been used in awhile
 HISTSIZE=100000
 SAVEHIST=$HISTSIZE
+
+# aliases
+alias ll='ls -alF'
+alias dcu='docker-compose up -d'
+alias dcs='docker-compose stop'
 
 
 # use vim keybindings
@@ -153,6 +162,9 @@ function marks {
 # use Ctrl-P instead of Ctrl-T for fuzzy file selection
 bindkey '^p' fzf-file-widget
 
+# use Ctrl+Space to complete the suggestion from zsh-autosuggestions
+bindkey '^ ' forward-char
+
 
 md5sumdir() {
     find $1 -type f -exec md5sum {} \; | sort -k 2 | md5sum
@@ -185,3 +197,15 @@ mirror-website() {
         #"$1" # The URL to download
 }
 
+
+# this will suggest packages that are not already installed
+source /etc/zsh_command_not_found
+
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+autoload -U compinit
+compinit -i

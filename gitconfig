@@ -8,6 +8,7 @@
 	dt = difftool
     next = "!sh -c 'git log --reverse --pretty=%H master | awk \"/$(git rev-parse HEAD)/{getline;print}\" | xargs git checkout'"
 	changes = difftool HEAD@{1} # use this after a pull to see the diff (in the difftool) from our last position
+    co = checkout
 [core]
 	excludesfile = ~/.gitignore
 [diff]

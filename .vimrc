@@ -73,6 +73,7 @@ call plug#end()
 let mapleader = "," " remap leader
 
 
+set backupcopy=yes
 set mouse=a  " Allows you to click around the text editor with your mouse to move the cursor
 set showmatch " Highlights matching brackets in programming languages
 set autoindent  " If you're indented, new lines will also be indented
@@ -102,6 +103,7 @@ set tags=./tags;/
 let html_no_rendering = 1 " disable things like underlining links
 "let g:netrw_liststyle = 3 " make netrw use tree file structure
 "let g:netrw_browse_split = 4 " act like 'P' (ie. open previous window)
+let g:snipMate = { 'snippet_version' : 0 } " use the old SnipMate version until I convert my snippets to use the new version
 
 
 " ================ Special Directories ==========================================
