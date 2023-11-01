@@ -2,3 +2,4 @@ tags
 .sass-cache
 .idea
 yarn-error.log
+.var
