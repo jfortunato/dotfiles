@@ -32,7 +32,6 @@ Plug 'sumpygump/php-documentor-vim'
 Plug 'xsbeats/vim-blade'
 Plug 'arnaud-lb/vim-php-namespace'
 Plug 'tpope/vim-fugitive'
-Plug 'mattn/emmet-vim'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -103,6 +102,8 @@ let html_no_rendering = 1 " disable things like underlining links
 "let g:netrw_liststyle = 3 " make netrw use tree file structure
 "let g:netrw_browse_split = 4 " act like 'P' (ie. open previous window)
 let g:snipMate = { 'snippet_version' : 0 } " use the old SnipMate version until I convert my snippets to use the new version
+" use leader leader to trigger snippets
+imap <leader><leader> <Plug>snipMateNextOrTrigger
 
 
 " ================ Special Directories ==========================================
