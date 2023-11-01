@@ -204,6 +204,10 @@ mirror-website() {
         #"$1" # The URL to download
 }
 
+find-recently-modified() {
+    find $1 -type f -print0 | xargs -0 stat --format '%Y :%y %n' | sort -n | cut -d: -f2-
+}
+
 
 # this will suggest packages that are not already installed
 source /etc/zsh_command_not_found

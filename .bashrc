@@ -199,6 +199,10 @@ mirror-website() {
         #"$1" # The URL to download
 }
 
+find-recently-modified() {
+    find $1 -type f -print0 | xargs -0 stat --format '%Y :%y %n' | sort -n | cut -d: -f2-
+}
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 # use Ctrl-P instead of Ctrl-T for fuzzy file selection
 #bind '"\C-p": "\C-x\C-a$a \C-x\C-addi`__fzf_select__`\C-x\C-e\C-x\C-a0Px$a \C-x\C-r\C-x\C-axa "'
