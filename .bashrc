@@ -147,6 +147,9 @@ bind '"\e[B": history-search-forward'
 set -o vi
 
 export PATH=$PATH:~/.config/composer/vendor/bin:~/Android-Development/adt/sdk/platform-tools:~/Android-Development/adt/sdk/tools:$HOME/.yarn/bin
+# Add go to the PATH
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:~/go/bin/
 
 if command -v docker>/dev/null; then
     alias drm-all="docker rm $(docker ps -a -q)"

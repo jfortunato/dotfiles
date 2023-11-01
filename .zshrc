@@ -213,6 +213,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+# Add go to the PATH
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:~/go/bin/
 
 autoload -U compinit
 compinit -i
