@@ -217,3 +217,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 source "/etc/profile.d/rvm.sh"
+
+eval "$(mcfly init bash)"
+export MCFLY_KEY_SCHEME=vim
+export MCFLY_FUZZY=2

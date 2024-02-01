@@ -233,3 +233,7 @@ source "/etc/profile.d/rvm.sh"
 # Enable short-option completion stacking for example: docker exec -it <tab>
 zstyle ':completion:*:*:docker:*' option-stacking yes
 zstyle ':completion:*:*:docker-*:*' option-stacking yes
+
+eval "$(mcfly init zsh)"
+export MCFLY_KEY_SCHEME=vim
+export MCFLY_FUZZY=2
