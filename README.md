@@ -7,7 +7,7 @@
 - fonts-powerline
 
 ```
-apt-get update && apt-get install git curl tmux vim exuberant-ctags fonts-powerline xclip
+apt-get update && apt-get install git curl tmux vim fonts-powerline xclip
 ```
 
 #### Installation

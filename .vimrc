@@ -44,9 +44,6 @@ Plug 'tomtom/tlib_vim'
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 """"""""""""""""""""
-" for vim-easytags
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-easytags'
 "Plug 'ervandew/supertab'
 Plug 'rodjek/vim-puppet'
 Plug 'suan/vim-instant-markdown'
