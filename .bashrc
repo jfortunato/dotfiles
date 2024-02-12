@@ -212,12 +212,8 @@ bind '"\C-p": "\C-x\C-a$a \C-x\C-addi`__fzf_select_tmux__`\C-x\C-e\C-x\C-a0P$xa"
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`
 [ -f /var/www/Personal/test/test/node_modules/tabtab/.completions/electron-forge.bash ] && . /var/www/Personal/test/test/node_modules/tabtab/.completions/electron-forge.bash
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-source "/etc/profile.d/rvm.sh"
-
 eval "$(mcfly init bash)"
 export MCFLY_KEY_SCHEME=vim
 export MCFLY_FUZZY=2
+
+. /opt/asdf-vm/asdf.sh

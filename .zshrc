@@ -212,10 +212,6 @@ find-recently-modified() {
 # this will suggest packages that are not already installed
 source /etc/zsh_command_not_found
 
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 # Add go to the PATH
 export PATH=$PATH:/usr/local/go/bin
@@ -223,8 +219,6 @@ export PATH=$PATH:~/go/bin/
 
 autoload -U compinit
 compinit -i
-
-source "/etc/profile.d/rvm.sh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -237,3 +231,5 @@ zstyle ':completion:*:*:docker-*:*' option-stacking yes
 eval "$(mcfly init zsh)"
 export MCFLY_KEY_SCHEME=vim
 export MCFLY_FUZZY=2
+
+. /opt/asdf-vm/asdf.sh
