@@ -53,7 +53,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'pbogut/fzf-mru.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'github/copilot.vim'
 call plug#end()
 
@@ -293,6 +292,8 @@ let g:syntastic_php_checkers = ['php', 'phpcs'] " not using phpmd right now beca
 " Use monokai colorscheme
 let g:molokai_original = 1
 colorscheme molokai
+" Selected text is too dark with molokai, so change it to a lighter color
+highlight Visual cterm=bold ctermbg=Blue ctermfg=NONE
 
 if has("gui_running")
 	" using gvim
