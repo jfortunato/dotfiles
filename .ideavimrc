@@ -22,3 +22,28 @@ nnoremap <C-f> :action SelectIn<CR>
 " reset templating echos so that phpstorm handles it
 inoremap {{ {{
 inoremap {% {%
+
+sethandler <C-A> a:vim
+sethandler <C-B> a:ide
+sethandler <C-C> a:ide
+sethandler <C-D> a:vim
+sethandler <C-E> a:ide
+sethandler <C-F> a:vim
+sethandler <C-G> a:vim
+sethandler <C-I> a:vim
+sethandler <C-J> a:vim
+sethandler <C-K> a:vim
+sethandler <C-L> a:vim
+sethandler <C-M> a:vim
+sethandler <C-N> a:ide
+sethandler <A-N> a:ide
+sethandler <C-O> a:vim
+sethandler <C-P> a:ide
+sethandler <C-R> a:vim
+sethandler <C-T> a:vim
+sethandler <C-U> a:vim
+sethandler <C-V> a:vim
+sethandler <C-W> a:vim
+sethandler <C-\> a:vim
+sethandler <F8> a:ide
+
