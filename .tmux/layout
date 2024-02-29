@@ -1,9 +1,9 @@
 selectp -t 0              # Select pane 0
-splitw -c "#{pane_current_path}" -h -p 20           # Split pane 0 vertically by 20%
+splitw -c "#{pane_current_path}" -h -l 20%          # Split pane 0 horizontally by 20%
 selectp -t 0              # Select pane 1
-splitw -c "#{pane_current_path}" -v -p 17           # Split pane 1 horizontally by 17%
+splitw -c "#{pane_current_path}" -v -l 17%          # Split pane 1 vertically by 17%
 selectp -t 1              # Select pane 0
-splitw -c "#{pane_current_path}" -h -p 50           # Split pane 1 vertically by 50%
+splitw -c "#{pane_current_path}" -h -l 50%          # Split pane 1 horizontally by 50%
 
 send-keys -t 2 'htop' enter C-l                     # Start htop in bottom middle
 
