@@ -219,8 +219,4 @@ compinit -i
 zstyle ':completion:*:*:docker:*' option-stacking yes
 zstyle ':completion:*:*:docker-*:*' option-stacking yes
 
-eval "$(mcfly init zsh)"
-export MCFLY_KEY_SCHEME=vim
-export MCFLY_FUZZY=2
-
 . /opt/asdf-vm/asdf.sh
