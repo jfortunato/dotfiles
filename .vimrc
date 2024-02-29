@@ -46,7 +46,7 @@ Plug 'honza/vim-snippets'
 """"""""""""""""""""
 "Plug 'ervandew/supertab'
 Plug 'rodjek/vim-puppet'
-Plug 'suan/vim-instant-markdown'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'daylerees/colour-schemes', { 'rtp': 'vim/' }
 " PlugInstall and PlugUpdate will clone fzf in ~/.fzf and run install script
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -284,6 +284,10 @@ let g:user_emmet_leader_key='<leader>'
 nnoremap <leader>st :SyntasticToggleMode<cr>
 let g:syntastic_php_phpcs_args="--report=csv --standard=PSR2"
 let g:syntastic_php_checkers = ['php', 'phpcs'] " not using phpmd right now because its too aggressive
+" -------------------------------------------------------------------------------
+
+" ----------------- Markdown Preview  -------------------------------------------
+nmap <leader>mp <Plug>MarkdownPreview
 " -------------------------------------------------------------------------------
 
 " GUI
