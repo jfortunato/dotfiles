@@ -208,15 +208,6 @@ find-recently-modified() {
     find $1 -type f -print0 | xargs -0 stat --format '%Y :%y %n' | sort -n | cut -d: -f2-
 }
 
-
-# this will suggest packages that are not already installed
-source /etc/zsh_command_not_found
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-# Add go to the PATH
-export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:~/go/bin/
-
 autoload -U compinit
 compinit -i
 
