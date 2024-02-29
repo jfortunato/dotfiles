@@ -242,9 +242,9 @@ au BufRead,BufNewFile *.php vnoremap <buffer> <leader>d :call PhpDocRange()<CR>
 
 
 " ----------------- Fugitive  ----------------------------------------------------
-cmap gs Gstatus
-cmap gd Gdiff
-cmap gb Gblame
+cmap gs Git status
+cmap gd Git diff
+cmap gb Git blame
 " --------------------------------------------------------------------------------
 
 
