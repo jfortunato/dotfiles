@@ -3,7 +3,6 @@
 - curl
 - tmux
 - vim
-- exuberant-ctags
 - fonts-powerline
 
 ```

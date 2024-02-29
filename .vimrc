@@ -23,7 +23,7 @@ Plug 'gregsexton/MatchTag'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/syntastic'
-Plug 'majutsushi/tagbar'
+Plug 'liuchengxu/vista.vim'
 Plug 'joonty/vdebug'
 Plug 'tpope/vim-surround'
 Plug 'othree/html5.vim'
@@ -95,7 +95,6 @@ set hidden " allow modified buffers to be hidden
 set incsearch " use incremental search
 "set guifont=Source\ Code\ Pro\ for\ Powerline\ 10
 set winaltkeys=no " dont allow alt to be captured by the GUI menu entries
-set tags=./tags;/
 let html_no_rendering = 1 " disable things like underlining links
 "let g:netrw_liststyle = 3 " make netrw use tree file structure
 "let g:netrw_browse_split = 4 " act like 'P' (ie. open previous window)
@@ -176,18 +175,18 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 " ================ Forgot Sudo ==================================================
 cmap w!! w !sudo tee > /dev/null %
 
-" ================ Generate CTags ===============================================
-nnoremap <leader>ct :! ctags -R --languages=php --exclude=.git .<cr>
-
 
 
 " PLUGIN SETTINGS & REMAPPINGS
 " =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 
-" ----------------- Tagbar -------------------------------------------------------
+" ----------------- Vista.vim ----------------------------------------------------
 " ================ Show/Hide Tagbar ==============================================
-nnoremap <F8> :TagbarToggle<CR>
+" toggle with F8
+nnoremap <F8> :Vista!!<CR>
+" use vim-lsp for symbols
+let g:vista_default_executive = 'vim_lsp'
 " --------------------------------------------------------------------------------
 
 
@@ -269,12 +268,6 @@ endfunction
 
 " ----------------- NERDTreeComment  -------------------------------------------------
 :map <C-_> <leader>c<Space>
-" -------------------------------------------------------------------------------
-
-" ----------------- Vim-Easytags  -------------------------------------------------
-let g:easytags_dynamic_files = 1
-let g:easytags_auto_highlight = 0
-let g:easytags_async = 1
 " -------------------------------------------------------------------------------
 
 
