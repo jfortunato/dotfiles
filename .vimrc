@@ -54,8 +54,8 @@ Plug 'pbogut/fzf-mru.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'github/copilot.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'majutsushi/tagbar'
 call plug#end()
 
 
@@ -181,12 +181,13 @@ cmap w!! w !sudo tee > /dev/null %
 " =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 
-" ----------------- Vista.vim ----------------------------------------------------
+" ----------------- Tagbar -------------------------------------------------------
 " ================ Show/Hide Tagbar ==============================================
-" toggle with F8
-nnoremap <F8> :Vista!!<CR>
-" use vim-lsp for symbols
-let g:vista_default_executive = 'vim_lsp'
+nnoremap <F8> :TagbarToggle<CR>
+" --------------------------------------------------------------------------------
+
+" ----------------- Gutentags ----------------------------------------------------
+let g:gutentags_cache_dir = '~/.vim/.cache/tags' " store tags in a custom directory instead of polluting the project directory
 " --------------------------------------------------------------------------------
 
 

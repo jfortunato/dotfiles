@@ -4,9 +4,10 @@
 - tmux
 - vim
 - fonts-powerline
+- universal-ctags
 
 ```
-apt-get update && apt-get install git curl tmux vim fonts-powerline xclip
+apt-get update && apt-get install git curl tmux vim fonts-powerline xclip universal-ctags
 ```
 
 #### Installation
