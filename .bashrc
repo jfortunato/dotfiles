@@ -206,3 +206,4 @@ bind '"\C-p": "\C-x\C-a$a \C-x\C-addi`__fzf_select_tmux__`\C-x\C-e\C-x\C-a0P$xa"
 [ -f /var/www/Personal/test/test/node_modules/tabtab/.completions/electron-forge.bash ] && . /var/www/Personal/test/test/node_modules/tabtab/.completions/electron-forge.bash
 
 . /opt/asdf-vm/asdf.sh
+eval "$(direnv hook bash)"

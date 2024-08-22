@@ -82,6 +82,9 @@ plugins=(
     vi-mode
     tmux
     zsh-autosuggestions
+    nix-shell
+    nix-zsh-completions
+    direnv
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -220,3 +223,4 @@ zstyle ':completion:*:*:docker:*' option-stacking yes
 zstyle ':completion:*:*:docker-*:*' option-stacking yes
 
 . /opt/asdf-vm/asdf.sh
+prompt_nix_shell_setup
