@@ -134,8 +134,8 @@ SAVEHIST=$HISTSIZE
 
 # aliases
 alias ll='ls -alF'
-alias dcu='docker-compose up -d'
-alias dcs='docker-compose stop'
+alias dcu='docker compose up -d'
+alias dcs='docker compose stop'
 
 
 # use vim keybindings

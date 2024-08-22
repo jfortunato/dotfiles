@@ -153,8 +153,8 @@ fi
 alias spec="phpspec describe"
 # usage `cat ugly.json | prettyjson`
 alias prettyjson='python -m json.tool'
-alias dcu='docker-compose up -d'
-alias dcs='docker-compose stop'
+alias dcu='docker compose up -d'
+alias dcs='docker compose stop'
 
 # start shell in tmux
 if command -v tmux>/dev/null; then
