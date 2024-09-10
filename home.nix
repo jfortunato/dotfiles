@@ -56,6 +56,7 @@
     # utils
     fzf
     rsync
+    ncdu
 
     # networking tools
     dnsutils  # `dig` + `nslookup`
