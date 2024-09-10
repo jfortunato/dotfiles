@@ -84,7 +84,6 @@
     pv
     neofetch
     quickemu
-    direnv
     cloudflared
     vlc
     gimp
@@ -185,7 +184,7 @@
     };
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "docker" "docker-compose" "vi-mode" "tmux" "direnv" "fzf" ];
+      plugins = [ "git" "docker" "docker-compose" "vi-mode" "tmux" "fzf" ];
       #theme = "powerlevel10k/powerlevel10k";
     };
     plugins = [
@@ -221,6 +220,24 @@
       # Enable short-option completion stacking for example: docker exec -it <tab>
       zstyle ':completion:*:*:docker:*' option-stacking yes
       zstyle ':completion:*:*:docker-*:*' option-stacking yes
+    '';
+  };
+
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true;
+    stdlib = ''
+      # https://github.com/direnv/direnv/wiki/Customizing-cache-location
+      : ''${XDG_CACHE_HOME:=$HOME/.cache}
+      declare -A direnv_layout_dirs
+      direnv_layout_dir() {
+          local hash path
+          echo "''${direnv_layout_dirs[$PWD]:=$(
+              hash="$(sha1sum - <<< "$PWD" | head -c40)"
+              path="''${PWD//[^a-zA-Z0-9]/-}"
+              echo "''${XDG_CACHE_HOME}/direnv/layouts/''${hash}''${path}"
+          )}"
+      }
     '';
   };
 
