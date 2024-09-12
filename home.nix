@@ -112,10 +112,6 @@
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
-    ".bashrc".source = ./.bashrc;
-    ".bash_profile".source = ./.bash_profile;
-    #".zshrc".source = ./.zshrc;
-    #".zprofile".source = ./.zprofile;
     #".p10k.zsh".source = ./.p10k.zsh;
     ".vim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/.vim";
     ".vimrc".source = ./.vimrc;
@@ -168,17 +164,38 @@
     };
   };
 
+  programs.bash = {
+    enable = true;
+    enableCompletion = true;
+    historySize = 100000;
+    historyFileSize = 100000;
+    # don't put duplicate lines or lines starting with space in the history.
+    historyControl = ["ignoreboth"];
+    bashrcExtra = ''
+      source ${config.home.homeDirectory}/.dotfiles/.aliases.sh
+      source ${config.home.homeDirectory}/.dotfiles/.functions.sh
+
+      #PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+      PS1='\u@\h:\w\$ '
+
+      # start typing a command and use up/down arrows to search through history
+      bind '"\e[A": history-search-backward'
+      bind '"\e[B": history-search-forward'
+
+      set -o vi
+
+      [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+      # use Ctrl-P instead of Ctrl-T for fuzzy file selection
+      #bind '"\C-p": "\C-x\C-a$a \C-x\C-addi`__fzf_select__`\C-x\C-e\C-x\C-a0Px$a       \C-x\C-r\C-x\C-axa "'
+      bind '"\C-p": "\C-x\C-a$a \C-x\C-addi`__fzf_select_tmux__`\C-x\C-e\C-x\C-a0P$xa"'
+    '';
+  };
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
-
-    shellAliases = {
-      ll = "ls -alF";
-      dcu = "docker compose up -d";
-      dcs = "docker compose stop";
-    };
     history = {
       size = 100000;
     };
@@ -205,7 +222,8 @@
     initExtra = ''
       source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
       source ${config.home.homeDirectory}/.dotfiles/.p10k.zsh
-      source ${config.home.homeDirectory}/.dotfiles/.functions.zsh
+      source ${config.home.homeDirectory}/.dotfiles/.aliases.sh
+      source ${config.home.homeDirectory}/.dotfiles/.functions.sh
 
       # don't beep on ambiguous options
       setopt nolist_beep
@@ -225,6 +243,7 @@
 
   programs.direnv = {
     enable = true;
+    enableBashIntegration = true;
     enableZshIntegration = true;
     stdlib = ''
       # https://github.com/direnv/direnv/wiki/Customizing-cache-location
@@ -239,6 +258,12 @@
           )}"
       }
     '';
+  };
+
+  programs.dircolors = {
+    enable = true;
+    enableBashIntegration = true;
+    enableZshIntegration = true;
   };
 
   # Let Home Manager install and manage itself.
