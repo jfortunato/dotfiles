@@ -29,9 +29,9 @@
     '';
     initExtra = ''
       source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
-      source ${config.home.homeDirectory}/.dotfiles/.p10k.zsh
-      source ${config.home.homeDirectory}/.dotfiles/.aliases.sh
-      source ${config.home.homeDirectory}/.dotfiles/.functions.sh
+      source ${./.p10k.zsh}
+      source ${./aliases.sh}
+      source ${./functions.sh}
 
       # don't beep on ambiguous options
       setopt nolist_beep

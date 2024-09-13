@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./dconf.nix
     # There are issues when using some applications that use OpenGL on a non-NixOS system.
     # See: https://github.com/nix-community/nixGL
     # Home Manager does not integrate with nixGL at this time, but there is currently an
@@ -11,6 +10,7 @@
       url = "https://raw.githubusercontent.com/Smona/home-manager/nixgl-compat/modules/misc/nixgl.nix";
       sha256 = "01dkfr9wq3ib5hlyq9zq662mp0jl42fw3f6gd2qgdf8l8ia78j7i";
     })
+    ./gnome
     ./shell
   ];
 
@@ -112,7 +112,6 @@
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
-    #".p10k.zsh".source = ./.p10k.zsh;
     ".vim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/.vim";
     ".vimrc".source = ./.vimrc;
     ".ideavimrc".source = ./.ideavimrc;
