@@ -35,7 +35,6 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-    git
     curl
     vimHugeX # vim & gvim
     powerline-fonts
@@ -115,8 +114,6 @@
     ".vim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/.vim";
     ".vimrc".source = ./.vimrc;
     ".ideavimrc".source = ./.ideavimrc;
-    ".gitconfig".source = ./gitconfig;
-    ".gitignore".source = ./gitignore;
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
