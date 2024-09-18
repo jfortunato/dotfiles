@@ -56,6 +56,7 @@
     fzf
     rsync
     ncdu
+    ripgrep
 
     # networking tools
     dnsutils  # `dig` + `nslookup`
@@ -111,15 +112,26 @@
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
-    ".vim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/.vim";
-    ".vimrc".source = ./.vimrc;
-    ".ideavimrc".source = ./.ideavimrc;
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+  };
+
+  xdg = {
+    enable = true;
+    configFile = {
+      "vim/vimrc".source = ./vim/vimrc;
+      "vim/after/syntax/html.vim".source = ./vim/after/syntax/html.vim;
+      "vim/after/syntax/htmljinja.vim".source = ./vim/after/syntax/htmljinja.vim;
+      "vim/colors/molokai.vim".source = ./vim/colors/molokai.vim;
+      "vim/snippets/html.snippets".source = ./vim/snippets/html.snippets;
+      "vim/snippets/javascript.snippets".source = ./vim/snippets/javascript.snippets;
+      "vim/snippets/php.snippets".source = ./vim/snippets/php.snippets;
+      "ideavim/ideavimrc".source = ./ideavim/ideavimrc;
+    };
   };
 
   # Home Manager can also manage your environment variables through
