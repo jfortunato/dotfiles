@@ -1,14 +1,5 @@
 #### Requirements
-- git
-- curl
-- tmux
-- vim
-- fonts-powerline
-- universal-ctags
-
-```
-apt-get update && apt-get install git curl tmux vim fonts-powerline xclip universal-ctags
-```
+- nix
 
 #### Installation
 
@@ -18,13 +9,22 @@ cd ~
 git clone https://github.com/jfortunato/dotfiles.git .dotfiles
 ```
 
-Symlink all the configs to the home directory.
-> **Warning:** this will overwrite any existing files.
+Allow nix home-manager to configure everything.
 ```
-./.dotfiles/install.sh
+nix run home-manager -- init ~/.dotfiles/nix/
 ```
 
 Install vim plugins
 ```
 vim
 ```
+
+#### Updating Packages
+
+All the packages can be updated by running:
+
+```
+nix flake update --commit-lock-file
+```
+
+However since I'd like package updates to happen more frequently I'd rather not pollute the commit history with a bunch of these commits. Instead I can just live on a different branch, update as often as needed, and then periodically squash merge back into the main branch.
