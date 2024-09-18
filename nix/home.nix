@@ -105,6 +105,8 @@
     # '')
   ];
 
+  programs.git.enable = true;
+
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
@@ -131,6 +133,8 @@
       "vim/snippets/javascript.snippets".source = ../vim/snippets/javascript.snippets;
       "vim/snippets/php.snippets".source = ../vim/snippets/php.snippets;
       "ideavim/ideavimrc".source = ../ideavim/ideavimrc;
+      "git/config".source = ../git/config;
+      "git/ignore".source = ../git/ignore;
     };
   };
 

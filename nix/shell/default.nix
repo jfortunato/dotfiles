@@ -3,7 +3,6 @@
     ./tmux.nix
     ./bash.nix
     ./zsh.nix
-    ./git.nix
   ];
 
   programs.alacritty = {
