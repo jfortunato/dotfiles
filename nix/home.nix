@@ -36,7 +36,7 @@
   # environment.
   home.packages = with pkgs; [
     curl
-    vimHugeX # vim & gvim
+    vim-full # vim & gvim
     powerline-fonts
     powerline-symbols
     xclip
