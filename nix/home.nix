@@ -78,7 +78,7 @@
 
     # system tools
     usbutils # lsusb
-    cfdisk # disk partitioning
+    util-linux # mkfs, cfdisk, etc.
 
     # development tools
     #docker
