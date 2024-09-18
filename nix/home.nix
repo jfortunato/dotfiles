@@ -37,6 +37,7 @@
   home.packages = with pkgs; [
     curl
     vim-full # vim & gvim
+    tmux
     powerline-fonts
     powerline-symbols
     xclip
@@ -135,6 +136,8 @@
       "ideavim/ideavimrc".source = ../ideavim/ideavimrc;
       "git/config".source = ../git/config;
       "git/ignore".source = ../git/ignore;
+      "tmux/tmux.conf".source = ../tmux/tmux.conf;
+      "tmux/layout.conf".source = ../tmux/layout.conf;
     };
   };
 
