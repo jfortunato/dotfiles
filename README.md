@@ -3,20 +3,32 @@
 
 #### Installation
 
-Clone the repository to your home directory.
+First install the nix package manager.
 ```
-cd ~
-git clone https://github.com/jfortunato/dotfiles.git .dotfiles
+sh <(curl -L https://nixos.org/nix/install) --daemon
 ```
 
-Allow nix home-manager to configure everything.
+Once nix is installed, we don't even have to clone the repository. We can just use the flake to install everything.
 ```
-nix run home-manager -- init ~/.dotfiles/nix/
+nix --extra-experimental-features "nix-command flakes" run home-manager --extra-experimental-features "nix-command flakes" -- switch --flake github:jfortunato/dotfiles?dir=nix
 ```
 
 Install vim plugins
 ```
 vim
+```
+
+#### Usage
+
+Instead of working with a remote git repository, we can clone the repository and work with it locally.
+```
+cd ~
+git clone https://github.com/jfortunato/dotfiles.git .dotfiles
+```
+
+Now we can work locally and tell home-manager to use the flake in the local repository.
+```
+home-manager switch --flake ~/.dotfiles/nix
 ```
 
 #### Updating Packages
