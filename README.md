@@ -10,8 +10,14 @@ sh <(curl -L https://nixos.org/nix/install) --daemon
 
 Once nix is installed, we don't even have to clone the repository. We can just use the flake to install everything.
 ```
-nix --extra-experimental-features "nix-command flakes" run home-manager --extra-experimental-features "nix-command flakes" -- switch --flake github:jfortunato/dotfiles?dir=nix
+nix --extra-experimental-features "nix-command flakes" run home-manager -- --extra-experimental-features "nix-command flakes" switch --flake github:jfortunato/dotfiles?dir=nix
 ```
+
+> The experimental features can be added to the nix configuration file to avoid having to specify them every time.
+
+> Some files may need to be removed from the home directory, like a pre-existing .bashrc or .profile.
+
+> Restart after running the above command to ensure all changes take effect.
 
 Install vim plugins
 ```
