@@ -1,5 +1,3 @@
-.vim/.netrwhist
 *logs*
 *.log
 .weechat/irc.conf
-.vim/autoload

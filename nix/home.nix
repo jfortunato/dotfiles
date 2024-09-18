@@ -1,6 +1,24 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 {
+  imports = [
+    # There are issues when using some applications that use OpenGL on a non-NixOS system.
+    # See: https://github.com/nix-community/nixGL
+    # Home Manager does not integrate with nixGL at this time, but there is currently an
+    # open PR to add support: https://github.com/nix-community/home-manager/pull/5355
+    (builtins.fetchurl {
+      url = "https://raw.githubusercontent.com/Smona/home-manager/nixgl-compat/modules/misc/nixgl.nix";
+      sha256 = "01dkfr9wq3ib5hlyq9zq662mp0jl42fw3f6gd2qgdf8l8ia78j7i";
+    })
+    ./gnome
+    ./shell
+    ./xdg
+  ];
+
+  nixGL.prefix = "${inputs.nixGL.packages."${pkgs.system}".nixGLIntel}/bin/nixGLIntel";
+
+  nixpkgs.config.allowUnfree = true;
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "justin";
@@ -17,10 +35,65 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
-    # pkgs.hello
+  home.packages = with pkgs; [
+    curl
+    vim-full # vim & gvim
+    git
+    tmux
+    powerline-fonts
+    powerline-symbols
+    xclip # terminal clipboard
+    universal-ctags
+    (config.lib.nixGL.wrap google-chrome)
+    (config.lib.nixGL.wrap firefox)
+
+    # archives
+    zip
+    gzip
+    xz
+    unzip
+    zstd
+    gnutar
+
+    # utils
+    fzf
+    rsync
+    ncdu # better than `du` for disk usage analysis
+    ripgrep
+
+    # networking tools
+    dnsutils  # `dig` + `nslookup`
+    ldns # replacement of `dig`, it provide the command `drill`
+    nmap # A utility for network discovery and security auditing
+    whois # A utility for querying the whois database
+    netcat-openbsd # A simple utility for reading and writing data across network connections
+    nettools # netstat, ifconfig, route, etc.
+    iproute2 # ip, ss, etc.
+
+    # system monitoring
+    htop
+    btop
+    strace # system call monitoring
+    lsof # list open files
+
+    # system tools
+    usbutils # lsusb
+    cfdisk # disk partitioning
+
+    # development tools
+    #docker
+    jetbrains-toolbox
+
+    # misc
+    pv
+    neofetch
+    quickemu
+    cloudflared
+    vlc
+    gimp
+    inkscape
+    libreoffice-still
+    (config.lib.nixGL.wrap keeweb)
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -70,6 +143,10 @@
   home.sessionVariables = {
     # EDITOR = "emacs";
   };
+
+  targets.genericLinux.enable = true;
+
+  fonts.fontconfig.enable = true;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
