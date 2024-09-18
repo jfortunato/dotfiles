@@ -38,10 +38,11 @@
   home.packages = with pkgs; [
     curl
     vim-full # vim & gvim
+    git
     tmux
     powerline-fonts
     powerline-symbols
-    xclip
+    xclip # terminal clipboard
     universal-ctags
     (config.lib.nixGL.wrap google-chrome)
     (config.lib.nixGL.wrap firefox)
@@ -57,7 +58,7 @@
     # utils
     fzf
     rsync
-    ncdu
+    ncdu # better than `du` for disk usage analysis
     ripgrep
 
     # networking tools
@@ -106,8 +107,6 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
   ];
-
-  programs.git.enable = true;
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
