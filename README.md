@@ -42,7 +42,7 @@ home-manager switch --flake ~/.dotfiles/nix
 All the packages can be updated by running:
 
 ```
-nix flake update --flake ~/.dotfiles/nix --commit-lock-file
+hm-update-packages
 ```
 
-However since I'd like package updates to happen more frequently I'd rather not pollute the commit history with a bunch of these commits. Instead I can just live on a different branch, update as often as needed, and then periodically squash merge back into the main branch.
+This runs a custom script that essentially runs `nix flake update --flake ~/.dotfiles/nix --commit-lock-file` and gives some additional output to display the changes. However since I'd like package updates to happen more frequently I'd rather not pollute the commit history with a bunch of these commits. Instead I can just live on a different branch, update as often as needed, and then periodically squash merge back into the main branch.
