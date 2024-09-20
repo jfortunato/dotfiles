@@ -20,6 +20,7 @@
     enable = true;
     enableBashIntegration = true;
     enableZshIntegration = true;
+    nix-direnv.enable = true;
     stdlib = ''
       # https://github.com/direnv/direnv/wiki/Customizing-cache-location
       : "''${XDG_CACHE_HOME:="''${HOME}/.cache"}"
