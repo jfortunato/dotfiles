@@ -59,7 +59,8 @@
     fzf
     rsync
     ncdu # better than `du` for disk usage analysis
-    ripgrep
+    ripgrep # faster `grep`
+    fd # faster `find`
 
     # networking tools
     dnsutils  # `dig` + `nslookup`

@@ -39,6 +39,9 @@
 
       # use Ctrl-P instead of Ctrl-T for fuzzy file selection
       bindkey '^p' fzf-file-widget
+      # The oh-my-zsh fzf plugin already sets FZF_DEFAULT_COMMAND to use 'fd', but
+      # we want to use 'fd' for the fzf-file-widget as well.
+      export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
       # use Ctrl+Space to complete the suggestion from zsh-autosuggestions
       bindkey '^ ' forward-char
