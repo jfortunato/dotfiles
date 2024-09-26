@@ -11,6 +11,7 @@ LATEST_BEFORE_UPDATE=$(home-manager generations | head -n 1 | awk '{print $7}')
 # Update all packages and commit the updated lock file
 DIR=$(dirname "$0")
 nix flake update --flake "$DIR" --commit-lock-file
+home-manager switch --flake "$DIR"
 
 # Get the new generation
 LATEST_AFTER_UPDATE=$(home-manager generations | head -n 1 | awk '{print $7}')
