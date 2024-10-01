@@ -58,7 +58,7 @@
     # utils
     fzf
     rsync
-    ncdu # better than `du` for disk usage analysis
+    gdu # better than `du` for disk usage analysis
     ripgrep # faster `grep`
     fd # faster `find`
 
