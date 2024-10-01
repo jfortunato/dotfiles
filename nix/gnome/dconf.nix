@@ -9,7 +9,7 @@
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
       binding = "<Primary><Alt>t";
-      command = "alacritty";
+      command = "kitty";
       name = "open-terminal";
     };
     "org/gnome/desktop/wm/keybindings" = {
