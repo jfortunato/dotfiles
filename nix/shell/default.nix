@@ -134,4 +134,19 @@
     enableBashIntegration = true;
     enableZshIntegration = true;
   };
+
+  programs.starship = {
+    enable = true;
+    settings = {
+      add_newline = false;
+      # A minimal left prompt
+      format = "$directory$character";
+      # move the rest of the prompt to the right
+      right_format = "$all";
+      nix_shell = {
+        # Only show the icon
+        format = "via [$symbol]($style) ";
+      };
+    };
+  };
 }
