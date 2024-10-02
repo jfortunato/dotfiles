@@ -40,6 +40,10 @@
       # The zsh history completion is displayed in this color, but the "Tomorrow Night" theme
       # uses #000 for the text which makes it hard to read. This makes it a more readable color.
       color8 = "#767676";
+      font_family = "family='Source Code Pro' postscript_name=SourceCodePro-Regular";
+      bold_font = "auto";
+      italic_font = "auto";
+      bold_italic_font = "auto";
       tab_bar_style = "powerline";
       tab_bar_min_tabs = "1"; # Always show the tab bar
       tab_bar_background = "#000";
@@ -47,7 +51,7 @@
       tab_title_template = "{layout_name} {index}: {tab.active_exe}";
       active_tab_foreground = "#000";
       active_tab_background = "#afd700";
-      active_tab_font_style = "bold-italic";
+      active_tab_font_style = "bold";
       inactive_tab_foreground = "#444";
       inactive_tab_background = "#999";
       inactive_tab_font_style = "normal";

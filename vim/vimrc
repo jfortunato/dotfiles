@@ -106,7 +106,7 @@ set keywordprg=pman " use pman for php manual pages with shift-k
 set laststatus=2 " always show the status line
 set hidden " allow modified buffers to be hidden
 set incsearch " use incremental search
-"set guifont=Source\ Code\ Pro\ for\ Powerline\ 10
+set guifont=Source\ Code\ Pro\ 10 " set font
 set winaltkeys=no " dont allow alt to be captured by the GUI menu entries
 let html_no_rendering = 1 " disable things like underlining links
 "let g:netrw_liststyle = 3 " make netrw use tree file structure

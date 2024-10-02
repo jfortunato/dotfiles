@@ -40,12 +40,20 @@
     vim-full # vim & gvim
     git
     tmux
-    powerline-fonts
-    powerline-symbols
     xclip # terminal clipboard
     universal-ctags
     (config.lib.nixGL.wrap google-chrome)
     (config.lib.nixGL.wrap firefox)
+
+    # fonts
+    # For some reason kitty crashes sometimes when using nix fonts in non-NixOS system, so
+    # for now I'll install these fonts with the system package manager. I'd also prefer to
+    # use these non-patched fonts instead of the patched Nerd Fonts (https://sw.kovidgoyal.net/kitty/faq/#kitty-is-not-able-to-use-my-favorite-font).
+    #hack-font
+    #noto-fonts
+    #source-code-pro
+    #jetbrains-mono
+    #(pkgs.nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
 
     # archives
     zip
@@ -95,12 +103,6 @@
     inkscape
     libreoffice-still
     (config.lib.nixGL.wrap keeweb)
-
-    # # It is sometimes useful to fine-tune packages, for example, by applying
-    # # overrides. You can do that directly here, just don't forget the
-    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-    # # fonts?
-    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
 
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
