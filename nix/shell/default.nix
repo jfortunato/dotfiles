@@ -148,6 +148,9 @@
         # Only show the icon
         format = "via [$symbol]($style) ";
       };
+      direnv = {
+        disabled = false;
+      };
     };
   };
 }
