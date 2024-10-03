@@ -218,9 +218,10 @@ nmap s <Plug>(easymotion-s2)
 " --------------------------------------------------------------------------------
 
 
-" ----------------- Airline -------------------------------------------------
+"  ----------------- Airline -------------------------------------------------
 "let g:airline#extensions#tabline#enabled = 1 "vimline display buffers
-let g:airline_theme='powerlineish' "airline colors
+set noshowmode
+let g:airline_theme='tomorrow' "airline colors
 let g:airline_powerline_fonts = 1 "enable patch fonts
 let g:airline#extensions#tabline#left_sep = '' "triangle buffers and tabs at top of vim
 let g:airline#extensions#tabline#left_alt_sep = ''
@@ -334,11 +335,8 @@ let &t_RT = "\e[23;2t"
 let &t_ut=''
 " END Kitty recommended settings
 
-" Use monokai colorscheme
-let g:molokai_original = 1
-colorscheme molokai
-" Selected text is too dark with molokai, so change it to a lighter color
-highlight Visual cterm=bold ctermbg=Blue ctermfg=NONE
+" Theme
+colorscheme tomorrow_night
 
 if has("gui_running")
 	" using gvim

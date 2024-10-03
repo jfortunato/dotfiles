@@ -6,6 +6,7 @@
       "vim/after/syntax/html.vim".source = ../../vim/after/syntax/html.vim;
       "vim/after/syntax/htmljinja.vim".source = ../../vim/after/syntax/htmljinja.vim;
       "vim/colors/molokai.vim".source = ../../vim/colors/molokai.vim;
+      "vim/colors/tomorrow_night.vim".source = ../../vim/colors/tomorrow_night.vim;
       "vim/snippets/html.snippets".source = ../../vim/snippets/html.snippets;
       "vim/snippets/javascript.snippets".source = ../../vim/snippets/javascript.snippets;
       "vim/snippets/php.snippets".source = ../../vim/snippets/php.snippets;
