@@ -286,6 +286,12 @@ nmap <leader>mp <Plug>MarkdownPreview
 " GUI
 " =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
+" Fix a couple things that cause issues with kitty
+set noesckeys
+" Disable modifyOtherKeys
+let &t_TI = ""
+let &t_TE = ""
+
 " START Kitty recommended settings (https://sw.kovidgoyal.net/kitty/faq/#using-a-color-theme-with-a-background-color-does-not-work-well-in-vim)
 " Mouse support
 set ttymouse=sgr

@@ -85,6 +85,11 @@
 
   xdg.configFile."kitty/tab_bar.py".source = ./tab_bar.py;
 
+  # Instead of installing gvim, I can emulate the behavior of gvim by launching vim in a kitty session with a few tweaks. Placing the script in the home.packages section will make it available in the PATH.
+  home.packages = with pkgs; [
+    (pkgs.writeScriptBin "kitty_launch_vim" (builtins.readFile ./kitty_launch_vim.sh))
+  ];
+
   # Replace the default kitty icon with a better one
   xdg.desktopEntries = {
     "kitty" = {

@@ -10,11 +10,13 @@
 	changes = difftool HEAD@{1} # use this after a pull to see the diff (in the difftool) from our last position
     co = checkout
 [diff]
-	tool = gvimdiff
+	tool = kitty_launch_vim_diff
 [difftool]
 	prompt = false
+[difftool "kitty_launch_vim_diff"]
+    cmd = kitty_launch_vim -d $LOCAL $REMOTE
 [mergetool "fugitive"]
-	cmd = gvim -f -c \"Gdiff\" \"$MERGED\"
+	cmd = vim -f -c \"Gdiff\" \"$MERGED\"
 [merge]
 	tool = fugitive
 [pull]
