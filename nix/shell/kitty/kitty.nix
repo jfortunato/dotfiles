@@ -41,8 +41,6 @@
       inactive_tab_foreground = "#444";
       inactive_tab_background = "#999";
       inactive_tab_font_style = "normal";
-
-
       # Use vim as a scrollback pager (https://github.com/kovidgoyal/kitty/issues/719)
       # vim - make vim read from stdin
       # -u NONE don't load any vimrc
@@ -80,6 +78,7 @@
       "`>[" = "show_scrollback";
       # Mimics my tmux layout
       "`>shift+p" = "combine : reset_window_sizes : launch --location=vsplit --bias=20 --cwd=current : nth_window -1 : launch --location=hsplit --bias=17 --cwd=current : launch htop : first_window";
+      "f11" = "toggle_fullscreen";
     };
   };
 
