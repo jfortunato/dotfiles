@@ -14,7 +14,7 @@
 [difftool]
 	prompt = false
 [difftool "kitty_launch_vim_diff"]
-    cmd = kitty_launch_vim -d $LOCAL $REMOTE
+    cmd = kitty_launch_vim -d $LOCAL $REMOTE 2> /dev/null
 [mergetool "fugitive"]
 	cmd = vim -f -c \"Gdiff\" \"$MERGED\"
 [merge]
