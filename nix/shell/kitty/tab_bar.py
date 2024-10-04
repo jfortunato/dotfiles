@@ -17,6 +17,7 @@ opts = get_options()
 icon_fg = as_rgb(color_as_int(opts.color8))
 icon_bg = as_rgb(color_as_int(opts.background))
 layout_name_color = as_rgb(color_as_int(opts.color8))
+date_color = as_rgb(color_as_int(opts.active_tab_background))
 clock_color = as_rgb(color_as_int(opts.active_tab_background))
 utc_color = as_rgb(color_as_int(opts.color8))
 SEPARATOR_SYMBOL, SOFT_SEPARATOR_SYMBOL = ("", "")
@@ -123,10 +124,13 @@ def draw_tab(
         timer_id = add_timer(_redraw_tab_bar, REFRESH_TIME, True)
     if tab.is_active:
         active_tab_layout_name = tab.layout_name
-    clock = datetime.now().strftime(" %H:%M")
+    now = datetime.now()
+    date = now.strftime(" %a %b %d")
+    clock = now.strftime(" %H:%M")
     utc = datetime.now(timezone.utc).strftime(" (UTC %H:%M)")
     cells = []
     cells.append((layout_name_color, active_tab_layout_name))
+    cells.append((date_color, date))
     cells.append((clock_color, clock))
     cells.append((utc_color, utc))
     right_status_length = RIGHT_MARGIN
