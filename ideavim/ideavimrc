@@ -1,4 +1,4 @@
-source ~/.config/vim/vimrc
+source ~/.config/nvim/init.vim
 
 nnoremap ,<tab> :action RecentFiles<CR>
 

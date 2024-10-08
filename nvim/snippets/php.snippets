@@ -1,0 +1,23 @@
+# constructor
+snippet __c
+	public function __construct(${1})
+	{
+	}
+
+# interface method
+snippet im
+	${1:public} function ${2:method}(${3});
+
+# member variable
+snippet mv
+	${1:protected} $${2:foo};
+
+# phpspec tests
+snippet it
+	function it${1}(${2})
+	{
+	}
+
+# php7 strict typing
+snippet ds
+	declare(strict_types=1);

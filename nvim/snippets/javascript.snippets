@@ -1,0 +1,19 @@
+snippet lit
+	import {css, html, LitElement} from 'lit';
+	import {customElement} from 'lit/decorators.js'
+
+	export class ${1:TagName} extends LitElement {
+		static styles = css\`
+	:host {
+		display: block;
+	}
+		\`;
+
+		protected render() {
+			return html\`
+			${0}
+			\`;
+		}
+	}
+
+	customElements.define('${2:tag-name}', ${3:TagName});

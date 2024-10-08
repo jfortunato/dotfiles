@@ -41,25 +41,23 @@
       inactive_tab_foreground = "#444";
       inactive_tab_background = "#999";
       inactive_tab_font_style = "normal";
-      # Use vim as a scrollback pager (https://github.com/kovidgoyal/kitty/issues/719)
-      # vim - make vim read from stdin
+      # Use nvim as a scrollback pager (https://github.com/kovidgoyal/kitty/issues/719)
       # -u NONE don't load any vimrc
-      # -c 'w! /tmp/kitty_scrollback' write stdin to a tmp file
-      # -c 'term ++curwin cat /tmp/kitty_scrollback' open the tmp file in vim terminal mode
-      # -c "terminal cat /proc/$$/fd/0 -" Open the embedded terminal and read stdin of the shell
-      # -c 'set nocompatible' fixes some issues with <cr>
-      # -c 'map <cr> :qa!<cr>' quit vim on <cr> (enter)
-      # -c 'map q :qa!<cr>' quit vim on q
+      # -c 'set nonumber nolist showtabline=0 foldcolumn=0 laststatus=0' remove line numbers, etc
+      # -c 'map <cr> :qa!<cr>' quit nvim on <cr> (enter)
+      # -c 'map q :qa!<cr>' quit nvim on q
       # -c 'set clipboard^=unnamed,unnamedplus' simply press 'y' to copy to system clipboard
+      # -c 'autocmd TermOpen * normal G' scroll to the bottom of the terminal when opening a terminal
+      # -c 'silent write! /tmp/kitty_scrollback_buffer | terminal cat /tmp/kitty_scrollback_buffer - ' write the scrollback buffer to a file and open it in a terminal
       scrollback_pager = ''
-        vim -
+        nvim
         \ -u NONE
-        \ -c 'w! /tmp/kitty_scrollback'
-        \ -c 'term ++curwin cat /tmp/kitty_scrollback'
-        \ -c 'set nocompatible'
+        \ -c "set nonumber nolist showtabline=0 foldcolumn=0 laststatus=0"
         \ -c 'map <cr> :qa!<cr>'
         \ -c 'map q :qa!<cr>'
         \ -c 'set clipboard^=unnamed,unnamedplus'
+        \ -c "autocmd TermOpen * normal G"
+        \ -c "silent write! /tmp/kitty_scrollback_buffer | terminal cat /tmp/kitty_scrollback_buffer - "
       '';
       confirm_os_window_close = "1"; # Prevent accidental closing of kitty
       notify_on_cmd_finish = "invisible 30"; # Notify when a long command finishes
@@ -84,9 +82,9 @@
 
   xdg.configFile."kitty/tab_bar.py".source = ./tab_bar.py;
 
-  # Instead of installing gvim, I can emulate the behavior of gvim by launching vim in a kitty session with a few tweaks. Placing the script in the home.packages section will make it available in the PATH.
+  # Instead of installing gvim, I can emulate the behavior of gvim by launching nvim in a kitty session with a few tweaks. Placing the script in the home.packages section will make it available in the PATH.
   home.packages = with pkgs; [
-    (pkgs.writeScriptBin "kitty_launch_vim" (builtins.readFile ./kitty_launch_vim.sh))
+    (pkgs.writeScriptBin "kitty_launch_nvim" (builtins.readFile ./kitty_launch_nvim.sh))
   ];
 
   # Replace the default kitty icon with a better one

@@ -37,7 +37,7 @@
   # environment.
   home.packages = with pkgs; [
     curl
-    vim-full # vim & gvim
+    neovim
     git
     tmux
     xclip # terminal clipboard
@@ -144,7 +144,7 @@
   #  /etc/profiles/per-user/justin/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+     EDITOR = "nvim";
   };
 
   targets.genericLinux.enable = true;

@@ -8,5 +8,8 @@ alias hm-update-packages='~/.dotfiles/nix/hm-update-packages.sh'
 # Fixes some ssh issues when using kitty (https://wiki.archlinux.org/title/Kitty#Terminal_issues_with_SSH)
 # Also gives some extra features (https://sw.kovidgoyal.net/kitty/kittens/ssh/)
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh --kitten color_scheme=Gruvbox\ Dark"
-# Emulate gvim with kitty + regular vim
-alias gvim='kitty_launch_vim --detach'
+# Alias all vim commands to nvim
+alias vim='nvim'
+alias vi='nvim'
+# Emulate gvim with kitty + regular nvim
+alias gvim='kitty_launch_nvim --detach'
