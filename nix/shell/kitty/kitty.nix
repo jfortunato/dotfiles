@@ -81,6 +81,7 @@
   };
 
   xdg.configFile."kitty/tab_bar.py".source = ./tab_bar.py;
+  xdg.configFile."kitty/ssh.conf".source = ./ssh.conf;
 
   # Instead of installing gvim, I can emulate the behavior of gvim by launching nvim in a kitty session with a few tweaks. Placing the script in the home.packages section will make it available in the PATH.
   home.packages = with pkgs; [
