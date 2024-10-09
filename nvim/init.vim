@@ -13,6 +13,7 @@ set clipboard+=unnamed,unnamedplus " Enables system clipboard for copy/paste wit
 set ignorecase " case-insensitive search
 set smartcase " case-sensitive search if search contains capital
 set scrolloff=2 " keep at least 2 lines above/below the cursor
+set nofoldenable " disable code folding
 let html_no_rendering = 1 " disable things like underlining links
 autocmd VimResized * wincmd = " Evenly distribute windows when resizing. This helps when opening a maximized window while using nvim as a git difftool
 
@@ -41,11 +42,8 @@ Plug 'vim-airline/vim-airline' " Fancy status bar
 Plug 'vim-airline/vim-airline-themes' " Themes for airline
 Plug 'mg979/vim-visual-multi' " Multiple cursors
 Plug 'godlygeek/tabular' " Align text vertically
-" all for snipmate
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'garbas/vim-snipmate'
-Plug 'honza/vim-snippets'
-""""""""""""""""""""
+Plug 'L3MON4D3/LuaSnip', {'tag': 'v2.*', 'do': 'make install_jsregexp'} " Snippets engine
+Plug 'honza/vim-snippets' " Snippets for many languages
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']} " Automatic markdown preview in browser
 Plug 'junegunn/fzf' " Fuzzy file finder
 Plug 'junegunn/fzf.vim' " FZF integration
@@ -137,6 +135,8 @@ nnoremap <C-f> :NERDTreeFind<cr> " Find file in NERDTree
 " Markdown Preview
 nmap <leader>mp <Plug>MarkdownPreview
 
-" SnipMate
-let g:snipMate = { 'snippet_version' : 0 } " use the old SnipMate version until I convert my snippets to use the new version
-imap <leader><leader> <Plug>snipMateNextOrTrigger " use leader leader to trigger snippets
+" LuaSnip
+imap <silent><expr> <leader><leader> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<leader><leader>' " use leader leader to trigger snippets (only if expand or jump is possible)
+lua << EOF
+    require("luasnip.loaders.from_snipmate").lazy_load() -- load snipmate style snippets
+EOF
