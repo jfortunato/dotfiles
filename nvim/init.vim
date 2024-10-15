@@ -104,7 +104,8 @@ colorscheme tomorrow_night
 nnoremap <F8> :TagbarToggle<CR> " Toggle Tagbar
 
 " FZF
-nnoremap <C-P> :FZF<CR> " Use CTRL-P to search files
+" Use CTRL-P to search files
+nnoremap <C-P> :FZF<CR>
 nnoremap <leader><tab> :History<CR>
 
 " Airline
