@@ -69,6 +69,7 @@
     gdu # better than `du` for disk usage analysis
     ripgrep # faster `grep`
     fd # faster `find`
+    eza # better `ls`
 
     # networking tools
     dnsutils  # `dig` + `nslookup`

@@ -1,10 +1,14 @@
-alias ll='ls -alF'
+alias ls='eza --icons --git'
+alias ll='eza --icons --git --long --all --group --smart-group'
+alias lt='eza --icons --git --long --all --group --smart-group'
 alias dcu='docker compose up -d'
 alias dcs='docker compose stop'
 alias spec="phpspec describe"
 # usage `cat ugly.json | prettyjson`
 alias prettyjson='python -m json.tool'
 alias hm-update-packages='~/.dotfiles/nix/hm-update-packages.sh'
+# Ensure that sudo works with aliases
+alias sudo='sudo '
 # Fixes some ssh issues when using kitty (https://wiki.archlinux.org/title/Kitty#Terminal_issues_with_SSH)
 # Also gives some extra features (https://sw.kovidgoyal.net/kitty/kittens/ssh/)
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh --kitten color_scheme=Gruvbox\ Dark"
