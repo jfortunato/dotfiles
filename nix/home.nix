@@ -7,7 +7,7 @@
     # Home Manager does not integrate with nixGL at this time, but there is currently an
     # open PR to add support: https://github.com/nix-community/home-manager/pull/5355
     (builtins.fetchurl {
-      url = "https://raw.githubusercontent.com/Smona/home-manager/nixgl-compat/modules/misc/nixgl.nix";
+      url = "https://raw.githubusercontent.com/Smona/home-manager/830c928697049ef9ce1eea2f3b6ce2972a80b6f6/modules/misc/nixgl.nix";
       sha256 = "01dkfr9wq3ib5hlyq9zq662mp0jl42fw3f6gd2qgdf8l8ia78j7i";
     })
     ./gnome
