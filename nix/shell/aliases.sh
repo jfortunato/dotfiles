@@ -1,6 +1,5 @@
-alias ls='eza --icons --git'
-alias ll='eza --icons --git --long --all --group --smart-group'
-alias lt='eza --icons --git --long --all --group --smart-group'
+alias ls='eza --icons --git --group-directories-first'
+alias ll='eza --icons --git --long --all --group --smart-group --group-directories-first'
 alias dcu='docker compose up -d'
 alias dcs='docker compose stop'
 alias spec="phpspec describe"
