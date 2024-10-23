@@ -41,24 +41,10 @@
       inactive_tab_foreground = "#444";
       inactive_tab_background = "#999";
       inactive_tab_font_style = "normal";
-      # Use nvim as a scrollback pager (https://github.com/kovidgoyal/kitty/issues/719)
-      # -u NONE don't load any vimrc
-      # -c 'set nonumber nolist showtabline=0 foldcolumn=0 laststatus=0' remove line numbers, etc
-      # -c 'map <cr> :qa!<cr>' quit nvim on <cr> (enter)
-      # -c 'map q :qa!<cr>' quit nvim on q
-      # -c 'set clipboard^=unnamed,unnamedplus' simply press 'y' to copy to system clipboard
-      # -c 'autocmd TermOpen * normal G' scroll to the bottom of the terminal when opening a terminal
-      # -c 'silent write! /tmp/kitty_scrollback_buffer | terminal cat /tmp/kitty_scrollback_buffer - ' write the scrollback buffer to a file and open it in a terminal
-      scrollback_pager = ''
-        nvim
-        \ -u NONE
-        \ -c "set nonumber nolist showtabline=0 foldcolumn=0 laststatus=0"
-        \ -c 'map <cr> :qa!<cr>'
-        \ -c 'map q :qa!<cr>'
-        \ -c 'set clipboard^=unnamed,unnamedplus'
-        \ -c "autocmd TermOpen * normal G"
-        \ -c "silent write! /tmp/kitty_scrollback_buffer | terminal cat /tmp/kitty_scrollback_buffer - "
-      '';
+      # Use nvim as a scrollback pager
+      # The explanation for this script can be found here:
+      # https://github.com/kovidgoyal/kitty/issues/719#issuecomment-952039731
+      scrollback_pager = "${./pager.sh} 'INPUT_LINE_NUMBER' 'CURSOR_LINE' 'CURSOR_COLUMN'";
       confirm_os_window_close = "1"; # Prevent accidental closing of kitty
       notify_on_cmd_finish = "invisible 30"; # Notify when a long command finishes
     };
@@ -80,6 +66,7 @@
     };
   };
 
+  xdg.configFile."kitty/pager.sh".source = ./pager.sh;
   xdg.configFile."kitty/tab_bar.py".source = ./tab_bar.py;
   xdg.configFile."kitty/ssh.conf".source = ./ssh.conf;
 
