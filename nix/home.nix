@@ -96,6 +96,7 @@
     inkscape
     libreoffice-still
     (config.lib.nixGL.wrap keeweb)
+    bitwarden-desktop
     distrobox
 
     # # You can also create simple shell scripts directly inside your
