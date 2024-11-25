@@ -1,14 +1,15 @@
-{ config, pkgs, lib, nixgl, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 {
   imports = [
     ./gnome
     ./shell
     ./xdg
+    ./non-nixos
+    ./key-remaps.nix
   ];
 
-  nixGL.packages = nixgl.packages;
-
+  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -29,6 +30,7 @@
   # environment.
   home.packages = with pkgs; [
     curl
+    wget
     neovim
     git
     tmux
@@ -83,7 +85,6 @@
     util-linux # mkfs, cfdisk, etc.
 
     # development tools
-    #docker
     jetbrains-toolbox
 
     # misc
@@ -98,6 +99,7 @@
     (config.lib.nixGL.wrap keeweb)
     bitwarden-desktop
     distrobox
+    nh
 
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
@@ -140,9 +142,9 @@
   #
   home.sessionVariables = {
      EDITOR = "nvim";
+     # Set the FLAKE environment variable for `nh` (nix-helper)
+     FLAKE = "/home/justin/.dotfiles/nix";
   };
-
-  targets.genericLinux.enable = true;
 
   fonts.fontconfig.enable = true;
 

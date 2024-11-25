@@ -1,0 +1,62 @@
+{ lib, ... }:
+
+{
+  dconf.settings = {
+    # Enable custom keybindings
+    "org/gnome/settings-daemon/plugins/media-keys" = {
+      custom-keybindings = [
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+      ];
+    };
+    # Launch kitty with ctrl+alt+t
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+      binding = "<Primary><Alt>t";
+      command = "kitty";
+      name = "open-terminal";
+    };
+    # Switch workspaces with alt+h and alt+l
+    "org/gnome/desktop/wm/keybindings" = {
+      switch-to-workspace-left = ["<Alt>h"];
+      switch-to-workspace-right = ["<Alt>l"];
+    };
+    "org/gnome/shell" = {
+      # The apps we want pinned to the dock
+      favorite-apps = [
+        "google-chrome.desktop"
+        "keeweb.desktop"
+        "bitwarden.desktop"
+        "org.gnome.Nautilus.desktop"
+        "org.gnome.Software.desktop"
+        "kitty.desktop"
+        "jetbrains-idea-a5c19c37-11ad-4998-b755-f52382fdfa5d.desktop"
+        "idancecloud.desktop"
+        "online-reporting.desktop"
+        "google-drive.desktop"
+        "youtube-tv.desktop"
+        "youtube-music.desktop"
+      ];
+    };
+    # Don't use other workspace apps when alt-tabbing
+    "org/gnome/shell/app-switcher" = {
+        current-workspace-only = true;
+    };
+    # Disable natural scrolling
+    "org/gnome/desktop/peripherals/touchpad" = {
+      natural-scroll = false;
+    };
+    "org/gnome/desktop/peripherals/mouse" = {
+      natural-scroll = false;
+    };
+    # Use dark theme
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+      gtk-theme = "Adwaita";
+    };
+    "org/gnome/mutter" = {
+      # Dynamic number of workspaces instead of fixed
+      dynamic-workspaces = true;
+      # Enable "Active Screen Edges" (drag window to sides)
+      edge-tiling = true;
+    };
+  };
+}
