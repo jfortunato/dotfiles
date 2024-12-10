@@ -144,7 +144,14 @@
      EDITOR = "nvim";
      # Set the FLAKE environment variable for `nh` (nix-helper)
      FLAKE = "/home/justin/.dotfiles/nix";
+     # Place go binaries installed with `go install` in this directory (instead of the default `~/go/bin`)
+     GOBIN = "${config.home.homeDirectory}/.local/bin";
   };
+
+  home.sessionPath = [
+    # Add the ~/.local/bin directory to the PATH
+    "${config.home.homeDirectory}/.local/bin"
+  ];
 
   fonts.fontconfig.enable = true;
 
