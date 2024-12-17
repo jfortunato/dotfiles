@@ -23,6 +23,12 @@ nnoremap <C-f> :action SelectIn<CR>
 inoremap {{ {{
 inoremap {% {%
 
+" Use same keybindings for lsp actions
+nnoremap gd :action GotoDeclaration<CR>
+nnoremap gt :action GotoTypeDeclaration<CR>
+nnoremap gr :action ShowUsages<CR>
+nnoremap gi :action GotoImplementation<CR>
+
 sethandler <C-A> a:vim
 sethandler <C-B> a:ide
 sethandler <C-C> a:ide

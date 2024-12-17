@@ -86,6 +86,9 @@
 
     # development tools
     jetbrains-toolbox
+    # language servers for neovim
+    gopls
+    phpactor
 
     # misc
     pv

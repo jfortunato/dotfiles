@@ -41,7 +41,6 @@ Plug 'Raimondi/delimitMate' " Automatically adds closing brackets, quotes, etc.
 Plug 'gregsexton/MatchTag' " Highlights matching HTML tags
 Plug 'preservim/nerdtree' " File tree
 Plug 'preservim/nerdcommenter' " Automatically use correct commenting style
-Plug 'dense-analysis/ale' " Syntax checking and linting
 Plug 'joonty/vdebug' " PHP debugger
 Plug 'tpope/vim-surround' " Delete/change surrounding characters (eg change single quotes to double quotes with cs'")
 Plug 'sheerun/vim-polyglot' " Syntax highlighting for many languages
@@ -146,6 +145,5 @@ nmap <leader>mp <Plug>MarkdownPreview
 
 " LuaSnip
 imap <silent><expr> <leader><leader> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<leader><leader>' " use leader leader to trigger snippets (only if expand or jump is possible)
-lua << EOF
-    require("luasnip.loaders.from_snipmate").lazy_load() -- load snipmate style snippets
-EOF
+
+lua require('init')
