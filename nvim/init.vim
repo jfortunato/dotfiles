@@ -52,8 +52,7 @@ Plug 'godlygeek/tabular' " Align text vertically
 Plug 'L3MON4D3/LuaSnip', {'tag': 'v2.*', 'do': 'make install_jsregexp'} " Snippets engine
 Plug 'honza/vim-snippets' " Snippets for many languages
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']} " Automatic markdown preview in browser
-Plug 'junegunn/fzf' " Fuzzy file finder
-Plug 'junegunn/fzf.vim' " FZF integration
+Plug 'ibhagwan/fzf-lua', {'branch': 'main'} " FZF integration
 Plug 'github/copilot.vim' " Github Copilot integration
 Plug 'majutsushi/tagbar' " Show tags/symbols for the current file in a split
 call plug#end()
@@ -112,8 +111,13 @@ nnoremap <F8> :TagbarToggle<CR> " Toggle Tagbar
 
 " FZF
 " Use CTRL-P to search files
-nnoremap <C-P> :FZF<CR>
-nnoremap <leader><tab> :History<CR>
+"nnoremap <C-P> :FZF<CR>
+"nnoremap <leader><tab> :History<CR>
+nnoremap <C-P> :FzfLua files<CR>
+nnoremap <C-e> :FzfLua oldfiles<CR>
+nnoremap <leader><tab> :FzfLua buffers<CR>
+nnoremap <leader>m :FzfLua keymaps<CR>
+nnoremap <leader><space> :FzfLua builtin<CR>
 
 " Airline
 set noshowmode " don't show the current mode, airline will show it
@@ -128,9 +132,9 @@ let g:airline_symbols.space = "\ua0"
 let g:Powerline_symbols = "fancy"
 
 " Fugitive
-cmap gs Git status
-cmap gd Git diff
-cmap gb Git blame
+cnoreabbrev gs Git status
+cnoreabbrev gd Git diff
+cnoreabbrev gb Git blame
 
 " Tabular
 nnoremap <leader>t :Tabularize /
@@ -140,8 +144,13 @@ vnoremap <leader>t :Tabularize /
 nnoremap <silent> <leader>n :NERDTreeToggle<CR> " Toggle NERDTree
 nnoremap <C-f> :NERDTreeFind<cr> " Find file in NERDTree
 
+" NERDCommenter
+let g:NERDCreateDefaultMappings = 0                 " Don't create unnecessary mappings
+nnoremap <leader>c<space> <Plug>NERDCommenterToggle " Toggle NERDCommenter
+nnoremap <C-/> <Plug>NERDCommenterToggle            " Same as above, but with Ctrl-/
+
 " Markdown Preview
-nmap <leader>mp <Plug>MarkdownPreview
+cnoreabbrev md MarkdownPreview
 
 " LuaSnip
 imap <silent><expr> <leader><leader> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<leader><leader>' " use leader leader to trigger snippets (only if expand or jump is possible)

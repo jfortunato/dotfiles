@@ -1,6 +1,7 @@
 vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(args)
         local client = vim.lsp.get_client_by_id(args.data.client_id)
+        local fzf = require('fzf-lua')
 
         -- Define some key mappings for the LSP client. In addition to the mappings below, nvim lsp client provides some
         -- default mappings such as [d and ]d to jump to the next and previous diagnostic, and K to show hover information.
@@ -10,33 +11,21 @@ vim.api.nvim_create_autocmd('LspAttach', {
         -- Go to definition with gd. The sequence `gd` is normally a built-in vim command to go to the local definition of a symbol, but
         -- is very limited on its own so we can override it to use the LSP definition instead.
         -- This is also mapped by default to ctrl+]
-        if client.supports_method('textDocument/definition') then
-            vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = args.buf, desc = "Go to definition" })
-            vim.keymap.set('n', '<C-b>', vim.lsp.buf.definition, { buffer = args.buf, desc = "Go to definition" }) -- similar to Intellij ctrl+b'
-        end
-        if client.supports_method('textDocument/declaration') then
-            vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { buffer = args.buf })
-        end
-        if client.supports_method('textDocument/typeDefinition') then
-            vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, { buffer = args.buf })
-        end
+        vim.keymap.set('n', 'gd', function() fzf.lsp_definitions({ jump_to_single_result = true }) end, { desc = "Go to definition" })
+        vim.keymap.set('n', '<C-b>', function() fzf.lsp_definitions({ jump_to_single_result = true }) end, { desc = "Go to definition" }) -- similar to Intellij ctrl+b'
+        vim.keymap.set('n', '<C-S-I>', fzf.lsp_definitions, { desc = "Quick definition" }) -- show definition, always in window. similar to Intellij ctrl+shift+i
+        -- Go to declaration with gD.
+        vim.keymap.set('n', 'gD', fzf.lsp_declarations, { desc = "Go to declaration" })
+        -- Go to type definition with gt.
+        vim.keymap.set('n', 'gt', fzf.lsp_typedefs, { desc = "Go to type definition" })
         -- Find references with gr.
-        if client.supports_method('textDocument/references') then
-            vim.keymap.set('n', 'gr', vim.lsp.buf.references, { buffer = args.buf, desc = "Go to references" })
-            vim.keymap.set('n', '<C-b>', vim.lsp.buf.references, { buffer = args.buf, desc = "Go to references" }) -- similar to Intellij ctrl+b (Show usages)
-        end
+        vim.keymap.set('n', 'gr', function() fzf.lsp_references({ jump_to_single_result = true, includeDeclaration = false }) end, { desc = "Go to references" })
+        vim.keymap.set('n', '<C-b>', function() fzf.lsp_references({ jump_to_single_result = true, includeDeclaration = false }) end, { desc = "Go to references" }) -- similar to Intellij ctrl+b (Show usages)
         -- Find implementations with gi
-        if client.supports_method('textDocument/implementation') then
-            vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, { buffer = args.buf, desc = "Go to implementations" })
-            vim.keymap.set('n', '<C-a-b>', vim.lsp.buf.implementation, { buffer = args.buf, desc = "Go to implementations" }) -- similar to Intellij ctrl+alt+b
-        end
+        vim.keymap.set('n', 'gi', function() fzf.lsp_implementations({ jump_to_single_result = true }) end, { desc = "Go to implementations" })
+        vim.keymap.set('n', '<C-a-b>', function() fzf.lsp_implementations({ jump_to_single_result = true }) end, { desc = "Go to implementations" }) -- similar to Intellij ctrl+alt+b
         -- Show potential actions for current line (similar to Intellij alt+enter)
-        if client.supports_method('textDocument/codeAction') then
-            vim.keymap.set({ 'n', 'i' }, '<a-cr>', vim.lsp.buf.code_action, { buffer = args.buf })
-        end
-        if client.supports_method('textDocument/signatureHelp') then
-            vim.keymap.set('n', 'gs', vim.lsp.buf.signature_help, { buffer = args.buf })
-        end
+        vim.keymap.set({ 'n', 'i' }, '<a-cr>', fzf.lsp_code_actions, { desc = "Show code actions" })
 
 
         -- Show line diagnostics automatically in hover window
