@@ -15,6 +15,7 @@ kitty_cmd=(
   kitty
   --title="  NeoVim"                        # Set the window title to use the vim icon
   --start-as=maximized                       # Start the window maximized
+  --app-id="nvim"                            # Set the app id to nvim so that we can use alt+tab switch instead of alt+` in gnome
   $([ "$DETACH" = true ] && echo "--detach") # Detach the window if the --detach flag is passed
   -o hide_window_decorations=no              # Show the titlebar to make it feel more like a normal gui window
   -o tab_bar_style=hidden                    # Don't show the kitty tab bar
