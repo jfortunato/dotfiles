@@ -149,8 +149,11 @@ nnoremap <C-f> :NERDTreeFind<cr> " Find file in NERDTree
 
 " NERDCommenter
 let g:NERDCreateDefaultMappings = 0                 " Don't create unnecessary mappings
+let g:NERDDefaultAlign = 'left'                     " Align comments to the left, instead of with the indent
+let g:NERDCommentEmptyLines = 1                     " Include empty lines in comment toggling
 nnoremap <leader>c<space> <Plug>NERDCommenterToggle " Toggle NERDCommenter
 nnoremap <C-/> <Plug>NERDCommenterToggle            " Same as above, but with Ctrl-/
+vnoremap <C-/> <Plug>NERDCommenterToggle            " Same as above, but in visual mode
 
 " Markdown Preview
 cnoreabbrev md MarkdownPreview
