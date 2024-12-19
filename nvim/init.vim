@@ -110,14 +110,17 @@ colorscheme tomorrow_night
 nnoremap <F8> :TagbarToggle<CR> " Toggle Tagbar
 
 " FZF
+lua require'fzf-lua'.setup { fzf_opts = { ['--cycle'] = true } }
 " Use CTRL-P to search files
-"nnoremap <C-P> :FZF<CR>
-"nnoremap <leader><tab> :History<CR>
 nnoremap <C-P> :FzfLua files<CR>
-nnoremap <C-e> :FzfLua oldfiles<CR>
+nnoremap <C-e> :FzfLua oldfiles cwd_only=true<CR>
 nnoremap <leader><tab> :FzfLua buffers<CR>
 nnoremap <leader>m :FzfLua keymaps<CR>
 nnoremap <leader><space> :FzfLua builtin<CR>
+" Use leader + g to search git history for the current file. Use in visual mode to search to only show history for selection.
+" https://github.com/ibhagwan/fzf-lua/issues/816
+nnoremap <leader>g :FzfLua git_bcommits<CR>
+xnoremap <leader>g <cmd>FzfLua git_bcommits<CR>
 
 " Airline
 set noshowmode " don't show the current mode, airline will show it
