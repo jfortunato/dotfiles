@@ -19,6 +19,10 @@
       switch-to-workspace-left = ["<Alt>h"];
       switch-to-workspace-right = ["<Alt>l"];
     };
+    # Add back the minimize/maximize button
+    "org/gnome/desktop/wm/preferences" = {
+      button-layout = "appmenu:maximize,close";
+    };
     "org/gnome/shell" = {
       # The apps we want pinned to the dock
       favorite-apps = [
