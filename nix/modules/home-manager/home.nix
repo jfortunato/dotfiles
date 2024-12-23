@@ -89,6 +89,8 @@
     # language servers for neovim
     gopls
     phpactor
+    go # needed globally for `gopls`
+    nodejs # needed globally for GitHub Copilot
 
     # misc
     pv
