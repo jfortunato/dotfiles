@@ -14,6 +14,9 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  # Allow quick edits to /etc/hosts (otherwise it is readonly on NixOS)
+  environment.etc.hosts.mode = "0644";
+
   services.tailscale.enable = true;
 
   # Set your time zone.
@@ -108,7 +111,8 @@
     noto-fonts
     source-code-pro
     jetbrains-mono
-    (pkgs.nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
+    nerd-fonts.symbols-only
+    #(pkgs.nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -133,30 +137,18 @@
   # networking.firewall.enable = false;
 
    boot = {
-
-      plymouth = {
-        enable = true;
-        theme = "rings";
-        themePackages = with pkgs; [
-          # By default we would install all themes
-          (adi1090x-plymouth-themes.override {
-            selected_themes = [ "rings" ];
-          })
-        ];
-      };
-
-      # Enable "Silent Boot"
-      consoleLogLevel = 0;
-      initrd.verbose = false;
-      kernelParams = [
-        "quiet"
-        "splash"
-        "boot.shell_on_fail"
-        "loglevel=3"
-        "rd.systemd.show_status=false"
-        "rd.udev.log_level=3"
-        "udev.log_priority=3"
-      ];
+      ## Enable "Silent Boot"
+      #consoleLogLevel = 0;
+      #initrd.verbose = false;
+      #kernelParams = [
+      #  "quiet"
+      #  "splash"
+      #  "boot.shell_on_fail"
+      #  "loglevel=3"
+      #  "rd.systemd.show_status=false"
+      #  "rd.udev.log_level=3"
+      #  "udev.log_priority=3"
+      #];
       # Hide the OS choice for bootloaders.
       # It's still possible to open the bootloader list by pressing any key
       # It will just not appear on screen unless a key is pressed

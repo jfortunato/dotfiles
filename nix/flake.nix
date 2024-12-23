@@ -34,6 +34,18 @@
               }
             ];
         };
+        nixos-x1c6 = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
+            modules = [
+              ./hosts/nixos-x1c6
+              # Home Manager as a module configuration. When using Home Manager on a NixOS system,
+              # we can apply these configurations with `sudo nixos-rebuild switch --flake .#nixos-x1c6`.
+              home-manager.nixosModules.default {
+                home-manager.extraSpecialArgs = { inherit inputs; };
+                home-manager.users."justin" = import ./hosts/nixos-x1c6/home.nix;
+              }
+            ];
+        };
       };
 
       # Standalone Home Manager configuration. When using Home Manager on a non-NixOS system,
