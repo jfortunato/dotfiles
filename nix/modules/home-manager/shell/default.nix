@@ -49,12 +49,21 @@
     settings = {
       add_newline = false;
       # A minimal left prompt
-      format = "$directory$character";
+      format = "$directory$shlvl$character";
       # move the rest of the prompt to the right
       right_format = "$all";
       nix_shell = {
         # Only show the icon
         format = "via [$symbol]($style) ";
+      };
+      # Add additional prompt symbols for each shell level. (Useful with nix shell)
+      shlvl = {
+        disabled = false;
+        format = "[$symbol]($style)";
+        repeat = true;
+        symbol = "❯";
+        repeat_offset = 1;
+        threshold = 0;
       };
       direnv = {
         disabled = false;
