@@ -11,6 +11,8 @@
       ../../modules/nixos/system.nix
       # Common intel laptop configuration.
       ../../modules/nixos/intel-laptop-ssd.nix
+      # Configs from nixos-hardware.
+      inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
 
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
