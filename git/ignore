@@ -3,3 +3,4 @@ tags
 .idea
 yarn-error.log
 .var
+.phpactor.json
