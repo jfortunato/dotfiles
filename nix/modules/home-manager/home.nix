@@ -87,8 +87,9 @@
     # development tools
     jetbrains-toolbox
     # language servers for neovim
-    gopls
-    phpactor
+    gopls # language server for Go
+    phpactor # language server for PHP
+    nil # language server for nix
     go # needed globally for `gopls`
     nodejs # needed globally for GitHub Copilot
 
