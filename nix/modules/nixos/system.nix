@@ -111,8 +111,8 @@
     noto-fonts
     source-code-pro
     jetbrains-mono
-    nerd-fonts.symbols-only
-    #(pkgs.nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
+    #nerd-fonts.symbols-only
+    (pkgs.nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; }) # Remove & replace with above line in NixOS 25.05
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
