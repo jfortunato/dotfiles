@@ -85,7 +85,7 @@
     util-linux # mkfs, cfdisk, etc.
 
     # development tools
-    jetbrains-toolbox
+    jetbrains.idea-ultimate
     # language servers for neovim
     gopls # language server for Go
     phpactor # language server for PHP

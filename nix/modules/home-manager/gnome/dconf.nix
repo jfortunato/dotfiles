@@ -32,7 +32,7 @@
         "org.gnome.Nautilus.desktop"
         "org.gnome.Software.desktop"
         "kitty.desktop"
-        "jetbrains-idea-a5c19c37-11ad-4998-b755-f52382fdfa5d.desktop"
+        "idea-ultimate.desktop"
         "idancecloud.desktop"
         "online-reporting.desktop"
         "google-drive.desktop"
