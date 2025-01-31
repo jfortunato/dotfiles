@@ -41,8 +41,16 @@
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
+  services.displayManager.autoLogin.enable = true;
+  services.displayManager.autoLogin.user = "justin";
+  # It seems there is some kind of race condition with autoLogin that causes a problem
+  # with my session variable being set to EDITOR=nano (and who knows what other problems)
+  # The following 2 lines should help with that.
+  # https://github.com/NixOS/nixpkgs/issues/103746
+  systemd.services."getty@tty1".enable = false;
+  systemd.services."autovt@tty1".enable = false;
 
   # Configure keymap in X11
   services.xserver.xkb = {
