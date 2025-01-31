@@ -22,7 +22,21 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.initrd.luks.devices."luks-83574355-0b6e-445b-b5ec-04be1afb12da".device = "/dev/disk/by-uuid/83574355-0b6e-445b-b5ec-04be1afb12da";
+  boot.initrd.luks.devices."luks-2bb4bb03-dbd5-48a9-b7bd-3625dec64253" = {
+    device = "/dev/disk/by-uuid/2bb4bb03-dbd5-48a9-b7bd-3625dec64253";
+    allowDiscards = true;
+    keyFileSize = 4096;
+    keyFile = "/dev/sda";
+    fallbackToPassword = true;
+  };
+
+  boot.initrd.luks.devices."luks-83574355-0b6e-445b-b5ec-04be1afb12da" = {
+    device = "/dev/disk/by-uuid/83574355-0b6e-445b-b5ec-04be1afb12da";
+    allowDiscards = true;
+    keyFileSize = 4096;
+    keyFile = "/dev/sda";
+    fallbackToPassword = true;
+  };
 
   networking.hostName = "nixos-x1c6";
 
