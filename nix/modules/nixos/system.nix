@@ -90,6 +90,7 @@
     description = "Justin";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.zsh;
+    initialHashedPassword  = "$6$PfPV1U6Qb1YIqteW$rZQyGPUnIU45m6HBDc/1lgRQDPuAdBXGIUjHrsLOhLmYnrE.dIF1mvbT/DTO.9g04P/wMkS4D8SDa/eMrJrtq1";
     packages = with pkgs; [
     #  thunderbird
     ];
