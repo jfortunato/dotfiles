@@ -7,6 +7,8 @@
 {
   imports =
     [
+      inputs.disko.nixosModules.disko
+      ./disk-config.nix
       # Common system configuration.
       ../../modules/nixos/system.nix
       # Common intel laptop configuration.
@@ -20,9 +22,10 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.initrd.luks.devices."luks-8b724a8f-afb1-47e6-84e9-38d13146eea1".device = "/dev/disk/by-uuid/8b724a8f-afb1-47e6-84e9-38d13146eea1";
-
   networking.hostName = "ct14-a4";
+
+  # Randomly generated via: `head -c4 /dev/urandom | od -A none -t x4`
+  networking.hostId = "852a83e3";
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
