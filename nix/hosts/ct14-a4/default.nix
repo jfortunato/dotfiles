@@ -27,6 +27,8 @@
   # Randomly generated via: `head -c4 /dev/urandom | od -A none -t x4`
   networking.hostId = "852a83e3";
 
+  services.zfs.autoScrub.enable = true;
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
