@@ -3,16 +3,16 @@
     disk = {
       main = {
         type = "disk";
-        device = "/dev/disk/by-id/ata-TOSHIBA_THNSNS128GMCP_62NS10BRT2ZY";
+        device = "/dev/disk/by-id/nvme-INTEL_SSDPEKKF256G8L_BTHH814611S0256B";
         content = {
           type = "gpt";
           partitions = {
             ESP = {
               # Default start value aligns properly for this drive to start at sector 2048 (1M)
               #
-              # Parted can calculate the optimal alignment for via (careful) `parted /dev/sda mkpart primary ext4 0% 100%`,
-              # then check with `fdisk -l /dev/sda` and note the Start value.
-              # Check alignment with `parted /dev/sda align-check optimal 1`
+              # Parted can calculate the optimal alignment for via (careful) `parted /dev/nvme0n1 mkpart primary ext4 0% 100%`,
+              # then check with `fdisk -l /dev/nvme0n1` and note the Start value.
+              # Check alignment with `parted /dev/nvme0n1 align-check optimal 1`
               # https://wiki.archlinux.org/title/Parted#Alignment
               #start = "1M";
               type = "EF00";
