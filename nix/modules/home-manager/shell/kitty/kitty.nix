@@ -15,7 +15,8 @@
     };
     settings = {
       shell_integration = "enabled";
-      hide_window_decorations = "yes";
+      # Better title bar in gnome
+      linux_display_server = "x11";
       remember_window_size = "no";
       dynamic_background_opacity = "yes"; # Allow changing opacity with kitty_mod + a > l(ess) or m(ore)
       background_opacity = "0.9";
