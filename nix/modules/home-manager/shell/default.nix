@@ -9,12 +9,14 @@
     enable = true;
     package = (config.lib.nixGL.wrap pkgs.alacritty);
     settings = {
-      shell.program = "tmux";
       window = {
-        decorations = "None";
         opacity = 0.9;
       };
     };
+  };
+
+  programs.ghostty = {
+    enable = true;
   };
 
   programs.direnv = {
