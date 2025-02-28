@@ -49,11 +49,9 @@
   programs.starship = {
     enable = true;
     settings = {
-      add_newline = false;
-      # A minimal left prompt
-      format = "$directory$shlvl$character";
-      # move the rest of the prompt to the right
-      right_format = "$all";
+      # There is currently an issue using the right_format with unicode characters
+      # https://github.com/starship/starship/issues/6524
+      format = "$all$directory$shlvl$character";
       nix_shell = {
         # Only show the icon
         format = "via [$symbol]($style) ";
