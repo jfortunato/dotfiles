@@ -89,7 +89,7 @@
     # language servers for neovim
     gopls # language server for Go
     phpactor # language server for PHP
-    nil # language server for nix
+    nixd # language server for nix
     go # needed globally for `gopls`
     nodejs # needed globally for GitHub Copilot
 
