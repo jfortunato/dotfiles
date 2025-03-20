@@ -23,6 +23,8 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  # Hide the boot menu. Hold down space during boot to show it.
+  boot.loader.timeout = 0;
 
   networking.hostName = "nixos-x1c6";
   networking.hostId = "007f0200";
