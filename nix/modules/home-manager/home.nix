@@ -64,6 +64,7 @@
     ripgrep # faster `grep`
     fd # faster `find`
     eza # better `ls`
+    bat # `cat` with syntax highlighting
 
     # networking tools
     dnsutils  # `dig` + `nslookup`

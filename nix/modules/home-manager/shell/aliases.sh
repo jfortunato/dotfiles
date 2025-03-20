@@ -16,3 +16,5 @@ alias vim='nvim'
 alias vi='nvim'
 # Emulate gvim with kitty + regular nvim
 alias gvim='kitty_launch_nvim --detach'
+# Use bat instead of cat
+alias cat='bat --paging=never'
