@@ -1,5 +1,6 @@
 require("luasnip.loaders.from_snipmate").lazy_load() -- load snipmate style snippets
 require("lsp") -- load lsp
+require("fidget").setup({}) -- LSP notifications
 
 
 -- Reserve a space in the gutter to avoid layout shift
