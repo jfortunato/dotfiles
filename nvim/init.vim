@@ -56,6 +56,14 @@ Plug 'ibhagwan/fzf-lua', {'branch': 'main'} " FZF integration
 Plug 'github/copilot.vim' " Github Copilot integration
 Plug 'majutsushi/tagbar' " Show tags/symbols for the current file in a split
 Plug 'j-hui/fidget.nvim' " LSP progress notifications
+" Completions for nvim-cmp
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'saadparwaiz1/cmp_luasnip'
+" End completions for nvim-cmp
 call plug#end()
 
 
