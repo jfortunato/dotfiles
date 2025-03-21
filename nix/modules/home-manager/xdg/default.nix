@@ -6,9 +6,6 @@
       "nvim/lua/init.lua".source = ../../../../nvim/lua/init.lua;
       "nvim/lua/lsp.lua".source = ../../../../nvim/lua/lsp.lua;
       "nvim/lua/nvim-cmp.lua".source = ../../../../nvim/lua/nvim-cmp.lua;
-      "nvim/after/ftplugin/php.lua".source = ../../../../nvim/after/ftplugin/php.lua;
-      "nvim/after/ftplugin/go.lua".source = ../../../../nvim/after/ftplugin/go.lua;
-      "nvim/after/ftplugin/nix.lua".source = ../../../../nvim/after/ftplugin/nix.lua;
       "nvim/colors/tomorrow_night.vim".source = ../../../../nvim/colors/tomorrow_night.vim;
       "nvim/snippets/html.snippets".source = ../../../../nvim/snippets/html.snippets;
       "nvim/snippets/javascript.snippets".source = ../../../../nvim/snippets/javascript.snippets;

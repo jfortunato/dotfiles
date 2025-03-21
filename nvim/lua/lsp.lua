@@ -73,3 +73,35 @@ vim.api.nvim_create_autocmd('LspAttach', {
         })
     end,
 })
+
+-- Add additional capabilities supported by nvim-cmp
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local lspconfig = require('lspconfig')
+
+-- Function to set up LSP servers
+local function setup_server(server, config)
+    config = config or {}
+    config.capabilities = capabilities
+    lspconfig[server].setup(config)
+end
+
+-- Set up LSP servers
+setup_server('gopls') -- Go
+setup_server('phpactor') -- PHP
+setup_server('nixd', { -- Nix
+    settings = {
+        nixd = {
+            nixpkgs = {
+                expr = "import <nixpkgs> { }",
+            },
+            formatting = {
+                command = { "nixfmt" },
+            },
+            options = {
+                home_manager = {
+                    expr = '(builtins.getFlake "/home/justin/.dotfiles/nix").homeConfigurations.default.options',
+                },
+            },
+        },
+    },
+})

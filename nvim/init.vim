@@ -55,6 +55,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 Plug 'ibhagwan/fzf-lua', {'branch': 'main'} " FZF integration
 Plug 'github/copilot.vim' " Github Copilot integration
 Plug 'majutsushi/tagbar' " Show tags/symbols for the current file in a split
+Plug 'neovim/nvim-lspconfig' " LSP configuration
 Plug 'j-hui/fidget.nvim' " LSP progress notifications
 " Completions for nvim-cmp
 Plug 'hrsh7th/nvim-cmp'
