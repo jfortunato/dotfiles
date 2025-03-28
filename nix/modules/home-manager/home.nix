@@ -92,6 +92,7 @@
     #phpactor # language server for PHP
     inputs.nixpkgs-unstable.legacyPackages.x86_64-linux.phpactor # language server for PHP
     nixd # language server for nix
+    bash-language-server # language server for bash
     go # needed globally for `gopls`
     nodejs # needed globally for GitHub Copilot
 

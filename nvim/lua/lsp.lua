@@ -105,3 +105,4 @@ setup_server('nixd', { -- Nix
         },
     },
 })
+setup_server('bashls') -- Bash
