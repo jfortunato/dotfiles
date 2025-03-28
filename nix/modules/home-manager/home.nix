@@ -97,7 +97,7 @@
 
     # misc
     pv
-    neofetch
+    fastfetch
     quickemu
     cloudflared
     vlc
