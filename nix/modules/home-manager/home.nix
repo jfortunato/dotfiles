@@ -89,8 +89,7 @@
     jetbrains.idea-ultimate
     # language servers for neovim
     gopls # language server for Go
-    #phpactor # language server for PHP
-    inputs.nixpkgs-unstable.legacyPackages.x86_64-linux.phpactor # language server for PHP
+    phpactor # language server for PHP
     nixd # language server for nix
     bash-language-server # language server for bash
     go # needed globally for `gopls`
