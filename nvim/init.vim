@@ -39,6 +39,7 @@ endif
 call plug#begin()
 Plug 'Raimondi/delimitMate' " Automatically adds closing brackets, quotes, etc.
 Plug 'gregsexton/MatchTag' " Highlights matching HTML tags
+Plug 'ryanoasis/vim-devicons' " Icons for NERDTree
 Plug 'preservim/nerdtree' " File tree
 Plug 'preservim/nerdcommenter' " Automatically use correct commenting style
 Plug 'joonty/vdebug' " PHP debugger
