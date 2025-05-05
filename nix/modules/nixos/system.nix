@@ -13,6 +13,13 @@
 
   boot.tmp.cleanOnBoot = true;
 
+  # Enable automatic garbage collection
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
+
   # Enable networking
   networking.networkmanager.enable = true;
 
