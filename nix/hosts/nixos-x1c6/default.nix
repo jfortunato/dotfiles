@@ -31,6 +31,37 @@
 
   services.zfs.autoScrub.enable = true;
 
+  services.sanoid = {
+    enable = true;
+    templates.backup = {
+      hourly = 36;
+      daily = 30;
+      monthly = 3;
+      autoprune = true;
+      autosnap = true;
+    };
+
+    #datasets."rpool/home" = {
+    #  useTemplate = [ "backup" ];
+    #};
+    datasets."rpool" = {
+      useTemplate = [ "backup" ];
+      recursive = true;
+      processChildrenOnly = true;
+    };
+  };
+
+  services.syncoid = {
+    enable = true;
+    commands."backup-rpool" = {
+      source = "rpool";
+      target = "tank-TOSHIBA-2TB/files/backup";
+      recursive = true;
+      extraArgs = ["--no-sync-snap" "--skip-parent" "--exclude=nix"];
+      sendOptions = "w";
+    };
+  };
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
