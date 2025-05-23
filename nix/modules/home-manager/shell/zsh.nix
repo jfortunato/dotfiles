@@ -11,7 +11,7 @@
       enable = true;
       plugins = [ "git" "docker" "docker-compose" "vi-mode" "tmux" "fzf" ];
     };
-    initExtra = ''
+    initContent = ''
       source ${./aliases.sh}
       source ${./functions.sh}
 
