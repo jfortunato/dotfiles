@@ -151,8 +151,8 @@
   #
   home.sessionVariables = {
      EDITOR = "nvim";
-     # Set the FLAKE environment variable for `nh` (nix-helper)
-     FLAKE = "/home/justin/.dotfiles/nix";
+     # Set the NH_FLAKE environment variable for `nh` (nix-helper)
+     NH_FLAKE = "/home/justin/.dotfiles/nix";
      GOBIN = "${config.home.homeDirectory}/.local/bin"; # Place go binaries installed with `go install` in this directory (instead of the default `~/go/bin`)
      GOPATH = "${config.xdg.dataHome}/go"; # Use an XDG directory for GOPATH (instead of the default `~/go`)
      GOMODCACHE = "${config.xdg.cacheHome}/go/mod"; # Use an XDG directory for GOCACHE (instead of the default `$GOPATH/pkg/mod`)
