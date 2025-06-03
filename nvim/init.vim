@@ -112,6 +112,9 @@ cmap w!! w !sudo tee > /dev/null %
 " THEME
 " =====
 colorscheme tomorrow_night
+" Fix broken status bar colors for this theme after updating nvim https://github.com/nvim-lualine/lualine.nvim/issues/1312
+lua vim.api.nvim_set_hl(0, "StatusLine", {reverse = false})
+lua vim.api.nvim_set_hl(0, "StatusLineNC", {reverse = false})
 
 
 " ===============
