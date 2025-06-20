@@ -17,7 +17,7 @@
       "tmux/layout.conf".source = ../../../../tmux/layout.conf;
       # JetBrains custom properties. Currently only need to override delve package.
       # Related: https://youtrack.jetbrains.com/issue/GO-14287/undefined-behavior-version-of-Delve-is-too-old-for-Go-version-1.20.0-maximum-supported-version-1.19#focus=Comments-27-6915232.0-0
-      "JetBrains/IntelliJIdea2024.3/idea.properties".text = ''
+      "JetBrains/IntelliJIdea2025.1/idea.properties".text = ''
         # custom IntelliJ IDEA properties (expand/override 'bin/idea.properties')
 
         # Tell IntelliJ IDEA to use our version of delve instead of it's bundled one.
