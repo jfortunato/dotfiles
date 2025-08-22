@@ -56,6 +56,10 @@
       color-scheme = "prefer-dark";
       gtk-theme = "Adwaita";
     };
+    # Set custom wallpaper
+    "org/gnome/desktop/background" = {
+      picture-uri-dark = "file:///${../wallpapers/nix-dark.png}";
+    };
     "org/gnome/mutter" = {
       # Dynamic number of workspaces instead of fixed
       dynamic-workspaces = true;
