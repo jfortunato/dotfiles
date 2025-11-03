@@ -20,10 +20,23 @@
         ui = {
           default-command = "log";
         };
+        aliases = {
+          dt = [ "diff" "--tool" "kitty_launch_nvim" ];
+        };
+        # Use kitty_launch_nvim (which is basically my custom gvim replacement) as the diff tool,
+        # and ensure it launches more quickly by:
+        # - Not loading any configuration or plugins
+        # - Ensure evenly split windows when launching
+        # - Basic syntax highlighting
+        merge-tools.kitty_launch_nvim = {
+          diff-args = [ "-u" "NONE" "-c" "autocmd VimResized * wincmd =" "-c" "syntax enable" "-d" "$left" "$right" ];
+          diff-invocation-mode = "file-by-file";
+        };
       };
     };
 
     # Add the jujutsu starship module configuration
+    # Keep an eye on https://github.com/starship/starship/issues/6076 for native jujutsu support
     programs.starship.settings = lib.importTOML ./jujutsu-starship.toml;
   };
 }
