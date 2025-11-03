@@ -4,6 +4,10 @@
   # Enable flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
+  # No need to specify "root", it will already be included as a trusted user (at /etc/nix/nix.conf)
+  # even if we do not explicitly list it here.
+  nix.trustedUsers = [ "@wheel" ];
+
   # networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
