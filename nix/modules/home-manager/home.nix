@@ -152,6 +152,7 @@
   #
   home.sessionVariables = {
      EDITOR = "nvim";
+     PAGER = "less -FRX";
      # Set the NH_FLAKE environment variable for `nh` (nix-helper)
      NH_FLAKE = "/home/justin/.dotfiles/nix";
      GOBIN = "${config.home.homeDirectory}/.local/bin"; # Place go binaries installed with `go install` in this directory (instead of the default `~/go/bin`)
