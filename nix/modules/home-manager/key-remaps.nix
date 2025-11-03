@@ -16,6 +16,7 @@
   config = lib.mkIf config.key-remaps.enable {
     # NOTE: Key remaps may require a restart to take effect.
     # Swap Capslock & Esc in a desktop environment agnostic way.
+    services.xremap.enable = true;
     services.xremap.config.modmap = [
       {
         name = "Global";
