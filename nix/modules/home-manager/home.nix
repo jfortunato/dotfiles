@@ -165,6 +165,16 @@
 
   fonts.fontconfig.enable = true;
 
+  programs.jujutsu = {
+    enable = true;
+    settings = {
+      user = {
+        email = "developer@jfortunato.com";
+        name = "Justin Fortunato";
+      };
+    };
+  };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
