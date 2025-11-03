@@ -22,5 +22,8 @@
         };
       };
     };
+
+    # Add the jujutsu starship module configuration
+    programs.starship.settings = lib.importTOML ./jujutsu-starship.toml;
   };
 }
