@@ -65,6 +65,8 @@
       dynamic-workspaces = true;
       # Enable "Active Screen Edges" (drag window to sides)
       edge-tiling = true;
+      # Disable auto maximizing. This is causing my PWA's to not retain their last window size
+      auto-maximize = false;
     };
   };
 }
