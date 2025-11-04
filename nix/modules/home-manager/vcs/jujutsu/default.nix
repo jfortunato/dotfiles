@@ -25,6 +25,7 @@
         };
         aliases = {
           dt = [ "diff" "--tool" "kitty_launch_nvim" ];
+          hist = [ "log" "-r" "::@" ]; # Show all changes that are descendants of the working copy; shows similar output to my `git hist` alias
         };
         # Use kitty_launch_nvim (which is basically my custom gvim replacement) as the diff tool,
         # and ensure it launches more quickly by:
