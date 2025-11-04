@@ -20,6 +20,9 @@
         ui = {
           default-command = "log";
         };
+        git = {
+          auto-local-bookmark = true;
+        };
         aliases = {
           dt = [ "diff" "--tool" "kitty_launch_nvim" ];
         };
