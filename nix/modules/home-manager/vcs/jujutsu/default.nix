@@ -23,6 +23,10 @@
         git = {
           auto-local-bookmark = true;
         };
+        revset-aliases = {
+          # Treat anything that has been pushed to a remote as immutable
+          "immutable_heads()" = "builtin_immutable_heads() | remote_bookmarks()";
+        };
         aliases = {
           dt = [ "diff" "--tool" "kitty_launch_nvim" ];
           hist = [ "log" "-r" "::@" ]; # Show all changes that are descendants of the working copy; shows similar output to my `git hist` alias
