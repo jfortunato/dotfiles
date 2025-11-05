@@ -36,6 +36,12 @@
           diff-args = [ "-u" "NONE" "-c" "autocmd VimResized * wincmd =" "-c" "syntax enable" "-d" "$left" "$right" ];
           diff-invocation-mode = "file-by-file";
         };
+        merge-tools.idea = {
+          program = "idea-ultimate";
+          diff-args = [ "diff" "$left" "$right" ];
+          edit-args = [ "diff" "$left" "$right" ];
+          merge-args = [ "merge" "$left" "$right" "$base" "$output" ];
+        };
       };
     };
 
