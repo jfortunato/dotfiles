@@ -27,6 +27,8 @@
 
       # Set up fzf key bindings and fuzzy completion
       source <(fzf --zsh)
+      # Use fzf-tab plugin for better tab completion selection menu
+      source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
 
       # use Ctrl-P instead of Ctrl-T for fuzzy file selection
       bindkey -r '^t'
@@ -38,4 +40,6 @@
       bindkey '^ ' forward-char
     '';
   };
+
+  home.packages = [ pkgs.zsh-fzf-tab ];
 }
