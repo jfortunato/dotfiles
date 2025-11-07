@@ -29,7 +29,10 @@
         };
         aliases = {
           dt = [ "diff" "--tool" "kitty_launch_nvim" ];
-          hist = [ "log" "-r" "::@" ]; # Show all changes that are descendants of the working copy; shows similar output to my `git hist` alias
+          # Show all changes that are descendants of the working copy; shows similar output to my `git hist` alias
+          hist = [ "log" "-r" "::@" ];
+          # Commonly used alias to move the closest bookmark to the parent of the current working copy
+          tug = ["bookmark" "move" "--from" "heads(::@- & bookmarks())" "--to" "@-"];
         };
         # Use kitty_launch_nvim (which is basically my custom gvim replacement) as the diff tool,
         # and ensure it launches more quickly by:
