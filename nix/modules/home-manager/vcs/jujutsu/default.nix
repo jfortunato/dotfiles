@@ -33,6 +33,22 @@
           hist = [ "log" "-r" "::@" ];
           # Commonly used alias to move the closest bookmark to the parent of the current working copy
           tug = ["bookmark" "move" "--from" "heads(::@- & bookmarks())" "--to" "@-"];
+          # Mimic how git would create a merge commit.
+          # e.g. `jj merge-commit staging develop` would create a merge commit on the staging branch, create the same
+          # default message that git would, and move the staging bookmark to point to the new merge commit.
+          merge-commit = [ "util" "exec" "--" "bash" "-c" ''
+            set -euo pipefail
+            # Git only appends " into <target-branch>" on branches other than main/master
+            # See: https://git-scm.com/docs/git-fmt-merge-msg#Documentation/git-fmt-merge-msg.txt-mergesuppressDest
+            if [[ "$1" == "master" || "$1" == "main" ]]; then
+              MSG="Merge branch '$2'"
+            else
+              MSG="Merge branch '$2' into $1"
+            fi
+            jj new $1 $2
+            jj commit -m "$MSG"
+            jj bookmark move $1 -t @-
+          '' "" ];
         };
         # Use kitty_launch_nvim (which is basically my custom gvim replacement) as the diff tool,
         # and ensure it launches more quickly by:
