@@ -8,6 +8,9 @@
   # even if we do not explicitly list it here.
   nix.trustedUsers = [ "@wheel" ];
 
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
   # networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
