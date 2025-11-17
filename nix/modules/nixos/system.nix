@@ -6,7 +6,7 @@
 
   # No need to specify "root", it will already be included as a trusted user (at /etc/nix/nix.conf)
   # even if we do not explicitly list it here.
-  nix.trustedUsers = [ "@wheel" ];
+  nix.settings.trusted-users = [ "@wheel" ];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
