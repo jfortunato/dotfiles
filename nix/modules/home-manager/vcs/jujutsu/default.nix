@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ lib, config, pkgs, inputs, ... }:
 
 {
   options = {
@@ -68,8 +68,23 @@
       };
     };
 
+
     # Add the jujutsu starship module configuration
     # Keep an eye on https://github.com/starship/starship/issues/6076 for native jujutsu support
-    programs.starship.settings = lib.importTOML ./jujutsu-starship.toml;
+    programs.starship.settings = {
+      git_status = { disabled = true; };
+      git_commit = { disabled = true; };
+      git_metrics = { disabled = true; };
+      git_branch = { disabled = true; };
+      custom.jj = {
+        command = "prompt";
+        format = "$output";
+        ignore_timeout = true;
+        shell = [ "starship-jj" "--ignore-working-copy" "starship" ];
+        use_stdin = false;
+        when = true;
+      };
+    };
+    home.packages = [ inputs.starship-jj.packages.${pkgs.system}.starship-jj ];
   };
 }
