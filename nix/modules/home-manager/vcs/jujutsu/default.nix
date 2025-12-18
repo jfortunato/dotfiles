@@ -85,6 +85,6 @@
         when = true;
       };
     };
-    home.packages = [ inputs.starship-jj.packages.${pkgs.system}.starship-jj ];
+    home.packages = [ inputs.starship-jj.packages.${pkgs.stdenv.hostPlatform.system}.starship-jj ];
   };
 }
