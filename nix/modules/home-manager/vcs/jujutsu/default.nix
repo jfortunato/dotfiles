@@ -22,6 +22,8 @@
         };
         git = {
           auto-local-bookmark = true;
+          # Prevent pushing "plan" commits to remotes
+          private-commits = "description('plan:*')";
         };
         revset-aliases = {
           # Treat anything that has been pushed to a remote as immutable
@@ -48,6 +50,12 @@
             jj new $1 $2
             jj commit -m "$MSG"
             jj bookmark move $1 -t @-
+          '' "" ];
+          # Create empty commit at the tip of the branch with a message. Adapted from https://github.com/jj-vcs/jj/discussions/8498 to
+          # include the plan: prefix in the commit message.
+          plan = [ "util" "exec" "--" "bash" "-c" ''
+            set -euo pipefail
+            jj new --no-edit heads\(@::\) -m "plan: $1"
           '' "" ];
         };
         # Use kitty_launch_nvim (which is basically my custom gvim replacement) as the diff tool,
