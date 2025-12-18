@@ -74,4 +74,17 @@
       };
     };
   };
+
+  programs.atuin = {
+    enable = true;
+    settings = {
+      style = "compact";
+      enter_accept = true;
+      sync_frequency = "10m";
+      sync = {
+        records = true;
+      };
+    };
+    flags = [ "--disable-up-arrow" ];
+  };
 }
