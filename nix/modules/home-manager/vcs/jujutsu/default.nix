@@ -65,6 +65,10 @@
           edit-args = [ "diff" "$left" "$right" ];
           merge-args = [ "merge" "$left" "$right" "$base" "$output" ];
         };
+        experimental-advance-branches = {
+          enabled-branches = [ "glob:*" ];
+          #disabled-branches = [ "main" "master" ];
+        };
       };
     };
 
