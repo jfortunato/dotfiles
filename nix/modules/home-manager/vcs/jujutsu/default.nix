@@ -55,7 +55,7 @@
           # include the plan: prefix in the commit message.
           plan = [ "util" "exec" "--" "bash" "-c" ''
             set -euo pipefail
-            jj new --no-edit heads\(@::\) -m "plan: $1"
+            jj new --no-edit 'heads(@::)' -m "plan: $1"
           '' "" ];
         };
         # Use kitty_launch_nvim (which is basically my custom gvim replacement) as the diff tool,
