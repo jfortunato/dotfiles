@@ -96,7 +96,7 @@
     bash-language-server # language server for bash
     go # needed globally for `gopls`
     nodejs # needed globally for GitHub Copilot
-    devbox # development environments
+    devenv # development environments
 
     # misc
     pv
