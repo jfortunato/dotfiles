@@ -90,6 +90,19 @@
       };
     };
     mime.enable = true;
+    mimeApps = {
+      enable = true;
+      defaultApplications = {
+        "application/zip" = ["org.gnome.FileRoller.desktop"];
+        "application/pdf" = ["google-chrome.desktop"];
+        # Use Chrome for opening HTML files and HTTP/HTTPS links
+        "text/html" = ["google-chrome.desktop"];
+        "x-scheme-handler/http" = ["google-chrome.desktop"];
+        "x-scheme-handler/https" = ["google-chrome.desktop"];
+        "x-scheme-handler/about" = ["google-chrome.desktop"];
+        "x-scheme-handler/unknown" = ["google-chrome.desktop"];
+      };
+    };
   };
 }
 
