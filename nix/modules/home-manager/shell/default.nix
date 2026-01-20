@@ -80,6 +80,7 @@
     settings = {
       style = "compact";
       enter_accept = true;
+      smart_sort = true;
       sync_frequency = "10m";
       sync = {
         records = true;
