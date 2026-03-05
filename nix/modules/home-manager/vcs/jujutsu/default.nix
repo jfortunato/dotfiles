@@ -21,9 +21,11 @@
           default-command = "log";
         };
         git = {
-          auto-local-bookmark = true;
           # Prevent pushing "plan" commits to remotes
           private-commits = "description('plan:*')";
+        };
+        remotes.origin = {
+          auto-track-bookmarks = "*";
         };
         aliases = {
           dt = [ "diff" "--tool" "kitty_launch_nvim" ];
