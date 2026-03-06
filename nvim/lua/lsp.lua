@@ -1,3 +1,5 @@
+require("language-servers") -- load language servers
+
 vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(args)
         local client = vim.lsp.get_client_by_id(args.data.client_id)
@@ -74,35 +76,3 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end,
 })
 
--- Add additional capabilities supported by nvim-cmp
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
--- Function to set up LSP servers
-local function setup_server(server, config)
-    config = config or {}
-    config.capabilities = capabilities
-    vim.lsp.config(server, config)
-    vim.lsp.enable(server)
-end
-
--- Set up LSP servers
-setup_server('gopls') -- Go
-setup_server('phpactor') -- PHP
-setup_server('nixd', { -- Nix
-    settings = {
-        nixd = {
-            nixpkgs = {
-                expr = "import <nixpkgs> { }",
-            },
-            formatting = {
-                command = { "nixfmt" },
-            },
-            options = {
-                home_manager = {
-                    expr = '(builtins.getFlake "/home/justin/.dotfiles/nix").homeConfigurations.default.options',
-                },
-            },
-        },
-    },
-})
-setup_server('bashls') -- Bash

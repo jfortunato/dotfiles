@@ -89,11 +89,6 @@
     # development tools
     jetbrains.idea
     delve # debugger for Go; usually bundled with jetbrains, but the bundled version doesn't run on NixOS. See also: xdg config for idea.properties
-    # language servers for neovim
-    gopls # language server for Go
-    phpactor # language server for PHP
-    nixd # language server for nix
-    bash-language-server # language server for bash
     go # needed globally for `gopls`
     nodejs # needed globally for GitHub Copilot
     devenv # development environments

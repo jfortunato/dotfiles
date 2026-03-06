@@ -5,6 +5,8 @@
       "nvim/init.vim".source = ../../../../nvim/init.vim;
       "nvim/lua/init.lua".source = ../../../../nvim/lua/init.lua;
       "nvim/lua/lsp.lua".source = ../../../../nvim/lua/lsp.lua;
+      # Generate the language servers config from a Nix expression to avoid hardcoding paths to language server binaries.
+      "nvim/lua/language-servers.lua".text = import ./nvim-language-servers.nix { inherit pkgs; };
       "nvim/lua/nvim-cmp.lua".source = ../../../../nvim/lua/nvim-cmp.lua;
       "nvim/colors/tomorrow_night.vim".source = ../../../../nvim/colors/tomorrow_night.vim;
       "nvim/snippets/html.snippets".source = ../../../../nvim/snippets/html.snippets;
