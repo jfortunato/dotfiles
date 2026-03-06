@@ -87,7 +87,7 @@
     util-linux # mkfs, cfdisk, etc.
 
     # development tools
-    jetbrains.idea-ultimate
+    jetbrains.idea
     delve # debugger for Go; usually bundled with jetbrains, but the bundled version doesn't run on NixOS. See also: xdg config for idea.properties
     # language servers for neovim
     gopls # language server for Go

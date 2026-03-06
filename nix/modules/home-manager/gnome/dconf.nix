@@ -32,7 +32,7 @@
         "org.gnome.Nautilus.desktop"
         "org.gnome.Software.desktop"
         "kitty.desktop"
-        "idea-ultimate.desktop"
+        "idea.desktop"
         "idancecloud.desktop"
         "online-reporting.desktop"
         "google-drive.desktop"

@@ -66,7 +66,7 @@
           diff-invocation-mode = "file-by-file";
         };
         merge-tools.idea = {
-          program = "idea-ultimate";
+          program = "idea";
           diff-args = [ "diff" "$left" "$right" ];
           edit-args = [ "diff" "$left" "$right" ];
           merge-args = [ "merge" "$left" "$right" "$base" "$output" ];
