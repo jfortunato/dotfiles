@@ -29,7 +29,7 @@
           auto-track-bookmarks = "*";
         };
         aliases = {
-          dt = [ "diff" "--tool" "kitty_launch_nvim" ];
+          dt = [ "diff" "--tool" "ghostty_launch_nvim" ];
           # Show all changes that are descendants of the working copy; shows similar output to my `git hist` alias
           hist = [ "log" "-r" "::@" ];
           # Mimic how git would create a merge commit.
@@ -71,12 +71,12 @@
           # Follow https://github.com/jj-vcs/jj/issues/9055 in case `bookmark-advance-to` gets a better default in the future
           bookmark-advance-to = "closest_pushable(@)";
         };
-        # Use kitty_launch_nvim (which is basically my custom gvim replacement) as the diff tool,
+        # Use ghostty_launch_nvim (which is basically my custom gvim replacement) as the diff tool,
         # and ensure it launches more quickly by:
         # - Not loading any configuration or plugins
         # - Ensure evenly split windows when launching
         # - Basic syntax highlighting
-        merge-tools.kitty_launch_nvim = {
+        merge-tools.ghostty_launch_nvim = {
           diff-args = [ "-u" "NONE" "-c" "autocmd VimResized * wincmd =" "-c" "syntax enable" "-d" "$left" "$right" ];
           diff-invocation-mode = "file-by-file";
         };

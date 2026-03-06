@@ -1,6 +1,7 @@
 {config, pkgs, ...}: {
   imports = [
     ./kitty/kitty.nix
+    ./ghostty/ghostty.nix
     ./bash.nix
     ./zsh.nix
   ];
@@ -13,10 +14,6 @@
         opacity = 0.9;
       };
     };
-  };
-
-  programs.ghostty = {
-    enable = true;
   };
 
   programs.direnv = {

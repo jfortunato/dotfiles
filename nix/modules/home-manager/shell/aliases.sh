@@ -14,7 +14,8 @@ alias sudo='sudo '
 # Alias all vim commands to nvim
 alias vim='nvim'
 alias vi='nvim'
-# Emulate gvim with kitty + regular nvim
-alias gvim='kitty_launch_nvim --detach'
+# Emulate gvim with ghostty + regular nvim
+alias gvim='ghostty_launch_nvim --detach'
 # Use bat instead of cat
 alias cat='bat --paging=never'
+alias boo='ghostty +boo'

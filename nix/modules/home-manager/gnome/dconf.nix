@@ -11,7 +11,7 @@
     # Launch kitty with ctrl+alt+t
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
       binding = "<Primary><Alt>t";
-      command = "kitty";
+      command = "ghostty";
       name = "open-terminal";
     };
     # Switch workspaces with alt+h and alt+l
@@ -30,7 +30,7 @@
         "keeweb.desktop"
         "bitwarden.desktop"
         "org.gnome.Nautilus.desktop"
-        "kitty.desktop"
+        "com.mitchellh.ghostty.desktop"
         "idea.desktop"
         "idancecloud.desktop"
         "online-reporting.desktop"

@@ -38,6 +38,17 @@
         icon = "nvim";
         mimeType = ["text/english" "text/plain" "text/x-makefile" "text/x-c++hdr" "text/x-c++src" "text/x-chdr" "text/x-csrc" "text/x-java" "text/x-moc" "text/x-pascal" "text/x-tcl" "text/x-tex" "application/x-shellscript" "text/x-c" "text/x-c++"];
       };
+      "ghostty_launch_nvim" = {
+        type = "Application";
+        name = "NeoVim (Ghostty)";
+        genericName = "Text Editor";
+        comment = "Edit text files";
+        startupNotify = true;
+        exec = "ghostty_launch_nvim %F";
+        categories = ["Utility" "TextEditor"];
+        icon = "nvim";
+        mimeType = ["text/english" "text/plain" "text/x-makefile" "text/x-c++hdr" "text/x-c++src" "text/x-chdr" "text/x-csrc" "text/x-java" "text/x-moc" "text/x-pascal" "text/x-tcl" "text/x-tex" "application/x-shellscript" "text/x-c" "text/x-c++"];
+      };
       # Declare some PWAs. On Chrome, we can get a lot of useful information at `chrome://web-app-internals/`.
       # TODO: Refactor to use a function to generate these entries.
       "idancecloud" = {
