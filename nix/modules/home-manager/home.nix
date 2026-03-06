@@ -91,7 +91,7 @@
     delve # debugger for Go; usually bundled with jetbrains, but the bundled version doesn't run on NixOS. See also: xdg config for idea.properties
     go # needed globally for `gopls`
     nodejs # needed globally for GitHub Copilot
-    devenv # development environments
+    inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.devenv # development environments
 
     # misc
     pv
