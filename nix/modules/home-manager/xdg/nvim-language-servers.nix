@@ -24,6 +24,7 @@ local language_servers = {
     }
   },
   bashls = { cmd = { '${pkgs.bash-language-server}/bin/bash-language-server', 'start' } },
+  ts_ls = { cmd = { '${pkgs.typescript-language-server}/bin/typescript-language-server', '--stdio' } },
 }
 
 -- Add additional capabilities supported by nvim-cmp
