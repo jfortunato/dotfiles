@@ -12,6 +12,7 @@
   config = lib.mkIf config.jujutsu.enable {
     programs.jujutsu = {
       enable = true;
+      package = inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.jujutsu;
       settings = {
         user = {
           email = "developer@jfortunato.com";
