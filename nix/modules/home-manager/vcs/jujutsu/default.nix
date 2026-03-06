@@ -32,9 +32,6 @@
           dt = [ "diff" "--tool" "kitty_launch_nvim" ];
           # Show all changes that are descendants of the working copy; shows similar output to my `git hist` alias
           hist = [ "log" "-r" "::@" ];
-          # Commonly used alias to move the closest bookmark to the parent of the current working copy
-          # TODO: Now that jj has a native `bookmark advance` command, consider either removing this alias or changing `revsets.bookmark-advance-to` to "@-"
-          tug = ["bookmark" "advance" "--to" "@-"];
           # Mimic how git would create a merge commit.
           # e.g. `jj merge-commit staging develop` would create a merge commit on the staging branch, create the same
           # default message that git would, and move the staging bookmark to point to the new merge commit.
@@ -63,10 +60,16 @@
         revset-aliases = {
           plans = "description('plan:*')";
           stashes = "description('stash:*')";
+          # Used with `bookmark advance` to move the bookmark to a better revision than the default "@".
+          "closest_pushable(to)" = "heads(::to & mutable() & ~description(exact:'') & (~empty() | merges()))";
         };
         fileset-aliases = {
           lock = "**/package-lock.json | **/yarn.lock | **/composer.lock | **/flake.lock | **/devenv.lock";
           "not:x" = "~x";
+        };
+        revsets = {
+          # Follow https://github.com/jj-vcs/jj/issues/9055 in case `bookmark-advance-to` gets a better default in the future
+          bookmark-advance-to = "closest_pushable(@)";
         };
         # Use kitty_launch_nvim (which is basically my custom gvim replacement) as the diff tool,
         # and ensure it launches more quickly by:
