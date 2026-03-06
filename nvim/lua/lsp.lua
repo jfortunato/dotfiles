@@ -76,13 +76,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local lspconfig = require('lspconfig')
 
 -- Function to set up LSP servers
 local function setup_server(server, config)
     config = config or {}
     config.capabilities = capabilities
-    lspconfig[server].setup(config)
+    vim.lsp.config(server, config)
+    vim.lsp.enable(server)
 end
 
 -- Set up LSP servers
