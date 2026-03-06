@@ -30,7 +30,6 @@
         "keeweb.desktop"
         "bitwarden.desktop"
         "org.gnome.Nautilus.desktop"
-        "org.gnome.Software.desktop"
         "kitty.desktop"
         "idea.desktop"
         "idancecloud.desktop"
