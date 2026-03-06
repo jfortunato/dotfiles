@@ -11,19 +11,19 @@ vim.api.nvim_create_autocmd('LspAttach', {
         -- Go to definition with gd. The sequence `gd` is normally a built-in vim command to go to the local definition of a symbol, but
         -- is very limited on its own so we can override it to use the LSP definition instead.
         -- This is also mapped by default to ctrl+]
-        vim.keymap.set('n', 'gd', function() fzf.lsp_definitions({ jump_to_single_result = true }) end, { desc = "Go to definition" })
-        vim.keymap.set('n', '<C-b>', function() fzf.lsp_definitions({ jump_to_single_result = true }) end, { desc = "Go to definition" }) -- similar to Intellij ctrl+b'
+        vim.keymap.set('n', 'gd', function() fzf.lsp_definitions({ jump1 = true }) end, { desc = "Go to definition" })
+        vim.keymap.set('n', '<C-b>', function() fzf.lsp_definitions({ jump1 = true }) end, { desc = "Go to definition" }) -- similar to Intellij ctrl+b'
         vim.keymap.set('n', '<C-S-I>', fzf.lsp_definitions, { desc = "Quick definition" }) -- show definition, always in window. similar to Intellij ctrl+shift+i
         -- Go to declaration with gD.
         vim.keymap.set('n', 'gD', fzf.lsp_declarations, { desc = "Go to declaration" })
         -- Go to type definition with gt.
         vim.keymap.set('n', 'gt', fzf.lsp_typedefs, { desc = "Go to type definition" })
         -- Find references with gr.
-        vim.keymap.set('n', 'gr', function() fzf.lsp_references({ jump_to_single_result = true, includeDeclaration = false }) end, { desc = "Go to references" })
-        vim.keymap.set('n', '<C-b>', function() fzf.lsp_references({ jump_to_single_result = true, includeDeclaration = false }) end, { desc = "Go to references" }) -- similar to Intellij ctrl+b (Show usages)
+        vim.keymap.set('n', 'gr', function() fzf.lsp_references({ jump1 = true, includeDeclaration = false }) end, { desc = "Go to references" })
+        vim.keymap.set('n', '<C-b>', function() fzf.lsp_references({ jump1 = true, includeDeclaration = false }) end, { desc = "Go to references" }) -- similar to Intellij ctrl+b (Show usages)
         -- Find implementations with gi
-        vim.keymap.set('n', 'gi', function() fzf.lsp_implementations({ jump_to_single_result = true }) end, { desc = "Go to implementations" })
-        vim.keymap.set('n', '<C-a-b>', function() fzf.lsp_implementations({ jump_to_single_result = true }) end, { desc = "Go to implementations" }) -- similar to Intellij ctrl+alt+b
+        vim.keymap.set('n', 'gi', function() fzf.lsp_implementations({ jump1 = true }) end, { desc = "Go to implementations" })
+        vim.keymap.set('n', '<C-a-b>', function() fzf.lsp_implementations({ jump1 = true }) end, { desc = "Go to implementations" }) -- similar to Intellij ctrl+alt+b
         -- Show potential actions for current line (similar to Intellij alt+enter)
         vim.keymap.set({ 'n', 'i' }, '<a-cr>', fzf.lsp_code_actions, { desc = "Show code actions" })
 
@@ -49,7 +49,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 
         -- Highlight symbol under cursor
-        if client.supports_method('textDocument/documentHighlight') then
+        if client:supports_method('textDocument/documentHighlight') then
             vim.api.nvim_exec([[
                 hi LspReferenceRead cterm=bold ctermbg=red guibg=Purple
                 hi LspReferenceText cterm=bold ctermbg=red guibg=Purple
