@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 ''
 -- Mapping of language server names to their config. The config should supply the cmd and any additional settings to be merged with the default config from nvim-lspconfig.
@@ -10,14 +10,14 @@ local language_servers = {
     settings = {
       nixd = {
         nixpkgs = {
-          expr = "import <nixpkgs> { }",
+          expr = 'import (builtins.getFlake "${inputs.self}").inputs.nixpkgs { }',
         },
         formatting = {
           command = { "nixfmt" },
         },
         options = {
           home_manager = {
-            expr = '(builtins.getFlake "/home/justin/.dotfiles/nix").homeConfigurations.default.options',
+            expr = '(builtins.getFlake "${inputs.self}").homeConfigurations.default.options',
           },
         },
       },

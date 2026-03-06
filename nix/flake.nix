@@ -27,7 +27,7 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, nixgl, disko, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nixgl, disko, ... }@inputs:
     {
       nixosConfigurations = {
         ct14-a4 = nixpkgs.lib.nixosSystem rec {
