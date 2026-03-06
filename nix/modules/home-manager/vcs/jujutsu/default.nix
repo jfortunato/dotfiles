@@ -57,6 +57,10 @@
             jj new --no-edit 'heads(@::)' -m "plan: $1"
           '' "" ];
         };
+        fileset-aliases = {
+          lock = "**/package-lock.json | **/yarn.lock | **/composer.lock | **/flake.lock | **/devenv.lock";
+          "not:x" = "~x";
+        };
         # Use kitty_launch_nvim (which is basically my custom gvim replacement) as the diff tool,
         # and ensure it launches more quickly by:
         # - Not loading any configuration or plugins
