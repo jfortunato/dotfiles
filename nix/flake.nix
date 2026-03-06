@@ -27,7 +27,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nixgl, disko, ... }@inputs:
+  outputs = { nixpkgs, home-manager, ... }@inputs:
     let
       mkNixosConfig = hostname: nixpkgs.lib.nixosSystem rec {
         specialArgs = { inherit inputs; };
