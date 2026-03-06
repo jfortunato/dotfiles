@@ -23,7 +23,7 @@
         };
         git = {
           # Prevent pushing "plan" commits to remotes
-          private-commits = "description('plan:*')";
+          private-commits = "plans";
         };
         remotes.origin = {
           auto-track-bookmarks = "*";
@@ -56,6 +56,12 @@
             set -euo pipefail
             jj new --no-edit 'heads(@::)' -m "plan: $1"
           '' "" ];
+          # Move all "plan" commits back to the tip of the working copy.
+          replan = [ "rebase" "-r" "plans" "-A" "@" ];
+        };
+        revset-aliases = {
+          plans = "description('plan:*')";
+          stashes = "description('stash:*')";
         };
         fileset-aliases = {
           lock = "**/package-lock.json | **/yarn.lock | **/composer.lock | **/flake.lock | **/devenv.lock";
