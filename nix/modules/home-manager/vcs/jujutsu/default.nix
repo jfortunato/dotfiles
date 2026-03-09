@@ -33,7 +33,8 @@
           # Show all changes that are descendants of the working copy; shows similar output to my `git hist` alias
           hist = [ "log" "-r" "::@" ];
           # Commonly used alias to move the closest bookmark to the parent of the current working copy
-          tug = ["bookmark" "move" "--from" "heads(::@- & bookmarks())" "--to" "@-"];
+          # TODO: Now that jj has a native `bookmark advance` command, consider either removing this alias or changing `revsets.bookmark-advance-to` to "@-"
+          tug = ["bookmark" "advance" "--to" "@-"];
           # Mimic how git would create a merge commit.
           # e.g. `jj merge-commit staging develop` would create a merge commit on the staging branch, create the same
           # default message that git would, and move the staging bookmark to point to the new merge commit.
