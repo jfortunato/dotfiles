@@ -3,7 +3,7 @@
 
 
 # Entry point
-keybind = alt+v=activate_key_table:vim
+keybind = `>[=activate_key_table:vim
 
 # Key table definition
 keybind = vim/
@@ -40,6 +40,7 @@ keybind = vim/shift+semicolon=toggle_command_palette
 keybind = vim/escape=deactivate_key_table
 keybind = vim/q=deactivate_key_table
 keybind = vim/i=deactivate_key_table
+keybind = vim/enter=deactivate_key_table
 
 # Catch unbound keys
 keybind = vim/catch_all=ignore
