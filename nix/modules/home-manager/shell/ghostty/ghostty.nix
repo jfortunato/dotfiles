@@ -27,6 +27,8 @@
       notify-on-command-finish-after = "30s";
       bell-features = "system,attention,title";
       shell-integration-features = "ssh-env";
+      # Increase limit from 10MB to 100MB
+      scrollback-limit = 100000000;
       config-file = [
         "config-vim-mode"
       ];
