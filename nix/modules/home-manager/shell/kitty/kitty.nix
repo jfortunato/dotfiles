@@ -75,18 +75,4 @@
   home.packages = with pkgs; [
     (pkgs.writeScriptBin "kitty_launch_nvim" (builtins.readFile ./kitty_launch_nvim.sh))
   ];
-
-  # Replace the default kitty icon with a better one
-  xdg.desktopEntries = {
-    "kitty" = {
-      type = "Application";
-      name = "Kitty";
-      genericName = "Terminal Emulator";
-      comment = "A fast, featureful, GPU based terminal emulator";
-      startupNotify = true;
-      exec = "kitty";
-      icon = ./kitty.png;
-      categories = ["System" "TerminalEmulator"];
-    };
-  };
 }
