@@ -37,8 +37,8 @@
     tmux
     xclip # terminal clipboard
     universal-ctags
-    (config.lib.nixGL.wrap google-chrome)
-    (config.lib.nixGL.wrap firefox)
+    google-chrome
+    firefox
 
     # fonts
     # For some reason kitty crashes sometimes when using nix fonts in non-NixOS system, so
@@ -102,7 +102,7 @@
     gimp
     inkscape
     libreoffice-still
-    (config.lib.nixGL.wrap keeweb)
+    keeweb
     bitwarden-desktop
     distrobox
     nh

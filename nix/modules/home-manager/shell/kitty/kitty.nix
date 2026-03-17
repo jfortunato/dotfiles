@@ -1,7 +1,6 @@
 {config, pkgs, ...}: {
   programs.kitty = {
     enable = true;
-    package = (config.lib.nixGL.wrap pkgs.kitty);
     themeFile = "Tomorrow_Night";
     # The home-manager kitty module will *always* set the shell integration mode to no-rc.
     # This is causing me problems when using ssh and splitting a window with cwd.
