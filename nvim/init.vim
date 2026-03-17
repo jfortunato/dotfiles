@@ -46,6 +46,7 @@ Plug 'joonty/vdebug' " PHP debugger
 Plug 'tpope/vim-surround' " Delete/change surrounding characters (eg change single quotes to double quotes with cs'")
 Plug 'sheerun/vim-polyglot' " Syntax highlighting for many languages
 Plug 'tpope/vim-fugitive' " Git integration
+Plug 'mattn/emmet-vim' " Quick html abbreviations
 Plug 'vim-airline/vim-airline' " Fancy status bar
 Plug 'vim-airline/vim-airline-themes' " Themes for airline
 Plug 'mg979/vim-visual-multi' " Multiple cursors
@@ -169,10 +170,10 @@ nnoremap <leader>c<space> <Plug>NERDCommenterToggle " Toggle NERDCommenter
 nnoremap <C-/> <Plug>NERDCommenterToggle            " Same as above, but with Ctrl-/
 vnoremap <C-/> <Plug>NERDCommenterToggle            " Same as above, but in visual mode
 
+" Emmet
+let g:user_emmet_leader_key='<leader>' " Use leader leader to trigger emmet
+
 " Markdown Preview
 cnoreabbrev md MarkdownPreview
-
-" LuaSnip
-imap <silent><expr> <leader><leader> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<leader><leader>' " use leader leader to trigger snippets (only if expand or jump is possible)
 
 lua require('init')
