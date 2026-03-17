@@ -53,7 +53,6 @@ Plug 'mg979/vim-visual-multi' " Multiple cursors
 Plug 'godlygeek/tabular' " Align text vertically
 Plug 'L3MON4D3/LuaSnip', {'tag': 'v2.*', 'do': 'make install_jsregexp'} " Snippets engine
 Plug 'honza/vim-snippets' " Snippets for many languages
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']} " Automatic markdown preview in browser
 Plug 'ibhagwan/fzf-lua', {'branch': 'main'} " FZF integration
 Plug 'zbirenbaum/copilot.lua' " Github Copilot integration
 Plug 'majutsushi/tagbar' " Show tags/symbols for the current file in a split
@@ -174,8 +173,5 @@ vnoremap <C-/> <Plug>NERDCommenterToggle            " Same as above, but in visu
 
 " Emmet
 let g:user_emmet_leader_key='<leader>' " Use leader leader to trigger emmet
-
-" Markdown Preview
-cnoreabbrev md MarkdownPreview
 
 lua require('init')
