@@ -31,3 +31,19 @@ vim.diagnostic.config({
       },
     },
 })
+
+-- Copilot setup.
+require("copilot").setup({
+    suggestion = {
+        auto_trigger = true,
+        keymap = {
+            -- Accept suggestion with tab, similar to Intellij.
+            accept = "<tab>",
+        },
+    },
+    server_opts_overrides = {
+        settings = {
+          telemetry = { telemetryLevel = "off" },
+        },
+    },
+})
