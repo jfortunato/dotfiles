@@ -56,6 +56,8 @@
           '' "" ];
           # Move all "plan" commits back to the tip of the working copy.
           replan = [ "rebase" "-r" "plans" "-A" "@" ];
+          # The default `jj log` command, excluding "plan" and "stash" commits
+          l = [ "log" "-r" "(present(@) | ancestors(immutable_heads().., 2) | trunk()) & ~description('plan:*') & ~description('stash:*')" ];
         };
         revset-aliases = {
           plans = "description('plan:*')";
