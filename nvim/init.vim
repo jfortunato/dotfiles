@@ -87,6 +87,8 @@ noremap <leader>l <C-W>l
 
 " Template echoing
 inoremap {{ {{<space><space>}}<esc>2hi
+" For hugo templates. Avoid mapping '{{-' because it conflicts with the above mapping for '{{'
+inoremap {- {{-<space><space>-}}<esc>3hi
 inoremap {% {%<space><space>%}<esc>2hi
 
 " Setting Filetypes
