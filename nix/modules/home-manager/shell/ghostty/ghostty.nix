@@ -19,6 +19,7 @@
         "`>k=goto_split:top"
         "`>l=goto_split:right"
         "f11=toggle_fullscreen"
+        "ctrl+shift+i=unbind" # Unbind the default keybind for the terminal inspector since it conflicts with nvim keybinds
       ];
       # Disable programming ligatures
       font-feature = "-calt";
