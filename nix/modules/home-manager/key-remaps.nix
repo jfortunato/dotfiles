@@ -9,7 +9,7 @@
     key-remaps.enable = lib.mkOption {
       type = lib.types.bool;
       default = true;
-      description = "Wether to enable key remaps";
+      description = "Whether to enable key remaps";
     };
   };
 
