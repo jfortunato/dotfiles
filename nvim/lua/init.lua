@@ -38,7 +38,7 @@ require("copilot").setup({
         auto_trigger = true,
         keymap = {
             -- Accept suggestion with tab, similar to Intellij.
-            accept = "<tab>",
+            accept = false,
         },
     },
     server_opts_overrides = {
@@ -47,3 +47,13 @@ require("copilot").setup({
         },
     },
 })
+
+-- Workaround for broken copilot tab accept with tab.
+-- See: https://github.com/zbirenbaum/copilot.lua/issues/670
+vim.keymap.set("i", "<Tab>", function()
+  if require("copilot.suggestion").is_visible() then
+    require("copilot.suggestion").accept()
+    return "<Ignore>"
+  end
+  return "<Tab>"
+end, { expr = true, desc = "Copilot accept or tab" })
