@@ -41,7 +41,6 @@ Plug 'Raimondi/delimitMate' " Automatically adds closing brackets, quotes, etc.
 Plug 'gregsexton/MatchTag' " Highlights matching HTML tags
 Plug 'ryanoasis/vim-devicons' " Icons for NERDTree
 Plug 'preservim/nerdtree' " File tree
-Plug 'preservim/nerdcommenter' " Automatically use correct commenting style
 Plug 'joonty/vdebug' " PHP debugger
 Plug 'tpope/vim-surround' " Delete/change surrounding characters (eg change single quotes to double quotes with cs'")
 Plug 'sheerun/vim-polyglot' " Syntax highlighting for many languages
@@ -109,6 +108,10 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 " Forgot sudo
 cmap w!! w !sudo tee > /dev/null %
 
+" Comment with ctrl+/
+nmap <C-/> gcc
+vmap <C-/> gc
+
 
 " =====
 " THEME
@@ -162,14 +165,6 @@ vnoremap <leader>t :Tabularize /
 " NERDTree
 nnoremap <silent> <leader>n :NERDTreeToggle<CR> " Toggle NERDTree
 nnoremap <C-f> :NERDTreeFind<cr> " Find file in NERDTree
-
-" NERDCommenter
-let g:NERDCreateDefaultMappings = 0                 " Don't create unnecessary mappings
-let g:NERDDefaultAlign = 'left'                     " Align comments to the left, instead of with the indent
-let g:NERDCommentEmptyLines = 1                     " Include empty lines in comment toggling
-nnoremap <leader>c<space> <Plug>NERDCommenterToggle " Toggle NERDCommenter
-nnoremap <C-/> <Plug>NERDCommenterToggle            " Same as above, but with Ctrl-/
-vnoremap <C-/> <Plug>NERDCommenterToggle            " Same as above, but in visual mode
 
 " Emmet
 let g:user_emmet_leader_key='<leader>' " Use leader leader to trigger emmet
