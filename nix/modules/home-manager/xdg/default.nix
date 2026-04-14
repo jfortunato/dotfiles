@@ -1,4 +1,33 @@
-{config, pkgs, inputs, ...}: {
+{config, pkgs, inputs, lib, ...}:
+let
+  # We want to install ALL parsers, and we want them to come from the nvim-treesitter plugin (even though we don't directly use the plugin in neovim) instead
+  # of tree-sitter-grammars, since nvim-treesitter provides both parsers and queries that are compatible with each other.
+  # Adapted from: https://github.com/NixOS/nixpkgs/blob/nixos-25.11/pkgs/development/tools/parsing/tree-sitter/default.nix#L145
+  withPlugins =
+    grammarFn:
+    let
+      grammars = grammarFn pkgs.nvim-treesitter.builtGrammars;
+    in
+    pkgs.linkFarm "grammars" (
+      map (
+        drv:
+        let
+          name = lib.strings.getName drv;
+        in
+        {
+          name =
+            (lib.strings.replaceStrings [ "-" ] [ "_" ] (
+              lib.strings.removePrefix "tree-sitter-" (lib.strings.removeSuffix "-grammar" name)
+            ))
+            + ".so";
+          path = "${drv}/parser";
+        }
+      ) grammars
+    );
+
+  parsers = withPlugins (_: pkgs.vimPlugins.nvim-treesitter.allGrammars);
+  queries = pkgs.vimPlugins.nvim-treesitter.withAllGrammars;
+in {
   xdg = {
     enable = true;
     configFile = {
@@ -19,6 +48,9 @@
       "nvim/snippets/html.snippets".source = ../../../../nvim/snippets/html.snippets;
       "nvim/snippets/javascript.snippets".source = ../../../../nvim/snippets/javascript.snippets;
       "nvim/snippets/php.snippets".source = ../../../../nvim/snippets/php.snippets;
+      # Native Neovim treesitter looks up parsers/queries on runtimepath
+      "nvim/parser".source = "${parsers}";
+      "nvim/queries".source = "${queries}/queries";
       "ideavim/ideavimrc".source = ../../../../ideavim/ideavimrc;
       "git/config".source = ../../../../git/config;
       "git/ignore".source = ../../../../git/ignore;

@@ -22,7 +22,6 @@ Plug('preservim/nerdtree') -- File tree
 Plug('joonty/vdebug') -- PHP debugger
 Plug('tpope/vim-surround') -- Delete/change surrounding characters (eg change single quotes to double quotes with cs'")
 Plug('tpope/vim-fugitive') -- Git integration
-Plug('sheerun/vim-polyglot') -- Syntax highlighting for many languages
 Plug('mattn/emmet-vim') -- Quick html abbreviations
 Plug('vim-airline/vim-airline') -- Fancy status bar
 Plug('vim-airline/vim-airline-themes') -- Themes for airline
