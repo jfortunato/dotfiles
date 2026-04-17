@@ -2,17 +2,19 @@
   xdg = {
     enable = true;
     configFile = {
+      # For faster iteration, utilize mkOutOfStoreSymlink for example:
+      # "nvim/init.vim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/nvim/init.vim";
       "nvim/init.vim".source = ../../../../nvim/init.vim;
       "nvim/options.vim".source = ../../../../nvim/options.vim;
       "nvim/autocmds.vim".source = ../../../../nvim/autocmds.vim;
       "nvim/keymaps.vim".source = ../../../../nvim/keymaps.vim;
-      "nvim/lua/init.lua".source = ../../../../nvim/lua/init.lua;
+      "nvim/lua/config/init.lua".source = ../../../../nvim/lua/config/init.lua;
       "nvim/lua/config/plugins.lua".source = ../../../../nvim/lua/config/plugins.lua;
       "nvim/lua/config/theme.lua".source = ../../../../nvim/lua/config/theme.lua;
-      "nvim/lua/lsp.lua".source = ../../../../nvim/lua/lsp.lua;
+      "nvim/lua/config/lsp.lua".source = ../../../../nvim/lua/config/lsp.lua;
+      "nvim/lua/config/nvim-cmp.lua".source = ../../../../nvim/lua/config/nvim-cmp.lua;
       # Generate the language servers config from a Nix expression to avoid hardcoding paths to language server binaries.
-      "nvim/lua/language-servers.lua".text = import ./nvim-language-servers.nix { inherit pkgs inputs; };
-      "nvim/lua/nvim-cmp.lua".source = ../../../../nvim/lua/nvim-cmp.lua;
+      "nvim/lua/config/language-servers.lua".text = import ./nvim-language-servers.nix { inherit pkgs inputs; };
       "nvim/colors/tomorrow_night.vim".source = ../../../../nvim/colors/tomorrow_night.vim;
       "nvim/snippets/html.snippets".source = ../../../../nvim/snippets/html.snippets;
       "nvim/snippets/javascript.snippets".source = ../../../../nvim/snippets/javascript.snippets;

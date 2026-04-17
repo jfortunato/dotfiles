@@ -89,3 +89,31 @@ vim.keymap.set("n", "<C-f>", "<cmd>NERDTreeFind<cr>", { desc = "Find file in NER
 
 -- Emmet
 vim.g.user_emmet_leader_key='<leader>' -- Use leader leader to trigger emmet
+
+-- LuaSnip
+require("luasnip.loaders.from_snipmate").lazy_load() -- load snipmate style snippets
+
+-- Copilot setup.
+require("copilot").setup({
+    suggestion = {
+        auto_trigger = true,
+        keymap = {
+            -- Accept suggestion with tab, similar to Intellij.
+            accept = false,
+        },
+    },
+    server_opts_overrides = {
+        settings = {
+          telemetry = { telemetryLevel = "off" },
+        },
+    },
+})
+-- Workaround for broken copilot tab accept with tab.
+-- See: https://github.com/zbirenbaum/copilot.lua/issues/670
+vim.keymap.set("i", "<Tab>", function()
+  if require("copilot.suggestion").is_visible() then
+    require("copilot.suggestion").accept()
+    return "<Ignore>"
+  end
+  return "<Tab>"
+end, { expr = true, desc = "Copilot accept or tab" })
