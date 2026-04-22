@@ -3,7 +3,12 @@
     enable = true;
     configFile = {
       "nvim/init.vim".source = ../../../../nvim/init.vim;
+      "nvim/options.vim".source = ../../../../nvim/options.vim;
+      "nvim/autocmds.vim".source = ../../../../nvim/autocmds.vim;
+      "nvim/keymaps.vim".source = ../../../../nvim/keymaps.vim;
       "nvim/lua/init.lua".source = ../../../../nvim/lua/init.lua;
+      "nvim/lua/config/plugins.lua".source = ../../../../nvim/lua/config/plugins.lua;
+      "nvim/lua/config/theme.lua".source = ../../../../nvim/lua/config/theme.lua;
       "nvim/lua/lsp.lua".source = ../../../../nvim/lua/lsp.lua;
       # Generate the language servers config from a Nix expression to avoid hardcoding paths to language server binaries.
       "nvim/lua/language-servers.lua".text = import ./nvim-language-servers.nix { inherit pkgs inputs; };
