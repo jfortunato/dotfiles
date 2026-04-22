@@ -1,5 +1,9 @@
 source ~/.config/nvim/init.vim
 
+" Prevent making sound when hitting escape while in normal mode
+set visualbell
+set noerrorbells
+
 nnoremap ,<tab> :action RecentFiles<CR>
 
 nnoremap <C-L> :action NextTab<CR>
