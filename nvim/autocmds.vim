@@ -7,3 +7,21 @@ augroup vimrc-incsearch-highlight
   autocmd CmdlineEnter /,\? :set hlsearch
   autocmd CmdlineLeave /,\? :set nohlsearch
 augroup END
+
+" Check parent directories to determine if we are in a Hugo project
+" and improve syntax highlighting for Go HTML templates
+function! DetectGoHtmlTmpl()
+    let l:current_dir = expand('%:p:h')
+    while l:current_dir != '/' && l:current_dir != ''
+        if !empty(glob(l:current_dir . '/hugo.{toml,yaml,json}'))
+            set filetype=gotmpl
+            set syntax=html
+            return
+        endif
+        let l:current_dir = fnamemodify(l:current_dir, ':h')
+    endwhile
+endfunction
+
+augroup filetypedetect
+    au BufRead,BufNewFile *.html call DetectGoHtmlTmpl()
+augroup END
