@@ -38,6 +38,9 @@
 
       # use Ctrl+Space to complete the suggestion from zsh-autosuggestions
       bindkey '^ ' forward-char
+
+      # Auto activation for devenv shells
+      eval "$(devenv hook zsh)"
     '';
   };
 
