@@ -92,6 +92,7 @@
     go # needed globally for `gopls`
     nodejs # needed globally for GitHub Copilot
     pkgs-unstable.devenv # development environments
+    pkgs-unstable.github-copilot-cli
 
     # misc
     pv
@@ -128,6 +129,12 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+    ".copilot/copilot-instructions.md".text = ''
+      ## General workflow
+      - Prefer using `ripgrep` over `grep`
+      - Prefer using `fd` over `find`
+      - Prefer using jujutsu over git for version control operations
+    '';
   };
 
   # Home Manager can also manage your environment variables through
