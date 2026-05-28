@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, ... }:
+{ config, pkgs, lib, inputs, pkgs-unstable, ... }:
 
 {
   imports = [
@@ -91,7 +91,7 @@
     delve # debugger for Go; usually bundled with jetbrains, but the bundled version doesn't run on NixOS. See also: xdg config for idea.properties
     go # needed globally for `gopls`
     nodejs # needed globally for GitHub Copilot
-    inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.devenv # development environments
+    pkgs-unstable.devenv # development environments
 
     # misc
     pv

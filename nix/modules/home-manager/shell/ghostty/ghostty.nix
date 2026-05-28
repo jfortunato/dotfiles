@@ -1,7 +1,7 @@
-{pkgs, inputs, ...}: {
+{pkgs, inputs, pkgs-unstable, ...}: {
   programs.ghostty = {
     enable = true;
-    package = inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.ghostty;
+    package = pkgs-unstable.ghostty;
     settings = {
       theme = "Tomorrow Night";
       window-theme = "ghostty";

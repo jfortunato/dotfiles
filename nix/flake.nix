@@ -26,8 +26,14 @@
 
   outputs = { nixpkgs, home-manager, ... }@inputs:
     let
-      mkNixosConfig = hostname: nixpkgs.lib.nixosSystem rec {
-        specialArgs = { inherit inputs; };
+      # Creates a nixpkgs-unstable package set for the given system with unfree packages allowed.
+      mkPkgsUnstable = system: import inputs.nixpkgs-unstable {
+        inherit system;
+        config.allowUnfree = true;
+      };
+
+      mkNixosConfig = { hostname, system }: nixpkgs.lib.nixosSystem rec {
+        specialArgs = { inherit inputs; pkgs-unstable = mkPkgsUnstable system; };
         modules = [
           ./hosts/${hostname}
           # Home Manager as a module configuration. When using Home Manager on a NixOS system,
@@ -39,16 +45,16 @@
         ];
       };
 
-      mkHomeConfig = path: home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      mkHomeConfig = { path, system }: home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.${system};
         modules = [ path { non-nixos.enable = true; } ];
-        extraSpecialArgs = { inherit inputs; };
+        extraSpecialArgs = { inherit inputs; pkgs-unstable = mkPkgsUnstable system; };
       };
     in
     {
       nixosConfigurations = {
-        ct14-a4 = mkNixosConfig "ct14-a4";
-        nixos-x1c6 = mkNixosConfig "nixos-x1c6";
+        ct14-a4 = mkNixosConfig { hostname = "ct14-a4"; system = "x86_64-linux"; };
+        nixos-x1c6 = mkNixosConfig { hostname = "nixos-x1c6"; system = "x86_64-linux"; };
       };
 
       # Standalone Home Manager configuration. When using Home Manager on a non-NixOS system,
@@ -57,8 +63,8 @@
       # we can apply it with `home-manager switch --flake .#hostname`.
       homeConfigurations = {
         # Don't need to specify a custom home.nix for default.
-        default = mkHomeConfig ./modules/home-manager/home.nix;
-        "justin@justin-arch" = mkHomeConfig ./hosts/non-nixos/justin-arch/home.nix;
+        default = mkHomeConfig { path = ./modules/home-manager/home.nix; system = "x86_64-linux"; };
+        "justin@justin-arch" = mkHomeConfig { path = ./hosts/non-nixos/justin-arch/home.nix; system = "x86_64-linux"; };
       };
     };
 }

@@ -1,4 +1,4 @@
-{ lib, config, pkgs, inputs, ... }:
+{ lib, config, pkgs, inputs, pkgs-unstable, ... }:
 
 {
   options = {
@@ -12,7 +12,7 @@
   config = lib.mkIf config.jujutsu.enable {
     programs.jujutsu = {
       enable = true;
-      package = inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.jujutsu;
+      package = pkgs-unstable.jujutsu;
       settings = {
         user = {
           email = "developer@jfortunato.com";
