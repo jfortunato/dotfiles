@@ -1,4 +1,4 @@
-{config, pkgs, ...}: {
+{ config, lib, pkgs, ... }: {
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -45,4 +45,18 @@
   };
 
   home.packages = [ pkgs.zsh-fzf-tab ];
+
+  home.activation = lib.mkIf config.non-nixos.enable {
+    checkZshShell = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      zsh_path="${config.home.profileDirectory}/bin/zsh"
+
+      if ! grep -qx "$zsh_path" /etc/shells 2>/dev/null; then
+        echo
+        echo "Home Manager detected that $zsh_path is not listed in /etc/shells."
+        echo "Run the following commands once to use it as your default shell:"
+        echo "  printf '%s\n' '$zsh_path' | sudo tee -a /etc/shells > /dev/null"
+        echo "  chsh -s $zsh_path" [username]
+      fi
+    '';
+  };
 }
