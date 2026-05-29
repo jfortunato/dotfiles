@@ -111,20 +111,6 @@
     ];
   };
 
-  # In order for xremap to work without sudo, the "uinput" kernel module must be loaded and the user
-  # must be in the "input" and "uinput" groups.
-  #
-  # Note for non-NixOS systems: To check if the "uinput" kernel module is loaded, run:
-  # `lsmod | grep uinput`.
-  # If it is not loaded, create the file `/etc/modules-load.d/uinput.conf` with the content: `uinput`.
-  # Then add the following udev rule and reboot:
-  # `echo 'KERNEL=="uinput", GROUP="input", TAG+="uaccess"' | sudo tee /etc/udev/rules.d/99-input.rules`
-  # Also note that it may not be necessary to add the user to the "uinput" group on non-NixOS systems.
-  # https://github.com/xremap/xremap?tab=readme-ov-file#running-xremap-without-sudo
-  hardware.uinput.enable = true;
-  users.groups.uinput.members = [ "justin" ];
-  users.groups.input.members = [ "justin" ];
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [

@@ -1,10 +1,6 @@
-{ lib, config, inputs, ... }:
+{ lib, config, ... }:
 
 {
-  imports = [
-    inputs.xremap-flake.homeManagerModules.default
-  ];
-
   options = {
     key-remaps.enable = lib.mkOption {
       type = lib.types.bool;
@@ -14,17 +10,14 @@
   };
 
   config = lib.mkIf config.key-remaps.enable {
-    # NOTE: Key remaps may require a restart to take effect.
-    # Swap Capslock & Esc in a desktop environment agnostic way.
-    services.xremap.enable = true;
-    services.xremap.config.modmap = [
-      {
-        name = "Global";
-        remap = {
-          "Capslock" = "Esc";
-          "Esc" = "Capslock";
-        };
-      }
-    ];
+    # GNOME reads XKB options from dconf, including on Wayland.
+    dconf.settings."org/gnome/desktop/input-sources" = {
+      xkb-options = [ "caps:escape" ];
+    };
+
+    # Keep the same remap for X sessions managed by Home Manager.
+    home.keyboard = {
+      options = [ "caps:escape" ];
+    };
   };
 }
