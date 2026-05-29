@@ -3,20 +3,17 @@
 
 #### Installation
 
-First install the nix package manager.
-```
-sh <(curl -L https://nixos.org/nix/install) --daemon
-```
+First install the nix package manager. See (https://nixos.org/download/) for instructions.
 
 Once nix is installed, we don't even have to clone the repository. We can just use the flake to install everything.
 ```
-nix --extra-experimental-features "nix-command flakes" run home-manager -- --extra-experimental-features "nix-command flakes" switch --flake "github:jfortunato/dotfiles?dir=nix"
+nix --extra-experimental-features "nix-command flakes" run home-manager -- --extra-experimental-features "nix-command flakes" switch --flake "github:jfortunato/dotfiles?dir=nix"#default
 ```
 
 > The experimental features can be added to the nix configuration file to avoid having to specify them every time.
-
+>
 > Some files may need to be removed from the home directory, like a pre-existing .bashrc or .profile.
-
+>
 > Restart after running the above command to ensure all changes take effect.
 
 Install vim plugins
@@ -29,12 +26,12 @@ vim
 Instead of working with a remote git repository, we can clone the repository and work with it locally.
 ```
 cd ~
-git clone https://github.com/jfortunato/dotfiles.git .dotfiles
+jj git clone https://github.com/jfortunato/dotfiles.git .dotfiles
 ```
 
 Now we can work locally and tell home-manager to use the flake in the local repository.
 ```
-home-manager switch --flake ~/.dotfiles/nix
+home-manager switch --flake ~/.dotfiles/nix#default
 ```
 
 #### Updating Packages
