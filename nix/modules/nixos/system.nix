@@ -20,6 +20,9 @@
 
   boot.tmp.cleanOnBoot = true;
 
+  # Automatically optimise the Nix store during every build. See https://nixos.wiki/wiki/Storage_optimization
+  nix.settings.auto-optimise-store = true;
+
   # Enable automatic garbage collection
   nix.gc = {
     automatic = true;
