@@ -121,13 +121,13 @@
   #  wget
   ];
 
-  fonts.packages = with pkgs; [
-    hack-font
-    noto-fonts
-    source-code-pro
-    jetbrains-mono
-    nerd-fonts.symbols-only
-  ];
+  # fonts.packages = with pkgs; [
+    # hack-font
+    # noto-fonts
+    # source-code-pro
+    # jetbrains-mono
+    # nerd-fonts.symbols-only
+  # ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

@@ -47,14 +47,11 @@
     firefox
 
     # fonts
-    # For some reason kitty crashes sometimes when using nix fonts in non-NixOS system, so
-    # for now I'll install these fonts with the system package manager. I'd also prefer to
-    # use these non-patched fonts instead of the patched Nerd Fonts (https://sw.kovidgoyal.net/kitty/faq/#kitty-is-not-able-to-use-my-favorite-font).
-    #hack-font
-    #noto-fonts
-    #source-code-pro
-    #jetbrains-mono
-    #(pkgs.nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
+    hack-font
+    noto-fonts
+    source-code-pro
+    jetbrains-mono
+    nerd-fonts.symbols-only
 
     # archives
     zip
