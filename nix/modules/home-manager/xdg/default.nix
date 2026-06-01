@@ -50,7 +50,7 @@ in {
       "nvim/snippets/php.snippets".source = ../../../../nvim/snippets/php.snippets;
       # Native Neovim treesitter looks up parsers/queries on runtimepath
       "nvim/parser".source = "${parsers}";
-      "nvim/queries".source = "${queries}/queries";
+      "nvim/queries".source = "${queries}/runtime/queries";
       "ideavim/ideavimrc".source = ../../../../ideavim/ideavimrc;
       "git/config".source = ../../../../git/config;
       "git/ignore".source = ../../../../git/ignore;
