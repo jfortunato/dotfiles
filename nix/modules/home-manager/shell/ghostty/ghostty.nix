@@ -1,7 +1,6 @@
-{pkgs, inputs, pkgs-unstable, ...}: {
+{pkgs, ...}: {
   programs.ghostty = {
     enable = true;
-    package = pkgs-unstable.ghostty;
     settings = {
       theme = "Tomorrow Night";
       window-theme = "ghostty";

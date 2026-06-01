@@ -1,4 +1,4 @@
-{ lib, config, pkgs, inputs, pkgs-unstable, ... }:
+{ lib, config, pkgs, ... }:
 
 {
   options = {
@@ -12,7 +12,6 @@
   config = lib.mkIf config.jujutsu.enable {
     programs.jujutsu = {
       enable = true;
-      package = pkgs-unstable.jujutsu;
       settings = {
         user = {
           email = "developer@jfortunato.com";
@@ -108,6 +107,6 @@
         when = true;
       };
     };
-    home.packages = [ pkgs-unstable.starship-jj ];
+    home.packages = [ pkgs.starship-jj ];
   };
 }

@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, pkgs-unstable, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports = [
@@ -11,7 +11,13 @@
   ];
 
   # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    # Temporarily permit Bitwarden's insecure Electron runtime
+    permittedInsecurePackages = [
+      "electron-39.8.10"
+    ];
+  };
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -91,8 +97,8 @@
     delve # debugger for Go; usually bundled with jetbrains, but the bundled version doesn't run on NixOS. See also: xdg config for idea.properties
     go # needed globally for `gopls`
     nodejs # needed globally for GitHub Copilot
-    pkgs-unstable.devenv # development environments
-    pkgs-unstable.github-copilot-cli
+    devenv # development environments
+    github-copilot-cli
 
     # misc
     pv
