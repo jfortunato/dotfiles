@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, pkgs-unstable, ... }:
 
 {
   imports = [
@@ -13,10 +13,6 @@
   # Allow unfree packages
   nixpkgs.config = {
     allowUnfree = true;
-    # Temporarily permit Bitwarden's insecure Electron runtime
-    permittedInsecurePackages = [
-      "electron-39.8.10"
-    ];
   };
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -107,7 +103,7 @@
     inkscape
     libreoffice-still
     keeweb
-    bitwarden-desktop
+    pkgs-unstable.bitwarden-desktop
     distrobox
     nh
 
