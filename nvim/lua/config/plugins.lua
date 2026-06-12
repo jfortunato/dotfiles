@@ -1,49 +1,36 @@
 -- =======
 -- PLUGINS
 -- =======
--- Automatically install vim-plug if it is not already installed
-local data_dir = vim.fn.stdpath('data') .. '/site'
-if vim.fn.empty(vim.fn.glob(data_dir .. '/autoload/plug.vim')) == 1 then
-	vim.cmd('silent !curl -fLo ' ..
-		data_dir ..
-		'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim')
-	vim.cmd('source ' .. data_dir .. '/autoload/plug.vim')
-	vim.cmd('autocmd VimEnter * PlugInstall --sync | source $MYVIMRC')
-end
-
-local vim = vim
-local Plug = vim.fn['plug#']
-
-vim.call('plug#begin')
-Plug('Raimondi/delimitMate') -- Automatically adds closing brackets, quotes, etc.
-Plug('gregsexton/MatchTag') -- Highlights matching HTML tags
-Plug('ryanoasis/vim-devicons') -- Icons for NERDTree
-Plug('preservim/nerdtree') -- File tree
-Plug('joonty/vdebug') -- PHP debugger
-Plug('tpope/vim-surround') -- Delete/change surrounding characters (eg change single quotes to double quotes with cs'")
-Plug('tpope/vim-fugitive') -- Git integration
-Plug('mattn/emmet-vim') -- Quick html abbreviations
-Plug('vim-airline/vim-airline') -- Fancy status bar
-Plug('vim-airline/vim-airline-themes') -- Themes for airline
-Plug('tanvirtin/monokai.nvim') -- Monokai theme for nvim
-Plug('mg979/vim-visual-multi') -- Multiple cursors
-Plug('godlygeek/tabular') -- Align text vertically
-Plug('L3MON4D3/LuaSnip', {['tag'] = 'v2.*', ['do'] = 'make install_jsregexp'}) -- Snippets engine
-Plug('honza/vim-snippets') -- Snippets for many languages
-Plug('ibhagwan/fzf-lua', {['branch'] = 'main'}) -- FZF integration
-Plug('zbirenbaum/copilot.lua') -- Github Copilot integration
-Plug('majutsushi/tagbar') -- Show tags/symbols for the current file in a split
-Plug('neovim/nvim-lspconfig') -- LSP configuration
-Plug('j-hui/fidget.nvim') -- LSP progress notifications
--- Completions for nvim-cmp
-Plug('hrsh7th/nvim-cmp')
-Plug('hrsh7th/cmp-nvim-lsp')
-Plug('hrsh7th/cmp-buffer')
-Plug('hrsh7th/cmp-path')
-Plug('hrsh7th/cmp-cmdline')
-Plug('saadparwaiz1/cmp_luasnip')
--- End completions for nvim-cmp
-vim.call('plug#end')
+vim.pack.add({
+    'https://github.com/Raimondi/delimitMate', -- Automatically adds closing brackets, quotes, etc.
+    'https://github.com/gregsexton/MatchTag', -- Highlights matching HTML tags
+    'https://github.com/ryanoasis/vim-devicons', -- Icons for NERDTree
+    'https://github.com/preservim/nerdtree', -- File tree
+    'https://github.com/joonty/vdebug', -- PHP debugger
+    'https://github.com/tpope/vim-surround', -- Delete/change surrounding characters (eg change single quotes to double quotes with cs'")
+    'https://github.com/tpope/vim-fugitive', -- Git integration
+    'https://github.com/mattn/emmet-vim', -- Quick html abbreviations
+    'https://github.com/vim-airline/vim-airline', -- Fancy status bar
+    'https://github.com/vim-airline/vim-airline-themes', -- Themes for airline
+    'https://github.com/tanvirtin/monokai.nvim', -- Monokai theme for nvim
+    'https://github.com/mg979/vim-visual-multi', -- Multiple cursors
+    'https://github.com/godlygeek/tabular', -- Align text vertically
+    { src = 'https://github.com/L3MON4D3/LuaSnip', version = vim.version.range('v2.*') }, -- Snippets engine
+    'https://github.com/honza/vim-snippets', -- Snippets for many languages
+    'https://github.com/ibhagwan/fzf-lua', -- FZF integration
+    'https://github.com/zbirenbaum/copilot.lua', -- Github Copilot integration
+    'https://github.com/majutsushi/tagbar', -- Show tags/symbols for the current file in a split
+    'https://github.com/neovim/nvim-lspconfig', -- LSP configuration
+    'https://github.com/j-hui/fidget.nvim', -- LSP progress notifications
+    -- Completions for nvim-cmp
+    'https://github.com/hrsh7th/nvim-cmp',
+    'https://github.com/hrsh7th/cmp-nvim-lsp',
+    'https://github.com/hrsh7th/cmp-buffer',
+    'https://github.com/hrsh7th/cmp-path',
+    'https://github.com/hrsh7th/cmp-cmdline',
+    'https://github.com/saadparwaiz1/cmp_luasnip',
+    -- End completions for nvim-cmp
+})
 
 
 -- ===============

@@ -34,6 +34,8 @@ in {
       # For faster iteration, utilize mkOutOfStoreSymlink for example:
       # "nvim/init.vim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/nvim/init.vim";
       "nvim/init.vim".source = ../../../../nvim/init.vim;
+      # Allow nvim to write to it's lock file.
+      "nvim/nvim-pack-lock.json".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/nvim/nvim-pack-lock.json";
       "nvim/options.vim".source = ../../../../nvim/options.vim;
       "nvim/autocmds.vim".source = ../../../../nvim/autocmds.vim;
       "nvim/keymaps.vim".source = ../../../../nvim/keymaps.vim;
