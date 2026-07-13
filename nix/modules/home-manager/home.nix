@@ -173,6 +173,8 @@
 
   fonts.fontconfig.enable = true;
 
+  services.tailscale-systray.enable = true;
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }

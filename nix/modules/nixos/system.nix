@@ -139,8 +139,12 @@
 
   # List services that you want to enable:
 
+  # For systray icons: https://nixos.wiki/wiki/GNOME#Systray_Icons
+  services.udev.packages = with pkgs; [ gnome-settings-daemon ];
+
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
+
 
   virtualisation.docker.enable = true;
 
